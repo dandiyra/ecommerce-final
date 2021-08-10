@@ -13,9 +13,9 @@ class Payment extends Model
     public const PAYMENT_CHANNELS = ['bca_klikbca', 'bca_klikpay'];
 
     public const EXPIRY_DURATION = 2;
-    public const EXPIRY_UNIT = 'days';
+    public const EXPIRY_UNIT = 'Days';
 
-    public const CHALLENGE = 'challenge';
+    public const CHALLENGE = 'challenge'; 
     public const SUCCESS = 'success';
     public const SETTLEMENT = 'settlement';
     public const PENDING = 'pending';

@@ -69,8 +69,8 @@ class PaymentController extends Controller
         'customer_details' => $customerDetails,
         'expiry' => [
           'start_date' => date('Y m d H:i:s T'),
-          'unit' => \App\Model\Payment::EXPIRY_DURATION,
-          'duration' => \App\Model\Payment::EXPIRY_UNIT,
+          'unit' => \App\Model\Payment::EXPIRY_UNIT,
+          'duration' => \App\Model\Payment::EXPIRY_DURATION,
         ],
       ];
 
