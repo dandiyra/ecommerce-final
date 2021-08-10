@@ -75,8 +75,6 @@ class PaymentController extends Controller
       ];
 
       $snapToken = \Midtrans\Snap::getSnapToken($params);
-      echo "snapToken = ".$snapToken;
-
   }
 
   public function StripeCharge(Request $request){

@@ -162,12 +162,12 @@ $vat = $setting->vat;
     <div class="panel"></div>
 </div>
 
-<!-- <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
+<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
 <script type="text/javascript">
 document.getElementById('pay-button').onclick = function() {
     // SnapToken acquired from previous step
-    snap.pay('<?php echo $snapToken?>');
+    snap.pay('<?php $snapToken ?>');
 };
-</script> -->
+</script>
 
 @endsection
