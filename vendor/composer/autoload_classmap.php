@@ -53,6 +53,7 @@ return array(
     'App\\Model\\Admin\\Brand' => $baseDir . '/app/Model/Admin/Brand.php',
     'App\\Model\\Admin\\Category' => $baseDir . '/app/Model/Admin/Category.php',
     'App\\Model\\Admin\\Subcategory' => $baseDir . '/app/Model/Admin/Subcategory.php',
+    'App\\Model\\Payment' => $baseDir . '/app/Model/Payment.php',
     'App\\Notifications\\AdminPasswordResetNotification' => $baseDir . '/app/Notifications/AdminPasswordResetNotification.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

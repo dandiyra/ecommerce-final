@@ -70,7 +70,8 @@ $vat = $setting->vat;
                                 ${{ Session::get('coupon')['balance'] }} </span> </li>
                         <li class="list-group-item">Coupon : ({{ Session::get('coupon')['name'] }} )
                             <a href="{{ route('coupon.remove') }}" class="btn btn-danger btn-sm">X</a>
-                            <span style="float: right;">${{ Session::get('coupon')['discount'] }} </span> </li>
+                            <span style="float: right;">${{ Session::get('coupon')['discount'] }} </span>
+                        </li>
                         @else
                         <li class="list-group-item">Subtotal : <span style="float: right;">
                                 ${{  Cart::Subtotal() }} </span> </li>
@@ -96,9 +97,14 @@ $vat = $setting->vat;
                     <form action="{{ route('payment.process') }}" id="contact_form" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Full Name</label>
+                            <label for="exampleInputEmail1">First Name</label>
                             <input type="text" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter Your Full Name " name="name" required="">
+                                placeholder="Enter Your First Name " name="fname" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Last Name</label>
+                            <input type="text" class="form-control" aria-describedby="emailHelp"
+                                placeholder="Enter Your Last Name " name="lname" required="">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Phone</label>
@@ -120,24 +126,33 @@ $vat = $setting->vat;
                             <input type="text" class="form-control" aria-describedby="emailHelp"
                                 placeholder="Enter Your City" name="city" required="">
                         </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" aria-describedby="emailHelp"
+                                placeholder="Enter Your City" name="total"
+                                value="{{ Cart::Subtotal() + $charge + $vat }} " hidden>
+                        </div>
                         <div class="contact_form_title text-center"> Payment By </div>
                         <div class="form-group">
                             <ul class="logos_list">
-                                <li><input type="radio" name="payment" value="stripe"><img
+                                <li><input type="radio" id="payment" name="payment" value="stripe"><img
                                         src="{{ asset('public/frontend/images/mastercard.png') }}"
                                         style="width: 100px; height: 60px;"> </li>
 
-                                <li><input type="radio" name="payment" value="paypal"><img
+                                <li><input type="radio" id="payment" name="payment" value="paypal"><img
                                         src="{{ asset('public/frontend/images/paypal.png') }}"
                                         style="width: 100px; height: 60px;"> </li>
 
-                                <li><input type="radio" name="payment" value="oncash"><img
+                                <li><input type="radio" id="payment" name="payment" value="oncash"><img
                                         src="{{ asset('public/frontend/images/mollie.png') }}"
                                         style="width: 100px; height: 60px;"> </li>
+
+                                <li><label for="midtrans">Midtrans</label>
+                                    <input type="radio" id="payment" name="payment" value="midtrans">
+                                </li>
                             </ul>
                         </div>
                         <div class="contact_form_button text-center">
-                            <button type="submit" class="btn btn-info">Pay Now</button>
+                            <button type="submit" id="pay-button" class="btn btn-info">Pay Now</button>
                         </div>
                     </form>
                 </div>
@@ -147,5 +162,12 @@ $vat = $setting->vat;
     <div class="panel"></div>
 </div>
 
+<!-- <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
+<script type="text/javascript">
+document.getElementById('pay-button').onclick = function() {
+    // SnapToken acquired from previous step
+    snap.pay('<?php echo $snapToken?>');
+};
+</script> -->
 
 @endsection

@@ -15,7 +15,8 @@ class PaymentController extends Controller
    public function Payment(Request $request){
 
    $data = array();
-   $data['name'] = $request->name;
+   $data['fname'] = $request->fname;
+   $data['lname'] = $request->lname;
    $data['phone'] = $request->phone;
    $data['email'] = $request->email;
    $data['address'] = $request->address;
@@ -27,19 +28,56 @@ class PaymentController extends Controller
     	
     return view('pages.payment.stripe',compact('data'));
 
-    }elseif ($request->payment == 'paypal') {
+    } elseif ($request->payment == 'paypal') {
     	# code...
-    }elseif ($request->payment == 'oncash') {
+    } elseif ($request->payment == 'midtrans') {
 
+      $this->_midtrans($request,$data);
+
+    } elseif ($request->payment == 'oncash') {
+      # code
      return view('pages.payment.oncash',compact('data'));
 
     }else{
     	echo "Cash On Delivery";
     }  
     
-
    }
 
+
+  private function _midtrans(Request $request, $data)
+  {
+    
+    $order_id = uniqid();
+    $total = $request->total;
+
+      $this->initPaymentGateway($data);
+
+      $customerDetails = [
+        'first_name'  => $request->fname,
+        'last_name'   => $request->lname,
+        'email'       => $request->email,
+        'phone'       => $request->phone,
+      ];
+
+      $params = [
+        'enable_payments' => \App\Model\Payment::PAYMENT_CHANNELS,
+        'transaction_details' => [
+          'order_id' => $order_id,
+          'gross_amount' => $total,
+        ],
+        'customer_details' => $customerDetails,
+        'expiry' => [
+          'start_date' => date('Y m d H:i:s T'),
+          'unit' => \App\Model\Payment::EXPIRY_DURATION,
+          'duration' => \App\Model\Payment::EXPIRY_UNIT,
+        ],
+      ];
+
+      $snapToken = \Midtrans\Snap::getSnapToken($params);
+      echo "snapToken = ".$snapToken;
+
+  }
 
   public function StripeCharge(Request $request){
          
