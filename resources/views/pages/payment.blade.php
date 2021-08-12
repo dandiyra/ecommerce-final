@@ -92,34 +92,29 @@ $vat = $setting->vat;
             </div>
             <div class="col-lg-5" style="border: 1px solid grey; padding: 20px; border-radius: 25px;">
                 <div class="contact_form_container">
-                    <div class="contact_form_title text-center">Shipping Address</div>
+                    <div class="contact_form_title text-center"> Payment By </div>
+                    <div class="form-group">
+                        <ul class="logos_list">
+                            <li><input type="radio" id="payment" name="payment" value="stripe"><img
+                                    src="{{ asset('public/frontend/images/mastercard.png') }}"
+                                    style="width: 100px; height: 60px;"> </li>
 
-                    <form action="#" id="contact_form">
-                        @csrf
-                        <div class="contact_form_title text-center"> Payment By </div>
-                        <div class="form-group">
-                            <ul class="logos_list">
-                                <li><input type="radio" id="payment" name="payment" value="stripe"><img
-                                        src="{{ asset('public/frontend/images/mastercard.png') }}"
-                                        style="width: 100px; height: 60px;"> </li>
+                            <li><input type="radio" id="payment" name="payment" value="paypal"><img
+                                    src="{{ asset('public/frontend/images/paypal.png') }}"
+                                    style="width: 100px; height: 60px;"> </li>
 
-                                <li><input type="radio" id="payment" name="payment" value="paypal"><img
-                                        src="{{ asset('public/frontend/images/paypal.png') }}"
-                                        style="width: 100px; height: 60px;"> </li>
+                            <li><input type="radio" id="payment" name="payment" value="oncash"><img
+                                    src="{{ asset('public/frontend/images/mollie.png') }}"
+                                    style="width: 100px; height: 60px;"> </li>
 
-                                <li><input type="radio" id="payment" name="payment" value="oncash"><img
-                                        src="{{ asset('public/frontend/images/mollie.png') }}"
-                                        style="width: 100px; height: 60px;"> </li>
-
-                                <li><label for="midtrans">Midtrans</label>
-                                    <input type="radio" id="payment" name="payment" value="midtrans">
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="contact_form_button text-center">
-                            <button id="pay-button" class="btn btn-info">Pay Now</button>
-                        </div>
-                    </form>
+                            <li><label for="midtrans">Midtrans</label>
+                                <input type="radio" id="payment" name="payment" value="midtrans">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact_form_button text-center">
+                        <button id="pay-button" class="btn btn-info">Pay Now</button>
+                    </div>
                 </div>
             </div>
         </div>
