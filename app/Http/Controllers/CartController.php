@@ -8,6 +8,7 @@ use Cart;
 use Response;
 use Auth;
 use Session;
+use Input;
 
 
 class CartController extends Controller
@@ -222,10 +223,43 @@ class CartController extends Controller
 
 
 
- public function PaymentPage(){
+ public function PaymentPage(Request $request){
  
   $cart = Cart::Content();
-  return view('pages.payment',compact('cart'));
+
+  $data = array();
+  $data['address'] = $request->address;
+  $data['city'] = $request->city;
+
+  $order_id = uniqid();
+  $total = $request->total;
+
+      $this->initPaymentGateway($data);
+
+      $customerDetails = [
+        'first_name'  => Auth::user()->name,
+        'last_name'   => Auth::user()->name,
+        'email'       => Auth::user()->email,
+        'phone'       => Auth::user()->phone,
+      ];
+
+      $params = [
+        'enable_payments' => \App\Model\Payment::PAYMENT_CHANNELS,
+        'transaction_details' => [
+          'order_id' => $order_id,
+          'gross_amount' => $total,
+        ],
+        'customer_details' => $customerDetails,
+        'expiry' => [
+          'start_date' => date('Y m d H:i:s T'),
+          'unit' => \App\Model\Payment::EXPIRY_UNIT,
+          'duration' => \App\Model\Payment::EXPIRY_DURATION,
+        ],
+      ];
+
+      $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+  return view('pages.payment',compact('cart', 'snapToken'));
 
  }
 

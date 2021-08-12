@@ -32,7 +32,7 @@ class PaymentController extends Controller
     	# code...
     } elseif ($request->payment == 'midtrans') {
 
-      $this->_midtrans($request,$data);
+      dd($data);
 
     } elseif ($request->payment == 'oncash') {
       # code

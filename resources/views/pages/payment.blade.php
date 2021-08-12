@@ -94,43 +94,8 @@ $vat = $setting->vat;
                 <div class="contact_form_container">
                     <div class="contact_form_title text-center">Shipping Address</div>
 
-                    <form action="{{ route('payment.process') }}" id="contact_form" method="post">
+                    <form action="#" id="contact_form">
                         @csrf
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">First Name</label>
-                            <input type="text" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter Your First Name " name="fname" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Last Name</label>
-                            <input type="text" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter Your Last Name " name="lname" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Phone</label>
-                            <input type="text" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter Your Phone " name="phone" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
-                            <input type="email" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter Your Email " name="email" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Address</label>
-                            <input type="text" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter Your Address" name="address" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">City</label>
-                            <input type="text" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter Your City" name="city" required="">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter Your City" name="total"
-                                value="{{ Cart::Subtotal() + $charge + $vat }} " hidden>
-                        </div>
                         <div class="contact_form_title text-center"> Payment By </div>
                         <div class="form-group">
                             <ul class="logos_list">
@@ -152,7 +117,7 @@ $vat = $setting->vat;
                             </ul>
                         </div>
                         <div class="contact_form_button text-center">
-                            <button type="submit" id="pay-button" class="btn btn-info">Pay Now</button>
+                            <button id="pay-button" class="btn btn-info">Pay Now</button>
                         </div>
                     </form>
                 </div>
@@ -164,10 +129,11 @@ $vat = $setting->vat;
 
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
 <script type="text/javascript">
-document.getElementById('pay-button').onclick = function() {
-    // SnapToken acquired from previous step
-    snap.pay('<?php $snapToken ?>');
-};
+var payButton = document.getElementById('pay-button');
+// For example trigger on button clicked, or any time you need
+payButton.addEventListener('click', function() {
+    window.snap.pay('<?php echo $snapToken ?>'); // Replace it with your transaction token
+});
 </script>
 
 @endsection

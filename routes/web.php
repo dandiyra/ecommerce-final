@@ -124,7 +124,7 @@ Route::get('language/indonesia', 'BlogController@Indonesia')->name('language.ind
 Route::get('blog/single/{id}', 'BlogController@BlogSingle');
 
 // Pyment Step 
-Route::get('payment/page', 'CartController@PaymentPage')->name('payment.step');
+Route::post('payment/page', 'CartController@PaymentPage')->name('payment.step');
 Route::post('user/payment/process/', 'PaymentController@Payment')->name('payment.process'); 
 Route::post('user/stripe/charge/', 'PaymentController@StripeCharge')->name('stripe.charge');
 Route::post('user/oncash/charge/', 'PaymentController@OnCash')->name('oncash.charge');
