@@ -13,6 +13,7 @@ $setting = DB::table('sitesetting')->first();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="OneTech shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/bootstrap4/bootstrap.min.css') }}">
     <link href="{{ asset('public/frontend/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css') }}" rel="stylesheet"
         type="text/css">
@@ -24,6 +25,7 @@ $setting = DB::table('sitesetting')->first();
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/slick-1.8.0/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/select2.css') }}">
 
     <!-- chart -->
     <link rel="stylesheet" type="text/css"
@@ -346,14 +348,6 @@ $setting = DB::table('sitesetting')->first();
     </div>
 
 
-
-
-
-
-
-
-
-
     <script src="{{ asset('public/frontend/js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{ asset('public/frontend/styles/bootstrap4/popper.js')}}"></script>
     <script src="{{ asset('public/frontend/styles/bootstrap4/bootstrap.min.js')}}"></script>
@@ -368,6 +362,7 @@ $setting = DB::table('sitesetting')->first();
     <script src="{{ asset('public/frontend/plugins/slick-1.8.0/slick.js')}}"></script>
     <script src="{{ asset('public/frontend/plugins/easing/easing.js')}}"></script>
     <script src="{{ asset('public/frontend/js/custom.js')}}"></script>
+    <script src="{{ asset('public/frontend/select2/select2.min.js')}}"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
     </script>
@@ -424,8 +419,115 @@ $setting = DB::table('sitesetting')->first();
 
     </script>
 
+<!-- Raja Ongkir -->
+<script>
+            $(document).ready(function () {
+                //active select2
+                $(".provinsi-asal , .kota-asal, .provinsi-tujuan, .kota-tujuan").select2({
+                    theme: 'bootstrap4',
+                    width: 'style',
+                });
+                //ajax select kota asal
+                $('select[name="province_origin"]').on('change', function () {
+                    let provinceId = $(this).val();
+                    if (provinceId) {
+                        jQuery.ajax({
+                            url: '/ecommerce/cities/' + provinceId,
+                            type: "GET",
+                            dataType: "json",
+                            success: function (response) {
+                                $('select[name="city_origin"]').empty();
+                                $('select[name="city_origin"]').append(
+                                    '<option value="">-- pilih kota asal --</option>');
+                                $.each(response, function (key, value) {
+                                    $('select[name="city_origin"]').append(
+                                        '<option value="' + key + '">' + value +
+                                        '</option>');
+                                });
+                            },
+                        });
+                    } else {
+                        $('select[name="city_origin"]').append(
+                            '<option value="">-- pilih kota asal --</option>');
+                    }
+                });
+                //ajax select kota tujuan
+                $('select[name="province_destination"]').on('change', function () {
+                    let provinceId = $(this).val();
+                    if (provinceId) {
+                        jQuery.ajax({
+                            url: '/ecommerce/cities/' + provinceId,
+                            type: "GET",
+                            dataType: "json",
+                            success: function (response) {
+                                $('select[name="city_destination"]').empty();
+                                $('select[name="city_destination"]').append(
+                                    '<option value="">-- pilih kota tujuan --</option>');
+                                $.each(response, function (key, value) {
+                                    $('select[name="city_destination"]').append(
+                                        '<option value="' + key + '">' + value +
+                                        '</option>');
+                                });
+                            },
+                        });
+                    } else {
+                        $('select[name="city_destination"]').append(
+                            '<option value="">-- pilih kota tujuan --</option>');
+                    }
+                });
+                //ajax check ongkir
+                let isProcessing = false;
+                $('.btn-check').click(function (e) {
+                    e.preventDefault();
 
+                    let token = $("meta[name='csrf-token']").attr("content");
+                    let city_origin = $('select[name=city_origin]').val();
+                    let city_destination = $('select[name=city_destination]').val();
+                    let courier = $('select[name=courier]').val();
+                    let weight = $('#weight').val();
 
+                    if (isProcessing) {
+                        return;
+                    }
+
+                    isProcessing = true;
+                    jQuery.ajax({
+                        url: "/ecommerce/ongkir",
+                        data: {
+                            _token: token,
+                            city_origin: city_origin,
+                            city_destination: city_destination,
+                            courier: courier,
+                            weight: weight,
+                        },
+                        dataType: "JSON",
+                        type: "POST",
+                        success: function (response) {
+                            isProcessing = false;
+                            if (response) {
+                                $('#ongkir').empty();
+                                $('.ongkir').addClass('d-block');
+                                $.each(response[0]['costs'], function (key, value) {
+                                    $('#ongkir').append(
+                                        '<li class="list-group-item">' +
+                                        response[0].code.toUpperCase() +
+                                        ' : <strong>' + value.service +
+                                        '</strong> - Rp. ' + value.cost[0]
+                                        .value +
+                                        ' (' + value.cost[0].etd + ' hari)</li>'
+                                    )
+                                });
+
+                            }
+                        }
+                    });
+
+                });
+
+            });
+
+        </script>
+<!-- End Raja Ongkir -->
 
 
 

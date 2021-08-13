@@ -123,37 +123,108 @@ $vat = $setting->vat;
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <ul class="list-group col-lg-4" style="float: right;">
-                                @if(Session::has('coupon'))
-                                <li class="list-group-item">Subtotal : <span style="float: right;">
-                                        ${{ Session::get('coupon')['balance'] }} </span> </li>
-                                <li class="list-group-item">Coupon : ({{ Session::get('coupon')['name'] }} )
-                                    <a href="{{ route('coupon.remove') }}" class="btn btn-danger btn-sm">X</a>
-                                    <span style="float: right;">${{ Session::get('coupon')['discount'] }}
-                                    </span>
-                                </li>
-                                @else
-                                <li class="list-group-item">Subtotal : <span style="float: right;">
-                                        ${{  Cart::Subtotal() }} </span> </li>
-                                @endif
-                                <li class="list-group-item">Shiping Charge : <span style="float: right;">${{ $charge  }}
-                                    </span>
-                                </li>
-                                <li class="list-group-item">Vat : <span style="float: right;">${{ $vat }}
-                                    </span>
-                                </li>
-                                @if(Session::has('coupon'))
-                                <li class="list-group-item">Total : <span
-                                        style="float: right;">${{ Session::get('coupon')['balance'] + $charge + $vat }}
-                                    </span>
-                                </li>
-                                @else
-                                <li class="list-group-item">Total : <span
-                                        style="float: right;">${{ Cart::Subtotal() + $charge + $vat }} </span>
-                                </li>
-                                @endif
-                            </ul>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 mt-2">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>ORIGIN</h3>
+                                            <hr>
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">PROVINSI ASAL</label>
+                                                <select class="form-control provinsi-asal" name="province_origin">
+                                                    <option value="0">-- pilih provinsi asal --</option>
+                                                    @foreach ($provinces as $province => $value)
+                                                    <option value="{{ $province  }}">{{ $value }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">KOTA / KABUPATEN ASAL</label>
+                                                <select class="form-control kota-asal" name="city_origin">
+                                                    <option value="">-- pilih kota asal --</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">PROVINSI TUJUAN</label>
+                                                <select class="form-control provinsi-tujuan"
+                                                    name="province_destination">
+                                                    <option value="0">-- pilih provinsi tujuan --</option>
+                                                    @foreach ($provinces as $province => $value)
+                                                    <option value="{{ $province   }}">{{ $value }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">KOTA / KABUPATEN TUJUAN</label>
+                                                <select class="form-control kota-tujuan" name="city_destination">
+                                                    <option value="">-- pilih kota tujuan --</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>PROVINSI TUJUAN</label>
+                                                <select class="form-control kurir" name="courier">
+                                                    <option value="0">-- pilih kurir --</option>
+                                                    <option value="jne">JNE</option>
+                                                    <option value="pos">POS</option>
+                                                    <option value="tiki">TIKI</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">BERAT (GRAM)</label>
+                                                <input type="number" class="form-control" name="weight" id="weight"
+                                                    placeholder="Masukkan Berat (GRAM)">
+                                            </div>
+                                            <div class="cart_buttons">
+                                                <button class="btn btn-md btn-primary btn-block btn-check">Cek
+                                                    Ongkir</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <div class="card d-none ongkir">
+                                            <div class="card-body">
+                                                <ul class="list-group" id="ongkir"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <ul class="list-group col-lg-4" style="float: right;">
+                                    @if(Session::has('coupon'))
+                                    <li class="list-group-item">Subtotal : <span style="float: right;">
+                                            ${{ Session::get('coupon')['balance'] }} </span> </li>
+                                    <li class="list-group-item">Coupon : ({{ Session::get('coupon')['name'] }} )
+                                        <a href="{{ route('coupon.remove') }}" class="btn btn-danger btn-sm">X</a>
+                                        <span style="float: right;">${{ Session::get('coupon')['discount'] }}
+                                        </span>
+                                    </li>
+                                    @else
+                                    <li class="list-group-item">Subtotal : <span style="float: right;">
+                                            ${{  Cart::Subtotal() }} </span> </li>
+                                    @endif
+                                    <li class="list-group-item">Shiping Charge : <span
+                                            style="float: right;">${{ $charge  }}
+                                        </span>
+                                    </li>
+                                    <li class="list-group-item">Vat : <span style="float: right;">${{ $vat }}
+                                        </span>
+                                    </li>
+                                    @if(Session::has('coupon'))
+                                    <li class="list-group-item">Total : <span
+                                            style="float: right;">${{ Session::get('coupon')['balance'] + $charge + $vat }}
+                                        </span>
+                                    </li>
+                                    @else
+                                    <li class="list-group-item">Total : <span
+                                            style="float: right;">${{ Cart::Subtotal() + $charge + $vat }} </span>
+                                    </li>
+                                    @endif
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

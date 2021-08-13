@@ -116,6 +116,9 @@ Route::post('user/apply/coupon/', 'CartController@Coupon')->name('apply.coupon')
 Route::get('coupon/remove/', 'CartController@CouponRemove')->name('coupon.remove');
 Route::get('/product/details/{id}/{product_name}', 'ProductController@ProductView');
 Route::post('/cart/product/add/{id}', 'ProductController@AddCart');
+Route::get('user/checkout/index', 'CartController@index');
+Route::post('user/checkout/check_ongkir', 'CartController@check_ongkir');
+Route::get('user/checkout/getCities', 'CartController@getCities');
 
 /// Blog Post Route 
 
