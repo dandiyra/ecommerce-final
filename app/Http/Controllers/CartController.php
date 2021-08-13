@@ -8,7 +8,10 @@ use Cart;
 use Response;
 use Auth;
 use Session;
-use Input;
+use App\Province;
+use App\City;
+use App\Courier;
+use Kavist\RajaOngkir\Facades\RajaOngkir;
 
 
 class CartController extends Controller
@@ -157,7 +160,8 @@ class CartController extends Controller
   if (Auth::check()) {
 
   	$cart = Cart::content();
-    	return view('pages.checkout',compact('cart'));
+    $provinces = Province::pluck('name', 'province_id');
+    	return view('pages.checkout',compact('cart', 'provinces'));
 
   }else{
   	$notification=array(
@@ -168,6 +172,59 @@ class CartController extends Controller
   } 
 
    }
+
+    
+    public function index()
+    {
+        $provinces = Province::pluck('name', 'province_id');
+        return view('pages.checkout', compact('provinces'));
+    	// return view('pages.cart',compact('provinces'));
+
+    }
+
+    public function getCities($id)
+    {
+        $city = City::where('province_id', $id)->pluck('name', 'city_id');
+        return response()->json($city);
+    }
+
+
+    public function check_ongkir(Request $request)
+    {
+        $cost = RajaOngkir::ongkosKirim([
+            'origin'        => $request->city_origin, // ID kota/kabupaten asal
+            'destination'   => $request->city_destination, // ID kota/kabupaten tujuan
+            'weight'        => $request->weight, // berat barang dalam gram
+            'courier'       => $request->courier // kode kurir pengiriman: ['jne', 'tiki', 'pos'] untuk starter
+        ])->get();
+
+
+        return response()->json($cost);
+    }
+
+
+  //  public function RajaOngkir()
+  //  {
+  //    $couriers = Courier::pluck('title', 'code');
+  //    $provinces = Province::pluck('title', 'province_id');
+  //    return view('pages.checkout', compact('couriers', 'provinces'));
+  //  }
+
+  //  public function GetCities($id)
+  //  {
+  //    $city = City::where('province_id', $id)->pluck('title', 'city_id');
+  //    return json_encode($city);
+  //  }
+
+  //  public function submit(Request $request)
+  //  {
+  //    $cost = RajaOngkir::ongkosKirim([
+  //      'origin'            => $request->city_origin,
+  //      'destination'       => $request->city_destination,
+  //      'weight'            => $request->weight,
+  //      'courier'           => $request->courier, 
+  //    ])->get();
+  //  }
 
 
    public function wishlist(){
