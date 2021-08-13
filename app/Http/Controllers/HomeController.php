@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 use App\User;
@@ -33,8 +34,25 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function changePassword(){
-        return view('auth.changepassword');
+    public function EditProfile(){
+       $profile = DB::table('users')->select('id')->where('users.id', Auth::user()->id)->first();
+
+        return view('auth.profile', compact('profile'));
+    }
+
+    public function updateProfile(Request $request, $id){
+
+      $data = array();
+      $data['email'] = $request->email;
+      $data['address'] = $request->address;
+
+      $update = DB::table('users')->where('id', $id)->update($data);
+
+      $notification=array(
+        'messege'=>'Profile updayted!',
+        'alert-type'=>'success'
+         );
+       return Redirect()->route('home')->with($notification); 
     }
 
     public function updatePassword(Request $request)

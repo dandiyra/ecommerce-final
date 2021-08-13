@@ -101,29 +101,25 @@ $vat = $setting->vat;
                                 style="border: 1px solid grey; padding: 20px; border-radius: 8px;">
                                 <div class="contact_form_container">
                                     <div class="contact_form_title text-center">Shipping Address</div>
-
-                                    <form action="{{ route('payment.step') }}" id="contact_form" method="post">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Address</label>
-                                            <input type="text" class="form-control" aria-describedby="emailHelp"
-                                                placeholder="Enter Your Address" name="address" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">City</label>
-                                            <input type="text" class="form-control" aria-describedby="emailHelp"
-                                                placeholder="Enter Your City" name="city" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" aria-describedby="emailHelp"
-                                                placeholder="Enter Your City" name="total"
-                                                value="{{ Cart::Subtotal() + $charge + $vat }} " hidden>
-                                        </div>
-                                        <div class="cart_buttons">
-                                            <button type="button" class="button cart_button_clear">All Cancel</button>
-                                            <button class="button cart_button_checkout">Payment Method</a>
-                                        </div>
-                                    </form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Address</label>
+                                        <input type="text" class="form-control" aria-describedby="emailHelp"
+                                            placeholder="Enter Your Address" name="address" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">City</label>
+                                        <input type="text" class="form-control" aria-describedby="emailHelp"
+                                            placeholder="Enter Your City" name="city" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" aria-describedby="emailHelp"
+                                            placeholder="Enter Your City" name="total"
+                                            value="{{ Cart::Subtotal() + $charge + $vat }} " hidden>
+                                    </div>
+                                    <div class="cart_buttons">
+                                        <button type="button" class="button cart_button_clear">All Cancel</button>
+                                        <button id="pay-button" class="button cart_button_checkout">Pay Now</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -166,4 +162,12 @@ $vat = $setting->vat;
     </div>
 </div>
 <script src="{{ asset('public/frontend/js/cart_custom.js') }}"></script>
+<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
+<script type="text/javascript">
+var payButton = document.getElementById('pay-button');
+// For example trigger on button clicked, or any time you need
+payButton.addEventListener('click', function() {
+    window.snap.pay('<?php echo $snapToken ?>'); // Replace it with your transaction token
+});
+</script>
 @endsection

@@ -71,15 +71,24 @@
                     </div>
 
                     <!-- Order Total -->
-                    <div class="order_total">
-                        <div class="order_total_content text-md-right">
-                            <div class="order_total_title">Order Total:</div>
-                            <div class="order_total_amount">Rp{{ Cart::total() }}</div>
-                        </div>
-                    </div>
-                    <div class="cart_buttons">
-                        <button type="button" class="button cart_button_clear">All Cancel</button>
-                        <a href="{{ route('user.checkout') }}" class="button cart_button_checkout">Checkout</a>
+                    <div class="container">
+                        <form action="{{ route('user.checkout') }}" method="post">
+                            @csrf
+                            <div class="order_total">
+                                <div class="order_total_content text-md-right">
+                                    <div class="order_total_title">Order Total:</div>
+                                    <div class="order_total_amount">Rp{{ $row->price*$row->qty }}</div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" aria-describedby="emailHelp"
+                                            name="total" value="{{ $row->price*$row->qty }}" hidden>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart_buttons">
+                                <button type="button" class="button cart_button_clear">All Cancel</button>
+                                <button type="submit" class="button cart_button_checkout">Checkout</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

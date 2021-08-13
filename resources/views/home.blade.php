@@ -58,8 +58,7 @@ $order = DB::table('orders')->where('user_id',Auth::id())->orderBy('id','DESC')-
                         <h5 class="card-title text-center">{{ Auth::user()->name }}</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"> <a href="{{ route('password.change') }}">Change Password</a> </li>
-                        <li class="list-group-item">Edit Profile</li>
+                        <li class="list-group-item"> <a href="{{ route('profile.change') }}">Edit Profile</a> </li>
                         <li class="list-group-item"><a href="{{ route('success.orderlist') }}"> Return Order</a> </li>
                     </ul>
                     <div class="card-body">
