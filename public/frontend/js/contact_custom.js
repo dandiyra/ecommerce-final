@@ -94,17 +94,17 @@ $(document).ready(function()
 				list.addClass('active');
 			}
 
-			$(document).one('click', function closeForm(e)
-			{
-				if($(e.target).hasClass('clc'))
-				{
-					$(document).one('click', closeForm);
-				}
-				else
-				{
-					list.removeClass('active');
-				}
-			});
+			// $(document).one('click', function closeForm(e)
+			// {
+			// 	if($(e.target).hasClass('clc'))
+			// 	{
+			// 		$(document).one('click', closeForm);
+			// 	}
+			// 	else
+			// 	{
+			// 		list.removeClass('active');
+			// 	}
+			// });
 
 		});
 

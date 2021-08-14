@@ -103,17 +103,17 @@ $(document).ready(function()
 				list.addClass('active');
 			}
 
-			$(document).one('click', function closeForm(e)
-			{
-				if($(e.target).hasClass('clc'))
-				{
-					$(document).one('click', closeForm);
-				}
-				else
-				{
-					list.removeClass('active');
-				}
-			});
+			// $(document).one('click', function closeForm(e)
+			// {
+			// 	if($(e.target).hasClass('clc'))
+			// 	{
+			// 		$(document).one('click', closeForm);
+			// 	}
+			// 	else
+			// 	{
+			// 		list.removeClass('active');
+			// 	}
+			// });
 
 		});
 
@@ -135,12 +135,12 @@ $(document).ready(function()
 		});
 
 
-		$('select').on('change', function (e)
-		{
-			placeholder.text(this.value);
+		// $('select').on('change', function (e)
+		// {
+		// 	placeholder.text(this.value);
 
-			$(this).animate({width: placeholder.width() + 'px' });
-		});
+		// 	$(this).animate({width: placeholder.width() + 'px' });
+		// });
 	}
 
 	/* 

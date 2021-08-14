@@ -160,6 +160,7 @@ class CartController extends Controller
   if (Auth::check()) {
 
   	$cart = Cart::content();
+    $provinces = Province::pluck('name', 'province_id');
 
     $data = array();
   
@@ -191,7 +192,7 @@ class CartController extends Controller
   
         $snapToken = \Midtrans\Snap::getSnapToken($params);
 
-    return view('pages.checkout',compact('cart', 'snapToken'));
+    return view('pages.checkout',compact('cart', 'snapToken', 'provinces'));
 
   }else{
   	$notification=array(
