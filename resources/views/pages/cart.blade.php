@@ -66,7 +66,6 @@
                                     </div>
                                 </div>
                             </li>
-                            @endforeach
                         </ul>
                     </div>
 
@@ -90,6 +89,7 @@
                             </div>
                         </form>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
