@@ -80,6 +80,16 @@ $vat = $setting->vat;
                         <div class="col-md mt-3">
                             <div class="card">
                                 <div class="card-body">
+                                    <div class="col-md mt-3 mb-2">
+                                        <div class="contact_form_container">
+                                            <h4 class="contact_form_title text-center">Shipping Address</h4>
+                                            <div class="form-group">
+                                                <textarea type="text" class="form-control" rows="6"
+                                                    aria-describedby="emailHelp" placeholder="Enter Your Address"
+                                                    name="address">{{ Auth::user()->address }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <h3>Check Harga Pengiriman</h3>
                                     <hr>
                                     <div class="row">
@@ -215,14 +225,11 @@ $vat = $setting->vat;
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-6 mt-3 mb-2">
-                            <div class="contact_form_container">
-                                <h4 class="contact_form_title text-center">Shipping Address</h4>
-                                <div class="form-group">
-                                    <textarea type="text" class="form-control" rows="6" aria-describedby="emailHelp"
-                                        placeholder="Enter Your Address" name="address">{{ Auth::user()->address }}</textarea>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="card d-none ongkir">
+                                <div class="card-body">
+                                    <ul class="list-group" id="ongkir"></ul>
                                 </div>
                             </div>
                         </div>
