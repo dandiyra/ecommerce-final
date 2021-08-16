@@ -196,6 +196,6 @@ Route::get('admin/all/message', 'ContactController@AllMessage')->name('all.messa
 // Search Route
 Route::post('product/search', 'CartController@Search')->name('product.search');
 
-Route::post('/ongkir', 'CheckOngkirController@index');
+Route::get('/ongkir', 'CheckOngkirController@index');
 Route::post('/ongkir', 'CheckOngkirController@check_ongkir');
 Route::get('/cities/{province_id}', 'CheckOngkirController@getCities');

@@ -14,7 +14,7 @@ class CheckOngkirController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index()
     {
           $cart = Cart::content();
           $provinces = Province::pluck('name', 'province_id');
