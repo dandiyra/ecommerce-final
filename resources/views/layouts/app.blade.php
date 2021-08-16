@@ -363,7 +363,7 @@ $setting = DB::table('sitesetting')->first();
     <script src="{{ asset('public/frontend/plugins/slick-1.8.0/slick.js')}}"></script>
     <script src="{{ asset('public/frontend/plugins/easing/easing.js')}}"></script>
     <script src="{{ asset('public/frontend/js/custom.js')}}"></script>
-    <script src="{{ asset('public/frontend/select2/select2.min.js')}}"></script>
+    <script src="{{ asset('public/frontend/js/select2.min.js')}}"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
     </script>

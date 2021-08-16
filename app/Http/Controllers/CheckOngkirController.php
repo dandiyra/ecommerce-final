@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Cart;
 use App\City;
 use App\Province;
 use Illuminate\Http\Request;
@@ -12,10 +14,12 @@ class CheckOngkirController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $provinces = Province::pluck('name', 'province_id');
-        return view('ongkir', compact('provinces'));
+          $cart = Cart::content();
+          $provinces = Province::pluck('name', 'province_id');
+          return view('ongkir',compact('cart', 'provinces'));
+      
     	// return view('pages.cart',compact('provinces'));
 
     }

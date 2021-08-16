@@ -116,10 +116,6 @@ Route::post('user/apply/coupon/', 'CartController@Coupon')->name('apply.coupon')
 Route::get('coupon/remove/', 'CartController@CouponRemove')->name('coupon.remove');
 Route::get('/product/details/{id}/{product_name}', 'ProductController@ProductView');
 Route::post('/cart/product/add/{id}', 'ProductController@AddCart');
-Route::get('user/checkout/index', 'CartController@index');
-Route::post('user/checkout/check_ongkir', 'CartController@check_ongkir');
-Route::get('user/checkout/getCities', 'CartController@getCities');
-
 /// Blog Post Route 
 
 Route::get('blog/post/', 'BlogController@blog')->name('blog.post');
@@ -200,6 +196,6 @@ Route::get('admin/all/message', 'ContactController@AllMessage')->name('all.messa
 // Search Route
 Route::post('product/search', 'CartController@Search')->name('product.search');
 
-Route::get('/ongkir', 'CheckOngkirController@index');
+Route::post('/ongkir', 'CheckOngkirController@index');
 Route::post('/ongkir', 'CheckOngkirController@check_ongkir');
 Route::get('/cities/{province_id}', 'CheckOngkirController@getCities');
