@@ -35,6 +35,7 @@ $setting = DB::table('sitesetting')->first();
 
     <script src="https://js.stripe.com/v3/"></script>
 </head>
+
 <body>
 
     <div class="super_container">
@@ -294,7 +295,7 @@ $setting = DB::table('sitesetting')->first();
                                 <div class="copyright_content">
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                     Copyright &copy;<script>
-                                        document.write(new Date().getFullYear());
+                                    document.write(new Date().getFullYear());
                                     </script> All rights reserved | This template is made with <i class="fa fa-heart"
                                         aria-hidden="true"></i> by <a href="https://colorlib.com"
                                         target="_blank">Colorlib</a>
@@ -351,16 +352,16 @@ $setting = DB::table('sitesetting')->first();
     <script src="{{ asset('public/frontend/js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{ asset('public/frontend/styles/bootstrap4/popper.js')}}"></script>
     <script src="{{ asset('public/frontend/styles/bootstrap4/bootstrap.min.js')}}"></script>
-    <!-- <script src="{{ asset('public/frontend/plugins/greensock/TweenMax.min.js')}}"></script>
+    <script src="{{ asset('public/frontend/plugins/greensock/TweenMax.min.js')}}"></script>
     <script src="{{ asset('public/frontend/plugins/greensock/TimelineMax.min.js')}}"></script>
     <script src="{{ asset('public/frontend/plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/greensock/animation.gsap.min.js')}}"></script> -->
-    <!-- <script
+    <script src="{{ asset('public/frontend/plugins/greensock/animation.gsap.min.js')}}"></script>
+    <script
         src="{{ asset('public/frontend/plugins/greensock/ScrollToPlugin.min.jsplugins/greensock/ScrollToPlugin.min.js')}}">
-    </script> -->
-    <!-- <script src="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script> -->
-    <!-- <script src="{{ asset('public/frontend/plugins/slick-1.8.0/slick.js')}}"></script> -->
-    <!-- <script src="{{ asset('public/frontend/plugins/easing/easing.js')}}"></script> -->
+    </script>
+    <script src="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
+    <script src="{{ asset('public/frontend/plugins/slick-1.8.0/slick.js')}}"></script>
+    <script src="{{ asset('public/frontend/plugins/easing/easing.js')}}"></script>
     <script src="{{ asset('public/frontend/js/custom.js')}}"></script>
     <script src="{{ asset('public/frontend/select2/select2.min.js')}}"></script>
 
@@ -376,158 +377,155 @@ $setting = DB::table('sitesetting')->first();
 
 
     <script>
-        @if(Session::has('messege'))
-        var type = "{{Session::get('alert-type','info')}}"
-        switch (type) {
-            case 'info':
-                toastr.info("{{ Session::get('messege') }}");
-                break;
-            case 'success':
-                toastr.success("{{ Session::get('messege') }}");
-                break;
-            case 'warning':
-                toastr.warning("{{ Session::get('messege') }}");
-                break;
-            case 'error':
-                toastr.error("{{ Session::get('messege') }}");
-                break;
-        }
-        @endif
-
+    @if(Session::has('messege'))
+    var type = "{{Session::get('alert-type','info')}}"
+    switch (type) {
+        case 'info':
+            toastr.info("{{ Session::get('messege') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('messege') }}");
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('messege') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('messege') }}");
+            break;
+    }
+    @endif
     </script>
 
 
     <script>
-        $(document).on("click", "#return", function (e) {
-            e.preventDefault();
-            var link = $(this).attr("href");
-            swal({
-                    title: "Are you Want to Return?",
-                    text: "Once Return, this will return your money!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        window.location.href = link;
-                    } else {
-                        swal("Cancel!");
-                    }
-                });
-        });
-
+    $(document).on("click", "#return", function(e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+        swal({
+                title: "Are you Want to Return?",
+                text: "Once Return, this will return your money!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = link;
+                } else {
+                    swal("Cancel!");
+                }
+            });
+    });
     </script>
 
-<!-- Raja Ongkir -->
-<script>
-            $(document).ready(function () {
-                //active select2
-                $(".provinsi-asal , .kota-asal, .provinsi-tujuan, .kota-tujuan").select2({
-                    theme: 'bootstrap4',
-                    width: 'style',
-                });
-                //ajax select kota asal
-                $('select[name="province_origin"]').on('change', function () {
-                    let provinceId = $(this).val();
-                    if (provinceId) {
-                        jQuery.ajax({
-                            url: '/ecommerce/cities/' + provinceId,
-                            type: "GET",
-                            dataType: "json",
-                            success: function (response) {
-                                $('select[name="city_origin"]').empty();
-                                $('select[name="city_origin"]').append(
-                                    '<option value="">-- pilih kota asal --</option>');
-                                $.each(response, function (key, value) {
-                                    $('select[name="city_origin"]').append(
-                                        '<option value="' + key + '">' + value +
-                                        '</option>');
-                                });
-                            },
-                        });
-                    } else {
+    <!-- Raja Ongkir -->
+    <script>
+    $(document).ready(function() {
+        //active select2
+        $(".provinsi-asal , .kota-asal, .provinsi-tujuan, .kota-tujuan").select2({
+            theme: 'bootstrap4',
+            width: 'style',
+        });
+        //ajax select kota asal
+        $('select[name="province_origin"]').on('change', function() {
+            let provinceId = $(this).val();
+            if (provinceId) {
+                jQuery.ajax({
+                    url: '/ecommerce/cities/' + provinceId,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(response) {
+                        $('select[name="city_origin"]').empty();
                         $('select[name="city_origin"]').append(
                             '<option value="">-- pilih kota asal --</option>');
-                    }
-                });
-                //ajax select kota tujuan
-                $('select[name="province_destination"]').on('change', function () {
-                    let provinceId = $(this).val();
-                    if (provinceId) {
-                        jQuery.ajax({
-                            url: '/ecommerce/cities/' + provinceId,
-                            type: "GET",
-                            dataType: "json",
-                            success: function (response) {
-                                $('select[name="city_destination"]').empty();
-                                $('select[name="city_destination"]').append(
-                                    '<option value="">-- pilih kota tujuan --</option>');
-                                $.each(response, function (key, value) {
-                                    $('select[name="city_destination"]').append(
-                                        '<option value="' + key + '">' + value +
-                                        '</option>');
-                                });
-                            },
+                        $.each(response, function(key, value) {
+                            $('select[name="city_origin"]').append(
+                                '<option value="' + key + '">' + value +
+                                '</option>');
                         });
-                    } else {
+                    },
+                });
+            } else {
+                $('select[name="city_origin"]').append(
+                    '<option value="">-- pilih kota asal --</option>');
+            }
+        });
+        //ajax select kota tujuan
+        $('select[name="province_destination"]').on('change', function() {
+            let provinceId = $(this).val();
+            if (provinceId) {
+                jQuery.ajax({
+                    url: '/ecommerce/cities/' + provinceId,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(response) {
+                        $('select[name="city_destination"]').empty();
                         $('select[name="city_destination"]').append(
                             '<option value="">-- pilih kota tujuan --</option>');
-                    }
+                        $.each(response, function(key, value) {
+                            $('select[name="city_destination"]').append(
+                                '<option value="' + key + '">' + value +
+                                '</option>');
+                        });
+                    },
                 });
-                //ajax check ongkir
-                let isProcessing = false;
-                $('.btn-check').click(function (e) {
-                    e.preventDefault();
+            } else {
+                $('select[name="city_destination"]').append(
+                    '<option value="">-- pilih kota tujuan --</option>');
+            }
+        });
+        //ajax check ongkir
+        let isProcessing = false;
+        $('.btn-check').click(function(e) {
+            e.preventDefault();
 
-                    let token = $("meta[name='csrf-token']").attr("content");
-                    let city_origin = $('select[name=city_origin]').val();
-                    let city_destination = $('select[name=city_destination]').val();
-                    let courier = $('select[name=courier]').val();
-                    let weight = $('#weight').val();
+            let token = $("meta[name='csrf-token']").attr("content");
+            let city_origin = $('select[name=city_origin]').val();
+            let city_destination = $('select[name=city_destination]').val();
+            let courier = $('select[name=courier]').val();
+            let weight = $('#weight').val();
 
-                    if (isProcessing) {
-                        return;
+            if (isProcessing) {
+                return;
+            }
+
+            isProcessing = true;
+            jQuery.ajax({
+                url: "/ecommerce/ongkir",
+                data: {
+                    _token: token,
+                    city_origin: city_origin,
+                    city_destination: city_destination,
+                    courier: courier,
+                    weight: weight,
+                },
+                dataType: "JSON",
+                type: "POST",
+                success: function(response) {
+                    isProcessing = false;
+                    if (response) {
+                        $('#ongkir').empty();
+                        $('.ongkir').addClass('d-block');
+                        $.each(response[0]['costs'], function(key, value) {
+                            $('#ongkir').append(
+                                '<li class="list-group-item">' +
+                                response[0].code.toUpperCase() +
+                                ' : <strong>' + value.service +
+                                '</strong> - Rp. ' + value.cost[0]
+                                .value +
+                                ' (' + value.cost[0].etd + ' hari)</li>'
+                            )
+                        });
+
                     }
-
-                    isProcessing = true;
-                    jQuery.ajax({
-                        url: "/ecommerce/ongkir",
-                        data: {
-                            _token: token,
-                            city_origin: city_origin,
-                            city_destination: city_destination,
-                            courier: courier,
-                            weight: weight,
-                        },
-                        dataType: "JSON",
-                        type: "POST",
-                        success: function (response) {
-                            isProcessing = false;
-                            if (response) {
-                                $('#ongkir').empty();
-                                $('.ongkir').addClass('d-block');
-                                $.each(response[0]['costs'], function (key, value) {
-                                    $('#ongkir').append(
-                                        '<li class="list-group-item">' +
-                                        response[0].code.toUpperCase() +
-                                        ' : <strong>' + value.service +
-                                        '</strong> - Rp. ' + value.cost[0]
-                                        .value +
-                                        ' (' + value.cost[0].etd + ' hari)</li>'
-                                    )
-                                });
-
-                            }
-                        }
-                    });
-
-                });
-
+                }
             });
 
-        </script>
-<!-- End Raja Ongkir -->
+        });
+
+    });
+    </script>
+    <!-- End Raja Ongkir -->
 
 
 
