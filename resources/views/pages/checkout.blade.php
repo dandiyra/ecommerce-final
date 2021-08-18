@@ -217,7 +217,7 @@ $vat = $setting->vat;
                                         @endif
                                     </ul>
                                     <div style="width: 75%;">
-                                        <button type="button" class="button cart_button_clear">All Cancel</button>
+                                        <a href="{{  route('awal') }}" class="button cart_button_clear">All Cancel</a>
                                         <button type="button" id="pay-button" class="button cart_button_checkout">Pay
                                             Now</button>
                                     </div>

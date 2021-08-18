@@ -24,6 +24,19 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    public function awal()
+    {
+      $product = DB::table('products')->select('*')->first();
+
+    	// $color = $product->product_color;
+    	// $product_color = explode(',', $color);
+    	
+    	// $size = $product->product_size;
+    	// $product_size = explode(',', $size);
+
+      return view('pages.index', compact('product'));
+    }
+
     /**
      * Show the application dashboard.
      *

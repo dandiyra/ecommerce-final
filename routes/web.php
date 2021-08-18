@@ -5,7 +5,7 @@ Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
 
 
-Route::get('/', function () {return view('pages.index');});
+Route::get('/', 'HomeController@awal')->name('awal');
 //auth & user
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');

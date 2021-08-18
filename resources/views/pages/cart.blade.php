@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                             <div class="cart_buttons">
-                                <button type="button" class="button cart_button_clear">All Cancel</button>
+                                <a href="{{  route('awal') }}" class="button cart_button_clear">All Cancel</a>
                                 <button type="submit" class="button cart_button_checkout">Checkout</button>
                             </div>
                         </form>

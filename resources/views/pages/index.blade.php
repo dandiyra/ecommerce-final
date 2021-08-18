@@ -118,7 +118,8 @@ $hot = DB::table('products')
                                     <div class="available">
                                         <div class="available_line d-flex flex-row justify-content-start">
                                             <div class="available_title">Available:
-                                                <span>{{ $ht->product_quantity  }}</span></div>
+                                                <span>{{ $ht->product_quantity  }}</span>
+                                            </div>
                                             <div class="sold_title ml-auto">Already sold: <span>28</span></div>
                                         </div>
                                         <div class="available_bar"><span style="width:17%"></span></div>
@@ -179,7 +180,8 @@ $hot = DB::table('products')
                                         <div
                                             class="product_image d-flex flex-column align-items-center justify-content-center">
                                             <img src="{{ asset( $row->image_one )}}" alt=""
-                                                style="height: 120px; width: 100px;"></div>
+                                                style="height: 120px; width: 100px;">
+                                        </div>
                                         <div class="product_content">
                                             @if($row->discount_price == NULL)
                                             <div class="product_price discount">Rp{{ $row->selling_price }}<span></div>
@@ -199,9 +201,10 @@ $hot = DB::table('products')
                                                          </div>
                                                         </div> -->
                                             <div class="product_extras">
-                                                <button id="{{ $row->id }}" class="product_cart_button addcart"
+                                                <!-- <button id="{{ $row->id }}" class="product_cart_button addcart"
                                                     data-toggle="modal" data-target="#cartmodal"
-                                                    onclick="productview(this.id)">Add to Cart</button>
+                                                    onclick="productview(this.id)">Add to Cart</button> -->
+                                                <a type="button" class="product_cart_button addcart" href="{{ url('/cart/product/view/'.$row->id) }}">View Product</a>
                                             </div>
                                         </div>
                                         <button class="addwishlist" data-id="{{ $row->id }}">
@@ -373,7 +376,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                             <div
                                                 class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{ asset( $row->image_one )}}" alt=""
-                                                    style="height: 120px; width: 100px;"></div>
+                                                    style="height: 120px; width: 100px;">
+                                            </div>
                                             <div class="product_content">
 
                                                 @if($row->discount_price == NULL)
@@ -486,7 +490,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                             <div
                                                 class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{ asset( $row->image_one )}}" alt=""
-                                                    style="height: 120px; width: 100px;"></div>
+                                                    style="height: 120px; width: 100px;">
+                                            </div>
                                             <div class="product_content">
 
                                                 @if($row->discount_price == NULL)
@@ -595,7 +600,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -616,7 +622,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_category"><a href="#">Headphones</a></div>
                                         <div class="bestsellers_name"><a href="product.html">Samsung J730F...</a></div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -637,7 +644,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_category"><a href="#">Headphones</a></div>
                                         <div class="bestsellers_name"><a href="product.html">Nomi Black White</a></div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -659,7 +667,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Samsung Charm Gold</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -680,7 +689,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_category"><a href="#">Headphones</a></div>
                                         <div class="bestsellers_name"><a href="product.html">Beoplay H7</a></div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -702,7 +712,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Huawei MediaPad T3</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -724,7 +735,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -746,7 +758,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -768,7 +781,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -790,7 +804,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -812,7 +827,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -834,7 +850,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -865,7 +882,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -887,7 +905,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -909,7 +928,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -931,7 +951,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -953,7 +974,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -975,7 +997,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -997,7 +1020,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1019,7 +1043,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1041,7 +1066,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1063,7 +1089,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1085,7 +1112,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1108,7 +1136,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1139,7 +1168,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1161,7 +1191,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1183,7 +1214,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1205,7 +1237,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1227,7 +1260,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1249,7 +1283,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1271,7 +1306,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1293,7 +1329,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1315,7 +1352,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1337,7 +1375,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1359,7 +1398,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1381,7 +1421,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                         <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a>
                                         </div>
                                         <div class="rating_r rating_r_4 bestsellers_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="bestsellers_price discount">$225<span>$300</span></div>
                                     </div>
                                 </div>
@@ -1504,7 +1545,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                         <div class="owl-item">
                             <div class="trends_item is_new">
                                 <div class="trends_image d-flex flex-column align-items-center justify-content-center">
-                                    <img src="{{ asset( $row->image_one )}}" alt=""></div>
+                                    <img src="{{ asset( $row->image_one )}}" alt="">
+                                </div>
                                 <div class="trends_content">
                                     <div class="trends_category"><a href="#">{{ $row->brand_name }}</a></div>
                                     <div class="trends_info clearfix">
@@ -1569,7 +1611,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                     <div class="review_name">Roberto Sanchez</div>
                                     <div class="review_rating_container">
                                         <div class="rating_r rating_r_4 review_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="review_time">2 day ago</div>
                                     </div>
                                     <div class="review_text">
@@ -1591,7 +1634,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                     <div class="review_name">Brandon Flowers</div>
                                     <div class="review_rating_container">
                                         <div class="rating_r rating_r_4 review_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="review_time">2 day ago</div>
                                     </div>
                                     <div class="review_text">
@@ -1613,7 +1657,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                     <div class="review_name">Emilia Clarke</div>
                                     <div class="review_rating_container">
                                         <div class="rating_r rating_r_4 review_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="review_time">2 day ago</div>
                                     </div>
                                     <div class="review_text">
@@ -1635,7 +1680,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                     <div class="review_name">Roberto Sanchez</div>
                                     <div class="review_rating_container">
                                         <div class="rating_r rating_r_4 review_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="review_time">2 day ago</div>
                                     </div>
                                     <div class="review_text">
@@ -1657,7 +1703,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                     <div class="review_name">Brandon Flowers</div>
                                     <div class="review_rating_container">
                                         <div class="rating_r rating_r_4 review_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="review_time">2 day ago</div>
                                     </div>
                                     <div class="review_text">
@@ -1679,7 +1726,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
                                     <div class="review_name">Emilia Clarke</div>
                                     <div class="review_rating_container">
                                         <div class="rating_r rating_r_4 review_rating">
-                                            <i></i><i></i><i></i><i></i><i></i></div>
+                                            <i></i><i></i><i></i><i></i><i></i>
+                                        </div>
                                         <div class="review_time">2 day ago</div>
                                     </div>
                                     <div class="review_text">
@@ -1978,38 +2026,37 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-    function productview(id) {
-        $.ajax({
-            url: "{{ url('/cart/product/view/') }}/" + id,
-            type: "GET",
-            dataType: "json",
-            success: function (data) {
-                $('#pcode').text(data.product.product_code);
-                $('#pcat').text(data.product.category_name);
-                $('#psub').text(data.product.subcategory_name);
-                $('#pbrand').text(data.product.brand_name);
-                $('#pname').text(data.product.product_name);
-                $('#pimage').attr('src', data.product.image_one);
-                $('#product_id').val(data.product.id);
-                var d = $('select[name="color"]').empty();
-                $.each(data.color, function (key, value) {
-                    $('select[name="color"]').append('<option value="' + value + '">' + value +
-                        '</option>');
-                });
-                var d = $('select[name="size"]').empty();
-                $.each(data.size, function (key, value) {
-                    $('select[name="size"]').append('<option value="' + value + '">' + value +
-                        '</option>');
-                });
-            }
-        })
-    }
-
+function productview(id) {
+    $.ajax({
+        url: "{{ url('/cart/product/view/') }}/" + id,
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $('#pcode').text(data.product.product_code);
+            $('#pcat').text(data.product.category_name);
+            $('#psub').text(data.product.subcategory_name);
+            $('#pbrand').text(data.product.brand_name);
+            $('#pname').text(data.product.product_name);
+            $('#pimage').attr('src', data.product.image_one);
+            $('#product_id').val(data.product.id);
+            var d = $('select[name="color"]').empty();
+            $.each(data.color, function(key, value) {
+                $('select[name="color"]').append('<option value="' + value + '">' + value +
+                    '</option>');
+            });
+            var d = $('select[name="size"]').empty();
+            $.each(data.size, function(key, value) {
+                $('select[name="size"]').append('<option value="' + value + '">' + value +
+                    '</option>');
+            });
+        }
+    })
+}
 </script>
 
 
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     
    $(document).ready(function(){
      $('.addcart').on('click', function(){
@@ -2057,49 +2104,48 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
    });
 
 
-</script> -->
+</script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.addwishlist').on('click', function () {
-            var id = $(this).data('id');
-            if (id) {
-                $.ajax({
-                    url: " {{ url('add/wishlist/') }}/" + id,
-                    type: "GET",
-                    datType: "json",
-                    success: function (data) {
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                            onOpen: (toast) => {
-                                toast.addEventListener('mouseenter', Swal
-                                    .stopTimer)
-                                toast.addEventListener('mouseleave', Swal
-                                    .resumeTimer)
-                            }
-                        })
-                        if ($.isEmptyObject(data.error)) {
-                            Toast.fire({
-                                icon: 'success',
-                                title: data.success
-                            })
-                        } else {
-                            Toast.fire({
-                                icon: 'error',
-                                title: data.error
-                            })
+$(document).ready(function() {
+    $('.addwishlist').on('click', function() {
+        var id = $(this).data('id');
+        if (id) {
+            $.ajax({
+                url: " {{ url('add/wishlist/') }}/" + id,
+                type: "GET",
+                datType: "json",
+                success: function(data) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal
+                                .stopTimer)
+                            toast.addEventListener('mouseleave', Swal
+                                .resumeTimer)
                         }
-                    },
-                });
-            } else {
-                alert('danger');
-            }
-        });
+                    })
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            icon: 'success',
+                            title: data.success
+                        })
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            title: data.error
+                        })
+                    }
+                },
+            });
+        } else {
+            alert('danger');
+        }
     });
-
+});
 </script>
 @endsection
