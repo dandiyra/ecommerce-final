@@ -102,12 +102,13 @@ class CartController extends Controller
     	$size = $product->product_size;
     	$product_size = explode(',', $size);	
 
-   return response::json(array(
-    'product' => $product,
-    'color' => $product_color,
-    'size' => $product_size,
-   ));
+  //  return response::json(array(
+  //   'product' => $product,
+  //   'color' => $product_color,
+  //   'size' => $product_size,
+  //  ));
 
+  return view('pages.view_product',compact('color', 'product_color', 'size', 'product_size', 'product'));
 
     }
 

@@ -377,7 +377,7 @@ $setting = DB::table('sitesetting')->first();
 
 
     <script>
-    @if(Session::has('messege'))
+    if(Session::has('messege'))
     var type = "{{Session::get('alert-type','info')}}"
     switch (type) {
         case 'info':
@@ -393,7 +393,7 @@ $setting = DB::table('sitesetting')->first();
             toastr.error("{{ Session::get('messege') }}");
             break;
     }
-    @endif
+    endif
     </script>
 
 
