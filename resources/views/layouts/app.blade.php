@@ -25,7 +25,8 @@ $setting = DB::table('sitesetting')->first();
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/slick-1.8.0/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/responsive.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/select2.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/select2.css') }}"> -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- chart -->
     <link rel="stylesheet" type="text/css"
@@ -363,13 +364,14 @@ $setting = DB::table('sitesetting')->first();
     <script src="{{ asset('public/frontend/plugins/slick-1.8.0/slick.js')}}"></script>
     <script src="{{ asset('public/frontend/plugins/easing/easing.js')}}"></script>
     <script src="{{ asset('public/frontend/js/custom.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/select2.min.js')}}"></script>
+    <!-- <script src="{{ asset('public/frontend/js/select2.min.js')}}"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
     </script>
 
 
-    <script src="{{ asset('public/frontend/js/product_custom.js')}}"></script>
+    <!-- <script src="{{ asset('public/frontend/js/product_custom.js')}}"></script> -->
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -416,6 +418,7 @@ $setting = DB::table('sitesetting')->first();
                 }
             });
     });
+
     </script>
 
     <!-- Raja Ongkir -->
@@ -526,11 +529,6 @@ $setting = DB::table('sitesetting')->first();
     });
     </script>
     <!-- End Raja Ongkir -->
-
-
-
-
-
 
 </body>
 

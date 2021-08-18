@@ -128,10 +128,14 @@ $vat = $setting->vat;
                                         </div>
                                         <div class="col-md">
                                             <div class="form-group">
-                                                <label class="font-weight-bold">KOTA / KABUPATEN TUJUAN</label>
-                                                <select class="form-control kota-tujuan" name="city_destination">
-                                                    <option value="">-- pilih kota tujuan --</option>
-                                                </select>
+                                                <div>
+                                                    <label class="font-weight-bold">KOTA / KABUPATEN TUJUAN</label>
+                                                </div>
+                                                <div>
+                                                    <select class="form-control kota-tujuan" name="city_destination">
+                                                        <option value="">-- pilih kota tujuan --</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -247,5 +251,7 @@ var payButton = document.getElementById('pay-button');
 payButton.addEventListener('click', function() {
     window.snap.pay('<?php echo $snapToken ?>'); // Replace it with your transaction token
 });
+
+// $('.form-control').select2();
 </script>
 @endsection
