@@ -3,6 +3,12 @@
 @section('content')
 @include('layouts.menubar')
 
+@php
+$setting = DB::table('settings')->first();
+$charge = $setting->shipping_charge;
+$vat = $setting->vat;
+@endphp
+
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_styles.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_responsive.css') }}">
 <!-- Cart -->
@@ -79,7 +85,7 @@
                                     <div class="order_total_amount">Rp{{ $row->price*$row->qty }}</div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" aria-describedby="emailHelp"
-                                            name="total" value="{{ $row->price*$row->qty }}" hidden>
+                                            name="total" value="{{ Cart::Subtotal() + $charge + $vat }}" hidden>
                                     </div>
                                 </div>
                             </div>
