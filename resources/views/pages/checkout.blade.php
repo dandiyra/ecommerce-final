@@ -95,28 +95,39 @@ $vat = $setting->vat;
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="form-group">
-                                                <label class="font-weight-bold">PROVINSI ASAL</label>
+                                                <div>
+                                                    <label class="font-weight-bold">PROVINSI ASAL</label>
+                                                </div>
+                                                <div class="form-control">
                                                 <select class="form-control provinsi-asal" name="province_origin">
                                                     <option value="0">-- pilih provinsi asal --</option>
                                                     @foreach ($provinces as $province => $value)
                                                     <option value="{{ $province  }}">{{ $value }}</option>
                                                     @endforeach
                                                 </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md">
                                             <div class="form-group">
-                                                <label class="font-weight-bold">KOTA / KABUPATEN ASAL</label>
+                                                <div>
+                                                    <label class="font-weight-bold">KOTA / KABUPATEN ASAL</label>
+                                                </div>
+                                                <div class="form-control">
                                                 <select class="form-control kota-asal" name="city_origin">
                                                     <option value="">-- pilih kota asal --</option>
                                                 </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="form-group">
+                                                <div>
                                                 <label class="font-weight-bold">PROVINSI TUJUAN</label>
+                                                </div>
+                                                <div class="form-control">
                                                 <select class="form-control provinsi-tujuan"
                                                     name="province_destination">
                                                     <option value="0">-- pilih provinsi tujuan --</option>
@@ -124,6 +135,7 @@ $vat = $setting->vat;
                                                     <option value="{{ $province  }}">{{ $value }}</option>
                                                     @endforeach
                                                 </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md">
@@ -131,7 +143,7 @@ $vat = $setting->vat;
                                                 <div>
                                                     <label class="font-weight-bold">KOTA / KABUPATEN TUJUAN</label>
                                                 </div>
-                                                <div>
+                                                <div class="form-control">
                                                     <select class="form-control kota-tujuan" name="city_destination">
                                                         <option value="">-- pilih kota tujuan --</option>
                                                     </select>
