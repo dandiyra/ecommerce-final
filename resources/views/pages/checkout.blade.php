@@ -45,17 +45,6 @@ $vat = $setting->vat;
                                         <div class="cart_item_text"> {{ $row->options->size }}</div>
                                     </div>
                                     @endif
-                                    <div class="cart_item_quantity cart_info_col">
-                                        <div class="cart_item_title">Quantity</div><br>
-                                        <form method="post" action="{{ route('update.cartitem') }}">
-                                            @csrf
-                                            <input type="hidden" name="productid" value="{{ $row->rowId }}">
-                                            <input type="number" name="qty" value="{{ $row->qty }}"
-                                                style="width: 50px;">
-                                            <button type="submit" class="btn btn-success btn-sm"><i
-                                                    class="fas fa-check-square"></i> </button>
-                                        </form>
-                                    </div>
                                     <div class="cart_item_price cart_info_col">
                                         <div class="cart_item_title">Price</div>
                                         <div class="cart_item_text">${{ $row->price }}</div>
@@ -166,8 +155,20 @@ $vat = $setting->vat;
                                         <div class="col-md">
                                             <div class="form-group">
                                                 <label class="font-weight-bold">BERAT (GRAM)</label>
+                                                @foreach($cart as $row)
                                                 <input type="number" class="form-control" name="weight" id="weight"
-                                                    placeholder="Masukkan Berat (GRAM)">
+                                                    placeholder="Masukkan Berat (GRAM)" value="{{ $row->weight }}">
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">Harga Ongkir</label>
+                                                <select class="form-control hasil" name="hasil">
+                                                    <option value="">-- Pilih Harga --</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -210,7 +211,8 @@ $vat = $setting->vat;
                                             </span>
                                         </li>
                                         @else
-                                        <li class="list-group-item">Subtotal : <span style="float: right;">
+                                        <li id="subtotal" data-value="{{  Cart::Subtotal() }}" class="list-group-item">
+                                            Subtotal : <span style="float: right;">
                                                 ${{  Cart::Subtotal() }} </span> </li>
                                         @endif
                                         <li class="list-group-item" id="ongkir">Shiping Charge : <span
@@ -221,12 +223,12 @@ $vat = $setting->vat;
                                             </span>
                                         </li>
                                         @if(Session::has('coupon'))
-                                        <li class="list-group-item">Total : <span
+                                        <li class="list-group-item" id="total">Total : <span
                                                 style="float: right;">${{ Session::get('coupon')['balance'] + $charge + $vat }}
                                             </span>
                                         </li>
                                         @else
-                                        <li class="list-group-item">Total : <span
+                                        <li id="total" class="list-group-item">Total : <span
                                                 style="float: right;">${{ Cart::Subtotal() + $charge + $vat }}
                                             </span>
                                         </li>

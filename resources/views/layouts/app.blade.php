@@ -480,8 +480,8 @@ $setting = DB::table('sitesetting')->first();
         });
         //ajax check ongkir
         let isProcessing = false;
-        $('.btn-check').click(function(e) {
-            e.preventDefault();
+        // $('.btn-check').click(function(e) {
+        $('select[name="courier"]').on('change', function() {
 
             let token = $("meta[name='csrf-token']").attr("content");
             let city_origin = $('select[name=city_origin]').val();
@@ -508,8 +508,8 @@ $setting = DB::table('sitesetting')->first();
                 success: function(response) {
                     isProcessing = false;
                     if (response) {
-                        console.log(response[0]['costs']);
-                        $('#ongkir').empty();
+                        console.log(response)
+                        // $('#ongkir').empty();
                         // $('.ongkir').addClass('d-block');
                         // $.each(response[0]['costs'], function(key, value) {
                         //     $('#ongkir').append(
@@ -520,11 +520,46 @@ $setting = DB::table('sitesetting')->first();
                         //     )
                         // });
 
+                        $('select[name="hasil"]').empty();
+                        $('select[name="hasil"]').append(
+                            '<option value="">-- Pilih Harga --</option>');
+                        $.each(response[0]['costs'], function(key, value) {
+                            $('select[name="hasil"]').append(
+                                '<option value="' +
+                                value.cost[0].value + '">' + response[0].code
+                                .toUpperCase() +
+                                ' : <strong>' + value.service +
+                                '</strong> - Rp. ' + value.cost[0]
+                                .value +
+                                '</option>');
+                        });
+                    } else {
+                        $('select[name="hasil"]').append(
+                            '<option value="">-- Pilih Harga --</option>');
                     }
                 }
             });
 
         });
+
+        $('select[name="hasil"]').on('change', function() {
+            let courier = $('select[name="hasil"]').val();
+            let subtotal = document.getElementById("subtotal").getAttribute('data-value');
+
+            let total = courier + subtotal;
+
+            console.log(total);
+
+            $('#ongkir').append(
+                '<li class="list-group-item">Shipping Charge : Rp.' + courier +
+                '</li>'
+            )
+
+            // $('#total').append(
+            //     document.getElementById("total").innerHTML = total;
+            // )
+        });
+
 
     });
     </script>

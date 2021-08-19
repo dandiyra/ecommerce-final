@@ -126,7 +126,7 @@ class CartController extends Controller
  	$data['name'] = $product->product_name;
  	$data['qty'] = $request->qty;
  	$data['price'] = $product->selling_price;
- 	$data['weight'] = 1;
+ 	$data['weight'] = $product->p_weight;
  	$data['options']['image'] = $product->image_one;
  	$data['options']['color'] = $request->color;
  	$data['options']['size'] = $request->size;
@@ -142,7 +142,7 @@ class CartController extends Controller
  	$data['name'] = $product->product_name;
  	$data['qty'] = $request->qty;
  	$data['price'] = $product->discount_price;
- 	$data['weight'] = 1;
+ 	$data['weight'] = $product->p_weight;
  	$data['options']['image'] = $product->image_one;
  	$data['options']['color'] = $request->color;
  	$data['options']['size'] = $request->size;
