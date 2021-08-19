@@ -242,10 +242,11 @@ $vat = $setting->vat;
 <script src="{{ asset('public/frontend/js/cart_custom.js') }}"></script>
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
 <script type="text/javascript">
-var payButton = document.getElementById('pay-button');
-// For example trigger on button clicked, or any time you need
-payButton.addEventListener('click', function() {
-    window.snap.pay('<?php echo $snapToken ?>'); // Replace it with your transaction token
-});
+    var payButton = document.getElementById('pay-button');
+    // For example trigger on button clicked, or any time you need
+    payButton.addEventListener('click', function () {
+        window.snap.pay('<?php echo $snapToken ?>'); // Replace it with your transaction token
+    });
+
 </script>
 @endsection

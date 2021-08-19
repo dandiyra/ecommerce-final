@@ -78,7 +78,9 @@
                 <div class="col-md-12">
                     <div class="card d-none ongkir">
                         <div class="card-body">
-                            <ul class="list-group" id="ongkir"></ul>
+                           <select name="ongkir">
+                               <option value=""></option>
+                           </select>
                         </div>
                     </div>
                 </div>

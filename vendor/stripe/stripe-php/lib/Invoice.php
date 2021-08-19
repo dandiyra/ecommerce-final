@@ -23,7 +23,7 @@ namespace Stripe;
  * to finalize the invoice.
  *
  * If your invoice is configured to be billed by sending an email, then based on
- * your <a href="https://dashboard.stripe.com/account/billing/automatic'">email
+ * your <a href="https://dashboard.stripe.com/account/billing/automatic">email
  * settings</a>, Stripe will email the invoice to your customer and await payment.
  * These emails can contain a link to a hosted page to pay the invoice.
  *
@@ -56,7 +56,7 @@ namespace Stripe;
  * @property \Stripe\StripeObject $automatic_tax
  * @property null|string $billing_reason Indicates the reason why the invoice was created. <code>subscription_cycle</code> indicates an invoice created by a subscription advancing into a new period. <code>subscription_create</code> indicates an invoice created due to creating a subscription. <code>subscription_update</code> indicates an invoice created due to updating a subscription. <code>subscription</code> is set for all old invoices to indicate either a change to a subscription or a period advancement. <code>manual</code> is set for all invoices unrelated to a subscription (for example: created via the invoice editor). The <code>upcoming</code> value is reserved for simulated invoices per the upcoming invoice endpoint. <code>subscription_threshold</code> indicates an invoice created due to a billing threshold being reached.
  * @property null|string|\Stripe\Charge $charge ID of the latest charge generated for this invoice, if any.
- * @property null|string $collection_method Either <code>charge_automatically</code>, or <code>send_invoice</code>. When charging automatically, Stripe will attempt to pay this invoice using the default source attached to the customer. When sending an invoice, Stripe will email this invoice to the customer with payment instructions.
+ * @property string $collection_method Either <code>charge_automatically</code>, or <code>send_invoice</code>. When charging automatically, Stripe will attempt to pay this invoice using the default source attached to the customer. When sending an invoice, Stripe will email this invoice to the customer with payment instructions.
  * @property int $created Time at which the object was created. Measured in seconds since the Unix epoch.
  * @property string $currency Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO currency code</a>, in lowercase. Must be a <a href="https://stripe.com/docs/currencies">supported currency</a>.
  * @property null|\Stripe\StripeObject[] $custom_fields Custom fields displayed on the invoice.
@@ -93,6 +93,7 @@ namespace Stripe;
  * @property int $period_start Start of the usage period during which invoice items were added to this invoice.
  * @property int $post_payment_credit_notes_amount Total amount of all post-payment credit notes issued for this invoice.
  * @property int $pre_payment_credit_notes_amount Total amount of all pre-payment credit notes issued for this invoice.
+ * @property null|string|\Stripe\Quote $quote The quote this invoice was generated from.
  * @property null|string $receipt_number This is the transaction number that appears on email receipts sent for this invoice.
  * @property int $starting_balance Starting customer balance before the invoice is finalized. If the invoice has not been finalized yet, this will be the current customer balance.
  * @property null|string $statement_descriptor Extra information about an invoice for the customer's credit card statement.
@@ -122,6 +123,7 @@ class Invoice extends ApiResource
     const BILLING_SEND_INVOICE = 'send_invoice';
 
     const BILLING_REASON_MANUAL = 'manual';
+    const BILLING_REASON_QUOTE_ACCEPT = 'quote_accept';
     const BILLING_REASON_SUBSCRIPTION = 'subscription';
     const BILLING_REASON_SUBSCRIPTION_CREATE = 'subscription_create';
     const BILLING_REASON_SUBSCRIPTION_CYCLE = 'subscription_cycle';
