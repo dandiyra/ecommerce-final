@@ -350,7 +350,9 @@ $setting = DB::table('sitesetting')->first();
     </div>
 
 
-    <script src="{{ asset('public/frontend/js/jquery-3.3.1.min.js')}}"></script>
+    <!-- <script src="{{ asset('public/frontend/js/jquery-3.3.1.min.js')}}"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="{{ asset('public/frontend/styles/bootstrap4/popper.js')}}"></script>
     <script src="{{ asset('public/frontend/styles/bootstrap4/bootstrap.min.js')}}"></script>
     <script src="{{ asset('public/frontend/plugins/greensock/TweenMax.min.js')}}"></script>
@@ -371,7 +373,7 @@ $setting = DB::table('sitesetting')->first();
     </script>
 
 
-    <!-- <script src="{{ asset('public/frontend/js/product_custom.js')}}"></script> -->
+    <script src="{{ asset('public/frontend/js/product_custom.js')}}"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -379,8 +381,8 @@ $setting = DB::table('sitesetting')->first();
 
 
     <script>
-    if(Session::has('messege'))
-    var type = "{{Session::get('alert-type','info')}}"
+    if (Session::has('messege'))
+        var type = "{{Session::get('alert-type','info')}}"
     switch (type) {
         case 'info':
             toastr.info("{{ Session::get('messege') }}");
@@ -418,7 +420,6 @@ $setting = DB::table('sitesetting')->first();
                 }
             });
     });
-
     </script>
 
     <!-- Raja Ongkir -->
@@ -507,18 +508,17 @@ $setting = DB::table('sitesetting')->first();
                 success: function(response) {
                     isProcessing = false;
                     if (response) {
+                        console.log(response[0]['costs']);
                         $('#ongkir').empty();
-                        $('.ongkir').addClass('d-block');
-                        $.each(response[0]['costs'], function(key, value) {
-                            $('#ongkir').append(
-                                '<li class="list-group-item">' +
-                                response[0].code.toUpperCase() +
-                                ' : <strong>' + value.service +
-                                '</strong> - Rp. ' + value.cost[0]
-                                .value +
-                                ' (' + value.cost[0].etd + ' hari)</li>'
-                            )
-                        });
+                        // $('.ongkir').addClass('d-block');
+                        // $.each(response[0]['costs'], function(key, value) {
+                        //     $('#ongkir').append(
+                        //         '<li class="list-group-item"><span> Rp.' +
+                        //         value.cost[0]
+                        //         .value +
+                        //         '</span></li>'
+                        //     )
+                        // });
 
                     }
                 }

@@ -72,6 +72,7 @@ $vat = $setting->vat;
                                     </div>
                                 </div>
                             </li>
+                            @endforeach
                         </ul>
                     </div>
 
@@ -82,10 +83,10 @@ $vat = $setting->vat;
                             <div class="order_total">
                                 <div class="order_total_content text-md-right">
                                     <div class="order_total_title">Order Total:</div>
-                                    <div class="order_total_amount">Rp{{ $row->price*$row->qty }}</div>
+                                    <div class="order_total_amount">Rp{{ Cart::total() }}</div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" aria-describedby="emailHelp"
-                                            name="total" value="{{ Cart::Subtotal() + $charge + $vat }}" hidden>
+                                            name="total" value="{{ Cart::total() }}" hidden>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +96,6 @@ $vat = $setting->vat;
                             </div>
                         </form>
                     </div>
-                    @endforeach
                 </div>
             </div>
         </div>

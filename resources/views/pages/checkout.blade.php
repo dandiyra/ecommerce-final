@@ -99,12 +99,12 @@ $vat = $setting->vat;
                                                     <label class="font-weight-bold">PROVINSI ASAL</label>
                                                 </div>
                                                 <div class="form-control">
-                                                <select class="form-control provinsi-asal" name="province_origin">
-                                                    <option value="0">-- pilih provinsi asal --</option>
-                                                    @foreach ($provinces as $province => $value)
-                                                    <option value="{{ $province  }}">{{ $value }}</option>
-                                                    @endforeach
-                                                </select>
+                                                    <select class="form-control provinsi-asal" name="province_origin">
+                                                        <option value="0">-- pilih provinsi asal --</option>
+                                                        @foreach ($provinces as $province => $value)
+                                                        <option value="{{ $province  }}">{{ $value }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,9 +114,9 @@ $vat = $setting->vat;
                                                     <label class="font-weight-bold">KOTA / KABUPATEN ASAL</label>
                                                 </div>
                                                 <div class="form-control">
-                                                <select class="form-control kota-asal" name="city_origin">
-                                                    <option value="">-- pilih kota asal --</option>
-                                                </select>
+                                                    <select class="form-control kota-asal" name="city_origin">
+                                                        <option value="">-- pilih kota asal --</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -125,16 +125,16 @@ $vat = $setting->vat;
                                         <div class="col-md">
                                             <div class="form-group">
                                                 <div>
-                                                <label class="font-weight-bold">PROVINSI TUJUAN</label>
+                                                    <label class="font-weight-bold">PROVINSI TUJUAN</label>
                                                 </div>
                                                 <div class="form-control">
-                                                <select class="form-control provinsi-tujuan"
-                                                    name="province_destination">
-                                                    <option value="0">-- pilih provinsi tujuan --</option>
-                                                    @foreach ($provinces as $province => $value)
-                                                    <option value="{{ $province  }}">{{ $value }}</option>
-                                                    @endforeach
-                                                </select>
+                                                    <select class="form-control provinsi-tujuan"
+                                                        name="province_destination">
+                                                        <option value="0">-- pilih provinsi tujuan --</option>
+                                                        @foreach ($provinces as $province => $value)
+                                                        <option value="{{ $province  }}">{{ $value }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,7 +213,7 @@ $vat = $setting->vat;
                                         <li class="list-group-item">Subtotal : <span style="float: right;">
                                                 ${{  Cart::Subtotal() }} </span> </li>
                                         @endif
-                                        <li class="list-group-item">Shiping Charge : <span
+                                        <li class="list-group-item" id="ongkir">Shiping Charge : <span
                                                 style="float: right;">${{ $charge  }}
                                             </span>
                                         </li>
@@ -241,7 +241,7 @@ $vat = $setting->vat;
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <!-- <div class="row mt-3">
                         <div class="col-md-12">
                             <div class="card d-none ongkir">
                                 <div class="card-body">
@@ -249,7 +249,7 @@ $vat = $setting->vat;
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
