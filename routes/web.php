@@ -8,7 +8,7 @@ Route::get('/callback/{provider}', 'SocialController@callback');
 Route::get('/', function () {return view('pages.index');});
 //auth & user
 Auth::routes(['verify' => true]);
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::get('/profile/change', 'HomeController@EditProfile')->name('profile.change');
 Route::post('update/profile/{id}', 'HomeController@updateProfile');
 Route::post('/password/update', 'HomeController@updatePassword')->name('password.update'); 
