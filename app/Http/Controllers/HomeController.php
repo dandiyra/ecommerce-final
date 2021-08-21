@@ -49,8 +49,16 @@ class HomeController extends Controller
 
     public function EditProfile(){
        $profile = DB::table('users')->select('id')->where('users.id', Auth::user()->id)->first();
+       $provinces = Province::pluck('nameP', 'province_id');
 
-        return view('auth.profile', compact('profile'));
+       $alamat = DB::table('users')
+    			->join('provinces','users.provinsi','province_id')
+    			->join('cities','users.kota','city_id')
+    			->select('users.*', 'provinces.*','cities.*')
+    			->where('users.id', Auth::user()->id)
+    			->first();
+
+        return view('auth.profile', compact('profile', 'provinces', 'alamat'));
     }
 
     public function updateProfile(Request $request, $id){
@@ -58,6 +66,8 @@ class HomeController extends Controller
       $data = array();
       $data['email'] = $request->email;
       $data['address'] = $request->address;
+      $data['provinsi'] = $request->province_destination;
+      $data['kota'] = $request->city_destination;
 
       $update = DB::table('users')->where('id', $id)->update($data);
 

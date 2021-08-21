@@ -422,9 +422,10 @@ $setting = DB::table('sitesetting')->first();
     });
     </script>
 
-    <!-- Raja Ongkir -->
+    <!-- Raja Ongkir dan midtrans -->
     <script>
     $(document).ready(function() {
+
         //active select2
         $(".provinsi-asal , .kota-asal, .provinsi-tujuan, .kota-tujuan").select2({
             theme: 'bootstrap4',
@@ -480,7 +481,6 @@ $setting = DB::table('sitesetting')->first();
         });
         //ajax check ongkir
         let isProcessing = false;
-        // $('.btn-check').click(function(e) {
         $('select[name="courier"]').on('change', function() {
 
             let token = $("meta[name='csrf-token']").attr("content");
@@ -542,24 +542,49 @@ $setting = DB::table('sitesetting')->first();
 
         });
 
+
         $('select[name="hasil"]').on('change', function() {
+
             let courier = $('select[name="hasil"]').val();
             let subtotal = document.getElementById("subtotal").getAttribute('data-value');
+            var total = parseInt(courier) + parseInt(subtotal);
+            var rupiah = "Rp";
 
-            let total = courier + subtotal;
+            document.getElementById("ongkir").innerHTML = rupiah + courier;
+            document.getElementById("test").innerHTML = rupiah + total;
 
-            console.log(total);
+            let token = $("meta[name='csrf-token']").attr("content");
+            let payButton = document.getElementById('pay-button');
+            let produk = document.getElementById("nProduk").getAttribute('data-value');
+            let id = document.getElementById("idProduk").getAttribute('data-value');
+            let price = document.getElementById("harga").getAttribute('data-value');
+            let qty = document.getElementById("qty").getAttribute('data-value');
 
-            $('#ongkir').append(
-                '<li class="list-group-item">Shipping Charge : Rp.' + courier +
-                '</li>'
-            )
+            console.log(produk, id, price, qty)
 
-            // $('#total').append(
-            //     document.getElementById("total").innerHTML = total;
-            // )
+            $.ajax({
+                url: "/ecommerce/pay",
+                type: 'post',
+                data: {
+                    _token: token,
+                    produk: produk,
+                    qty: qty,
+                    price: price,
+                    total: total,
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    /* invoke your function*/
+                    payButton.addEventListener('click', function() {
+                        window.snap
+                            .pay(
+                                response
+                            ); // Replace it with your transaction token
+                    });
+                }
+            });
+
         });
-
 
     });
     </script>

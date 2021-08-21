@@ -121,7 +121,7 @@ class CartController extends Controller
 
   $data = array();
  
- if ($product->discount_price == NULL) {
+ if ($product->discount_price == NULL && $qty > $product->product_quantity) {
  	$data['id'] = $product->id;
  	$data['name'] = $product->product_name;
  	$data['qty'] = $request->qty;
@@ -130,13 +130,12 @@ class CartController extends Controller
  	$data['options']['image'] = $product->image_one;
  	$data['options']['color'] = $request->color;
  	$data['options']['size'] = $request->size;
- 	 Cart::add($data);
  	 $notification=array(
-                        'messege'=>'Product Added Successfully',
-                        'alert-type'=>'success'
+                        'messege'=>'Stock Not Available',
+                        'alert-type'=>'danger'
                          );
                        return Redirect()->back()->with($notification);
- }else{
+ }else if ($product->discount_price == NULL && $qty < $product->product_quantity) {
 
  	$data['id'] = $product->id;
  	$data['name'] = $product->product_name;
@@ -153,47 +152,50 @@ class CartController extends Controller
                          );
                        return Redirect()->back()->with($notification);
 
- } 
+ } else if ($qty < $product->product_quantity) {
+
+  $data['id'] = $product->id;
+  $data['name'] = $product->product_name;
+  $data['qty'] = $request->qty;
+  $data['price'] = $product->discount_price;
+  $data['weight'] = $product->p_weight;
+  $data['options']['image'] = $product->image_one;
+  $data['options']['color'] = $request->color;
+  $data['options']['size'] = $request->size;
+   Cart::add($data);
+   $notification=array(
+                       'messege'=>'Product Added Successfully',
+                       'alert-type'=>'success'
+                        );
+                      return Redirect()->back()->with($notification);
+
+} else if ($qty > $product->product_quantity) {
+
+  $data['id'] = $product->id;
+  $data['name'] = $product->product_name;
+  $data['qty'] = $request->qty;
+  $data['price'] = $product->discount_price;
+  $data['weight'] = $product->p_weight;
+  $data['options']['image'] = $product->image_one;
+  $data['options']['color'] = $request->color;
+  $data['options']['size'] = $request->size;
+   $notification=array(
+    'messege'=>'Stock Not Available',
+    'alert-type'=>'danger'
+     );
+   return Redirect()->back()->with($notification);
+
+} 
 
    } 
 
-   public function Checkout(Request $request){
+   public function Checkout(){
   if (Auth::check()) {
 
   	$cart = Cart::content();
-    $provinces = Province::pluck('name', 'province_id');
+    $provinces = Province::pluck('nameP', 'province_id');
 
-    $data = array();
-  
-    $order_id = uniqid();
-    $total = $request->total;
-  
-        $this->initPaymentGateway($data);
-  
-        $customerDetails = [
-          'first_name'  => Auth::user()->name,
-          'last_name'   => Auth::user()->name,
-          'email'       => Auth::user()->email,
-          'phone'       => Auth::user()->phone,
-        ];
-  
-        $params = [
-          'enable_payments' => \App\Model\Payment::PAYMENT_CHANNELS,
-          'transaction_details' => [
-            'order_id' => $order_id,
-            'gross_amount' => $total,
-          ],
-          'customer_details' => $customerDetails,
-          'expiry' => [
-            'start_date' => date('Y m d H:i:s T'),
-            'unit' => \App\Model\Payment::EXPIRY_UNIT,
-            'duration' => \App\Model\Payment::EXPIRY_DURATION,
-          ],
-        ];
-  
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
-
-    return view('pages.checkout',compact('cart', 'snapToken', 'provinces'));
+    return view('pages.checkout',compact('cart', 'provinces'));
 
   }else{
   	$notification=array(
@@ -204,7 +206,6 @@ class CartController extends Controller
   } 
 
    }
-
     
     public function index()
     {

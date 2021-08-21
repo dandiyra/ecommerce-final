@@ -77,29 +77,27 @@ $vat = $setting->vat;
                     </div>
 
                     <!-- Order Total -->
-                    <div class="container">
-                        <form action="{{ route('user.checkout') }}" method="post">
-                            @csrf
-                            <div class="order_total">
-                                <div class="order_total_content text-md-right">
-                                    <div class="order_total_title">Order Total:</div>
-                                    <div class="order_total_amount">Rp{{ Cart::total() }}</div>
-                                    <div class="form-group">
+                    <!-- <div class="container">
+                        <form action="{{ route('user.checkout') }}" method="post"> -->
+                    <div class="order_total">
+                        <div class="order_total_content text-md-right">
+                            <div class="order_total_title">Order Total:</div>
+                            <div class="order_total_amount">Rp{{ Cart::total() }}</div>
+                            <!-- <div class="form-group">
                                         <input type="text" class="form-control" aria-describedby="emailHelp"
                                             name="total" value="{{ Cart::total() }}" hidden>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cart_buttons">
-                                <a href="{{  route('awal') }}" class="button cart_button_clear">All Cancel</a>
-                                <button type="submit" class="button cart_button_checkout">Checkout</button>
-                            </div>
-                        </form>
+                                    </div> -->
+                        </div>
+                    </div>
+                    <div class="cart_buttons">
+                        <a href="{{  route('awal') }}" class="button cart_button_clear">All Cancel</a>
+                        <a href="{{ route('user.checkout') }}" class="button cart_button_checkout">Checkout</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <script src="{{ asset('public/frontend/js/cart_custom.js') }}"></script>
