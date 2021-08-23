@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Agu 2021 pada 08.24
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.3.9
+-- Generation Time: Aug 23, 2021 at 08:25 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admins`
+-- Table structure for table `admins`
 --
 
 CREATE TABLE `admins` (
@@ -55,7 +54,7 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `admins`
+-- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`id`, `name`, `phone`, `email`, `email_verified_at`, `password`, `remember_token`, `category`, `coupon`, `product`, `blog`, `order`, `other`, `report`, `role`, `return`, `contact`, `comment`, `setting`, `stock`, `type`, `created_at`, `updated_at`) VALUES
@@ -65,7 +64,7 @@ INSERT INTO `admins` (`id`, `name`, `phone`, `email`, `email_verified_at`, `pass
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `brands`
+-- Table structure for table `brands`
 --
 
 CREATE TABLE `brands` (
@@ -77,7 +76,7 @@ CREATE TABLE `brands` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `brands`
+-- Dumping data for table `brands`
 --
 
 INSERT INTO `brands` (`id`, `brand_name`, `brand_logo`, `created_at`, `updated_at`) VALUES
@@ -95,7 +94,7 @@ INSERT INTO `brands` (`id`, `brand_name`, `brand_logo`, `created_at`, `updated_a
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -106,7 +105,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `category_name`, `created_at`, `updated_at`) VALUES
@@ -124,7 +123,7 @@ INSERT INTO `categories` (`id`, `category_name`, `created_at`, `updated_at`) VAL
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cities`
+-- Table structure for table `cities`
 --
 
 CREATE TABLE `cities` (
@@ -137,7 +136,7 @@ CREATE TABLE `cities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `cities`
+-- Dumping data for table `cities`
 --
 
 INSERT INTO `cities` (`id`, `province_id`, `city_id`, `name`, `created_at`, `updated_at`) VALUES
@@ -646,7 +645,7 @@ INSERT INTO `cities` (`id`, `province_id`, `city_id`, `name`, `created_at`, `upd
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `contact`
+-- Table structure for table `contact`
 --
 
 CREATE TABLE `contact` (
@@ -660,7 +659,7 @@ CREATE TABLE `contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `contact`
+-- Dumping data for table `contact`
 --
 
 INSERT INTO `contact` (`id`, `name`, `phone`, `email`, `message`, `created_at`, `updated_at`) VALUES
@@ -671,7 +670,7 @@ INSERT INTO `contact` (`id`, `name`, `phone`, `email`, `message`, `created_at`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `coupons`
+-- Table structure for table `coupons`
 --
 
 CREATE TABLE `coupons` (
@@ -685,7 +684,7 @@ CREATE TABLE `coupons` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `couriers`
+-- Table structure for table `couriers`
 --
 
 CREATE TABLE `couriers` (
@@ -697,7 +696,7 @@ CREATE TABLE `couriers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `couriers`
+-- Dumping data for table `couriers`
 --
 
 INSERT INTO `couriers` (`id`, `code`, `name`, `created_at`, `updated_at`) VALUES
@@ -708,7 +707,7 @@ INSERT INTO `couriers` (`id`, `code`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -723,7 +722,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -733,7 +732,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -767,7 +766,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `newslaters`
+-- Table structure for table `newslaters`
 --
 
 CREATE TABLE `newslaters` (
@@ -778,7 +777,7 @@ CREATE TABLE `newslaters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `newslaters`
+-- Dumping data for table `newslaters`
 --
 
 INSERT INTO `newslaters` (`id`, `email`, `created_at`, `updated_at`) VALUES
@@ -789,7 +788,7 @@ INSERT INTO `newslaters` (`id`, `email`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `oauth_access_tokens`
+-- Table structure for table `oauth_access_tokens`
 --
 
 CREATE TABLE `oauth_access_tokens` (
@@ -807,7 +806,7 @@ CREATE TABLE `oauth_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `oauth_auth_codes`
+-- Table structure for table `oauth_auth_codes`
 --
 
 CREATE TABLE `oauth_auth_codes` (
@@ -822,7 +821,7 @@ CREATE TABLE `oauth_auth_codes` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `oauth_clients`
+-- Table structure for table `oauth_clients`
 --
 
 CREATE TABLE `oauth_clients` (
@@ -839,7 +838,7 @@ CREATE TABLE `oauth_clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `oauth_clients`
+-- Dumping data for table `oauth_clients`
 --
 
 INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
@@ -849,7 +848,7 @@ INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `redirect`, `per
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `oauth_personal_access_clients`
+-- Table structure for table `oauth_personal_access_clients`
 --
 
 CREATE TABLE `oauth_personal_access_clients` (
@@ -860,7 +859,7 @@ CREATE TABLE `oauth_personal_access_clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `oauth_personal_access_clients`
+-- Dumping data for table `oauth_personal_access_clients`
 --
 
 INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
@@ -869,7 +868,7 @@ INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `oauth_refresh_tokens`
+-- Table structure for table `oauth_refresh_tokens`
 --
 
 CREATE TABLE `oauth_refresh_tokens` (
@@ -882,7 +881,7 @@ CREATE TABLE `oauth_refresh_tokens` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
@@ -908,16 +907,19 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `orders`
+-- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `payment_type`, `payment_id`, `paying_amount`, `blnc_transection`, `stripe_order_id`, `subtotal`, `shipping`, `vat`, `total`, `status`, `return_order`, `month`, `date`, `year`, `status_code`, `created_at`, `updated_at`) VALUES
-(1, '1', 'stripe', 'card_1J50FEF0tPxwTRJ3ugc4y3b9', '51500', 'txn_1J50FGF0tPxwTRJ3hdif1Bu2', '60d1583d0fc87', '500.00', '10', '5', '515', '1', '0', 'June', '22-06-21', '2021', '668267', NULL, NULL);
+(1, '1', 'stripe', 'card_1J50FEF0tPxwTRJ3ugc4y3b9', '51500', 'txn_1J50FGF0tPxwTRJ3hdif1Bu2', '60d1583d0fc87', '500.00', '10', '5', '515', '2', '0', 'June', '22-06-21', '2021', '668267', NULL, NULL),
+(2, '3', 'stripe', 'card_1JQ50xF0tPxwTRJ367YGkrBl', '21500', 'txn_3JQ50yF0tPxwTRJ31lxMWV6Q', '611dfe33af7c3', '200.00', '10', '5', '215', '0', '0', 'August', '19-08-21', '2021', '846444', NULL, NULL),
+(3, '3', 'midtrans', NULL, '6782000', NULL, '6123200086b2a', '6750000.00', '32000', NULL, NULL, '0', '0', 'August', '23-08-21', '2021', '543028', NULL, NULL),
+(4, '3', 'midtrans', NULL, '2018000', NULL, '612321013c99a', '2000000.00', '18000', NULL, NULL, '0', '0', 'August', '23-08-21', '2021', '320424', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `orders_details`
+-- Table structure for table `orders_details`
 --
 
 CREATE TABLE `orders_details` (
@@ -935,7 +937,7 @@ CREATE TABLE `orders_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `orders_details`
+-- Dumping data for table `orders_details`
 --
 
 INSERT INTO `orders_details` (`id`, `order_id`, `product_id`, `product_name`, `color`, `size`, `quantity`, `singleprice`, `totalprice`, `created_at`, `updated_at`) VALUES
@@ -948,12 +950,15 @@ INSERT INTO `orders_details` (`id`, `order_id`, `product_id`, `product_name`, `c
 (7, 6, '25', 'LCS-4116 CROCO STRAP', 'ss', 's', '1', '500', '500', NULL, NULL),
 (8, 7, '25', 'LCS-4116 CROCO STRAP', 'ss', 's', '2', '500', '1000', NULL, NULL),
 (9, 8, '25', 'LCS-4116 CROCO STRAP', 'ss', 's', '2', '500', '1000', NULL, NULL),
-(10, 1, '25', 'LCS-4116 CROCO STRAP', 'ss', 's', '1', '500', '500', NULL, NULL);
+(10, 1, '25', 'LCS-4116 CROCO STRAP', 'ss', 's', '1', '500', '500', NULL, NULL),
+(11, 2, '2', 'Predator Triton 300', 'BLACK', '-', '1', '200', '200', NULL, NULL),
+(12, 3, '4', 'Predator Helios 300', 'Black', NULL, '1', '750000', '6782000', NULL, NULL),
+(13, 3, '3', 'Dell Alienware 17 R4', 'SILVER', NULL, '3', '2000000', '6782000', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -965,7 +970,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `posts`
+-- Table structure for table `posts`
 --
 
 CREATE TABLE `posts` (
@@ -981,7 +986,7 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `posts`
+-- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`id`, `category_id`, `post_title_en`, `post_title_in`, `post_image`, `details_en`, `details_in`, `created_at`, `updated_at`) VALUES
@@ -990,7 +995,7 @@ INSERT INTO `posts` (`id`, `category_id`, `post_title_en`, `post_title_in`, `pos
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `post_category`
+-- Table structure for table `post_category`
 --
 
 CREATE TABLE `post_category` (
@@ -1002,7 +1007,7 @@ CREATE TABLE `post_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `post_category`
+-- Dumping data for table `post_category`
 --
 
 INSERT INTO `post_category` (`id`, `category_name_en`, `category_name_in`, `created_at`, `updated_at`) VALUES
@@ -1012,7 +1017,7 @@ INSERT INTO `post_category` (`id`, `category_name_en`, `category_name_in`, `crea
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -1028,6 +1033,7 @@ CREATE TABLE `products` (
   `product_size` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `selling_price` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `discount_price` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `p_weight` int(100) NOT NULL,
   `video_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `main_slider` int(11) DEFAULT NULL,
   `hot_deal` int(11) DEFAULT NULL,
@@ -1045,33 +1051,33 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `products`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `brand_id`, `product_name`, `product_code`, `product_quantity`, `product_details`, `product_color`, `product_size`, `selling_price`, `discount_price`, `video_link`, `main_slider`, `hot_deal`, `best_rated`, `mid_slider`, `hot_new`, `buyone_getone`, `trend`, `image_one`, `image_two`, `image_three`, `status`, `created_at`, `updated_at`) VALUES
-(2, 6, 20, 6, 'Predator Triton 300', 'PRD123', '200', '<b style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Acer Predator Triton 300</b><span style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;is a Windows 10 Home laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i5 processor and it comes with 8GB of RAM. The&nbsp;</span><b style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Acer Predator Triton 300</b><span style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;packs 512GB of SSD storage. Graphics are powered by Nvidia GeForce GTX 1650 Ti.</span>', 'BLACK', '-', '4100000000', '3900000000', 'https://www.youtube.com/watch?v=wYFmA0hst8M', 1, 1, 1, 1, 1, 1, 1, 'public/media/product/230621_09_08_24.png', 'public/media/product/1703237160484845.png', 'public/media/product/1703237160529649.png', 1, NULL, NULL),
-(3, 6, 20, 6, 'Dell Alienware 17 R4', 'DAR123', '10', '<div class=\"d9FyLd XcVN5d\" style=\"padding-bottom: 10px; color: rgb(32, 33, 36); font-size: 16px; font-family: &quot;Google Sans&quot;, arial, sans-serif !important;\"><b>Dell 17 R4 Overview</b></div><p><span class=\"hgKElc\" style=\"padding-right: 8px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Crafted for immersive, high-<b>definition</b>&nbsp;gaming, the 17.3\"&nbsp;<b>Alienware 17 R4</b>&nbsp;Laptop from&nbsp;<b>Dell</b>&nbsp;is a VR-ready system that has passed Oculus Ready and Vive Optimized certifications. It is equipped with a 2560 x 1440 120 Hz G-Sync display and a NVIDIA GeForce GTX 1070 graphics card with 8GB of GDDR5 VRAM.</span></p>', 'SILVER', '-', '6999999999', '59999999999', 'https://www.youtube.com/watch?v=wYFmA0hst8M', NULL, 1, 1, 1, 1, 1, 1, 'public/media/product/230621_09_25_28.png', 'public/media/product/1703348386504351.jpeg', 'public/media/product/1703348386559337.jpeg', 1, NULL, NULL),
-(4, 6, 20, 10, 'Predator Helios 300', 'ZE551ML', '10', '<b style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Acer Predator Helios 300</b><span style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;is a Windows 10 Home laptop with a 17.30-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 16GB of RAM. Graphics are powered by Nvidia GeForce GTX 1050 Ti.</span>', 'Black', '-', '3000000000', '2900000000', 'https://www.youtube.com/watch?v=N6t78tlEY-w', 1, 1, 1, 1, 1, 1, 1, 'public/media/product/230621_09_02_19.png', 'public/media/product/1703348681457769.jpg', 'public/media/product/1703348681507901.jpg', 1, NULL, NULL);
+INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `brand_id`, `product_name`, `product_code`, `product_quantity`, `product_details`, `product_color`, `product_size`, `selling_price`, `discount_price`, `p_weight`, `video_link`, `main_slider`, `hot_deal`, `best_rated`, `mid_slider`, `hot_new`, `buyone_getone`, `trend`, `image_one`, `image_two`, `image_three`, `status`, `created_at`, `updated_at`) VALUES
+(2, 6, 20, 6, 'Predator Triton 300', 'PRD123', '200', '<b style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Acer Predator Triton 300</b><span style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;is a Windows 10 Home laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i5 processor and it comes with 8GB of RAM. The&nbsp;</span><b style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Acer Predator Triton 300</b><span style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;packs 512GB of SSD storage. Graphics are powered by Nvidia GeForce GTX 1650 Ti.</span>', 'BLACK', '-', '25000000', '200', 1000, 'https://www.youtube.com/watch?v=wYFmA0hst8M', 1, 1, 1, 1, 1, 1, 1, 'public/media/product/230621_09_08_24.png', 'public/media/product/1703237160484845.png', 'public/media/product/1703237160529649.png', 1, NULL, NULL),
+(3, 6, 20, 6, 'Dell Alienware 17 R4', 'DAR123', '10', '<div class=\"d9FyLd XcVN5d\" style=\"padding-bottom: 10px; color: rgb(32, 33, 36); font-size: 16px; font-family: &quot;Google Sans&quot;, arial, sans-serif !important;\"><b>Dell 17 R4 Overview</b></div><p><span class=\"hgKElc\" style=\"padding-right: 8px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Crafted for immersive, high-<b>definition</b>&nbsp;gaming, the 17.3\"&nbsp;<b>Alienware 17 R4</b>&nbsp;Laptop from&nbsp;<b>Dell</b>&nbsp;is a VR-ready system that has passed Oculus Ready and Vive Optimized certifications. It is equipped with a 2560 x 1440 120 Hz G-Sync display and a NVIDIA GeForce GTX 1070 graphics card with 8GB of GDDR5 VRAM.</span></p>', 'SILVER', '-', '45000000', '2000000', 1000, 'https://www.youtube.com/watch?v=wYFmA0hst8M', NULL, 1, 1, 1, 1, 1, 1, 'public/media/product/230621_09_25_28.png', 'public/media/product/1703348386504351.jpeg', 'public/media/product/1703348386559337.jpeg', 1, NULL, NULL),
+(4, 6, 20, 10, 'Predator Helios 300', 'ZE551ML', '10', '<b style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Acer Predator Helios 300</b><span style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;is a Windows 10 Home laptop with a 17.30-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 16GB of RAM. Graphics are powered by Nvidia GeForce GTX 1050 Ti.</span>', 'Black', '-', '18500000', '750000', 1000, 'https://www.youtube.com/watch?v=N6t78tlEY-w', 1, 1, 1, 1, 1, 1, 1, 'public/media/product/230621_09_02_19.png', 'public/media/product/1703348681457769.jpg', 'public/media/product/1703348681507901.jpg', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `provinces`
+-- Table structure for table `provinces`
 --
 
 CREATE TABLE `provinces` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `province_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nameP` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `provinces`
+-- Dumping data for table `provinces`
 --
 
-INSERT INTO `provinces` (`id`, `province_id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `provinces` (`id`, `province_id`, `nameP`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Bali', '2021-06-21 21:53:08', '2021-06-21 21:53:08'),
 (2, 2, 'Bangka Belitung', '2021-06-21 21:53:09', '2021-06-21 21:53:09'),
 (3, 3, 'Banten', '2021-06-21 21:53:10', '2021-06-21 21:53:10'),
@@ -1110,7 +1116,7 @@ INSERT INTO `provinces` (`id`, `province_id`, `name`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `seo`
+-- Table structure for table `seo`
 --
 
 CREATE TABLE `seo` (
@@ -1126,7 +1132,7 @@ CREATE TABLE `seo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `seo`
+-- Dumping data for table `seo`
 --
 
 INSERT INTO `seo` (`id`, `meta_title`, `meta_author`, `meta_tag`, `meta_description`, `google_analytics`, `bing_analytics`, `created_at`, `updated_at`) VALUES
@@ -1135,7 +1141,7 @@ INSERT INTO `seo` (`id`, `meta_title`, `meta_author`, `meta_tag`, `meta_descript
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `settings`
+-- Table structure for table `settings`
 --
 
 CREATE TABLE `settings` (
@@ -1152,7 +1158,7 @@ CREATE TABLE `settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `vat`, `shipping_charge`, `shopname`, `email`, `phone`, `adderss`, `logo`, `created_at`, `updated_at`) VALUES
@@ -1161,7 +1167,7 @@ INSERT INTO `settings` (`id`, `vat`, `shipping_charge`, `shopname`, `email`, `ph
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `shipping`
+-- Table structure for table `shipping`
 --
 
 CREATE TABLE `shipping` (
@@ -1177,7 +1183,7 @@ CREATE TABLE `shipping` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `shipping`
+-- Dumping data for table `shipping`
 --
 
 INSERT INTO `shipping` (`id`, `order_id`, `ship_name`, `ship_phone`, `ship_email`, `ship_address`, `ship_city`, `created_at`, `updated_at`) VALUES
@@ -1189,12 +1195,18 @@ INSERT INTO `shipping` (`id`, `order_id`, `ship_name`, `ship_phone`, `ship_email
 (6, '6', 'kazi ariyan', '01711587594', 'kazi.ariyan@tradeco.com.bd', 'Suleman Plaza (2nd floor) 3/3 B, Purana Paltan, Dhaka-1000, Bangladesh.', 'Dhaka', NULL, NULL),
 (7, '7', 'kazi ariyan', '01711587594', 'kazi.ariyan@tradeco.com.bd', 'Suleman Plaza (2nd floor) 3/3 B, Purana Paltan, Dhaka-1000, Bangladesh.', 'Dhaka', NULL, NULL),
 (8, '8', 'kazi ariyan', '01711587594', 'kazi.ariyan@tradeco.com.bd', 'Suleman Plaza (2nd floor) 3/3 B, Purana Paltan, Dhaka-1000, Bangladesh.', 'Dhaka', NULL, NULL),
-(9, '1', 'Dandy', '0895336420201', 'dandy@gmail.com', 'jakarta', 'jakarta', NULL, NULL);
+(9, '1', 'Dandy', '0895336420201', 'dandy@gmail.com', 'jakarta', 'jakarta', NULL, NULL),
+(10, '2', 'Jonathan Keane', '082297643766', 'jonathankeane19@gmail.com', 'Jalan Pendek No 100, Kec Pasti Nyasar.', 'Jakarta lama', NULL, NULL),
+(11, '61231a6275aa4', 'Lucas Keane', '081236712687631', 'nickholasjonathan11@gmail.com', 'Jalan Kemenangan No. 50, Jakarta Tengah', '151', NULL, NULL),
+(12, '61231a8898d67', 'Lucas Keane', '081236712687631', 'nickholasjonathan11@gmail.com', 'Jalan Kemenangan No. 50, Jakarta Tengah', '151', NULL, NULL),
+(13, '61231b706fad1', 'Lucas Keane', '081236712687631', 'nickholasjonathan11@gmail.com', 'Jalan Kemenangan No. 50, Jakarta Tengah', '151', NULL, NULL),
+(14, '3', 'Lucas Keane', '081236712687631', 'nickholasjonathan11@gmail.com', 'Jalan Kemenangan No. 50, Jakarta Tengah', '151', NULL, NULL),
+(15, '612321013c99a', 'Lucas Keane', '081236712687631', 'nickholasjonathan11@gmail.com', 'Jalan Kemenangan No. 50, Jakarta Tengah', '151', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sitesetting`
+-- Table structure for table `sitesetting`
 --
 
 CREATE TABLE `sitesetting` (
@@ -1213,7 +1225,7 @@ CREATE TABLE `sitesetting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `sitesetting`
+-- Dumping data for table `sitesetting`
 --
 
 INSERT INTO `sitesetting` (`id`, `phone_one`, `phone_two`, `email`, `company_name`, `company_address`, `facebook`, `youtube`, `instagram`, `twitter`, `created_at`, `updated_at`) VALUES
@@ -1222,7 +1234,7 @@ INSERT INTO `sitesetting` (`id`, `phone_one`, `phone_two`, `email`, `company_nam
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `subcategories`
+-- Table structure for table `subcategories`
 --
 
 CREATE TABLE `subcategories` (
@@ -1234,7 +1246,7 @@ CREATE TABLE `subcategories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `subcategories`
+-- Dumping data for table `subcategories`
 --
 
 INSERT INTO `subcategories` (`id`, `category_id`, `subcategory_name`, `created_at`, `updated_at`) VALUES
@@ -1262,7 +1274,7 @@ INSERT INTO `subcategories` (`id`, `category_id`, `subcategory_name`, `created_a
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -1270,6 +1282,9 @@ CREATE TABLE `users` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provinsi` int(10) NOT NULL,
+  `kota` int(10) NOT NULL,
   `avatar` varchar(240) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `provider` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `provider_id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1281,16 +1296,18 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `phone`, `email`, `avatar`, `provider`, `provider_id`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Dandy Yudistira', '0895336420201', 'irayunita79@gmail.com', NULL, NULL, NULL, NULL, '$2y$10$75O4DV4.HLMsqscmWtAlU./9BpslCIV81FGliOVpZy8XLcf1hBoF6', NULL, '2021-06-21 20:22:38', '2021-06-21 20:22:38');
+INSERT INTO `users` (`id`, `name`, `phone`, `email`, `address`, `provinsi`, `kota`, `avatar`, `provider`, `provider_id`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Dandy Yudistira', '0895336420201', 'dandy@gmail.com', 'Jalan Kemenangan No. 50, Jakarta Tengah', 0, 0, NULL, NULL, NULL, NULL, '$2y$10$75O4DV4.HLMsqscmWtAlU./9BpslCIV81FGliOVpZy8XLcf1hBoF6', NULL, '2021-06-21 20:22:38', '2021-06-21 20:22:38'),
+(2, 'Jonathan Keane', '082297643766', 'jonathankeane19@gmail.com', '', 0, 0, NULL, NULL, NULL, NULL, '$2y$10$zwVM7bZfiJ34NAa6zjlEguc7FzpHibgOuADXstPxdJcpGzClCGybu', NULL, '2021-08-10 00:32:14', '2021-08-10 00:32:14'),
+(3, 'Lucas Keane', '081236712687631', 'nickholasjonathan11@gmail.com', 'Jalan Kemenangan No. 50, Jakarta Tengah', 6, 151, NULL, NULL, NULL, '2021-08-22 23:24:37', '$2y$10$Po7nbHhixkMbxMf7GmfaPekT27ewHvsRMQal0ZniLl/k9.PEshU5W', NULL, '2021-08-12 23:21:04', '2021-08-22 23:24:37');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `wishlists`
+-- Table structure for table `wishlists`
 --
 
 CREATE TABLE `wishlists` (
@@ -1302,7 +1319,7 @@ CREATE TABLE `wishlists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `wishlists`
+-- Dumping data for table `wishlists`
 --
 
 INSERT INTO `wishlists` (`id`, `user_id`, `product_id`, `created_at`, `updated_at`) VALUES
@@ -1317,334 +1334,334 @@ INSERT INTO `wishlists` (`id`, `user_id`, `product_id`, `created_at`, `updated_a
 --
 
 --
--- Indeks untuk tabel `admins`
+-- Indexes for table `admins`
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `admins_email_unique` (`email`);
 
 --
--- Indeks untuk tabel `brands`
+-- Indexes for table `brands`
 --
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `cities`
+-- Indexes for table `cities`
 --
 ALTER TABLE `cities`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `contact`
+-- Indexes for table `contact`
 --
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `coupons`
+-- Indexes for table `coupons`
 --
 ALTER TABLE `coupons`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `couriers`
+-- Indexes for table `couriers`
 --
 ALTER TABLE `couriers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `newslaters`
+-- Indexes for table `newslaters`
 --
 ALTER TABLE `newslaters`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `oauth_access_tokens`
+-- Indexes for table `oauth_access_tokens`
 --
 ALTER TABLE `oauth_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD KEY `oauth_access_tokens_user_id_index` (`user_id`);
 
 --
--- Indeks untuk tabel `oauth_auth_codes`
+-- Indexes for table `oauth_auth_codes`
 --
 ALTER TABLE `oauth_auth_codes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `oauth_auth_codes_user_id_index` (`user_id`);
 
 --
--- Indeks untuk tabel `oauth_clients`
+-- Indexes for table `oauth_clients`
 --
 ALTER TABLE `oauth_clients`
   ADD PRIMARY KEY (`id`),
   ADD KEY `oauth_clients_user_id_index` (`user_id`);
 
 --
--- Indeks untuk tabel `oauth_personal_access_clients`
+-- Indexes for table `oauth_personal_access_clients`
 --
 ALTER TABLE `oauth_personal_access_clients`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `oauth_refresh_tokens`
+-- Indexes for table `oauth_refresh_tokens`
 --
 ALTER TABLE `oauth_refresh_tokens`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `orders`
+-- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `orders_details`
+-- Indexes for table `orders_details`
 --
 ALTER TABLE `orders_details`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indeks untuk tabel `posts`
+-- Indexes for table `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `post_category`
+-- Indexes for table `post_category`
 --
 ALTER TABLE `post_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `provinces`
+-- Indexes for table `provinces`
 --
 ALTER TABLE `provinces`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `seo`
+-- Indexes for table `seo`
 --
 ALTER TABLE `seo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `settings`
+-- Indexes for table `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `shipping`
+-- Indexes for table `shipping`
 --
 ALTER TABLE `shipping`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `sitesetting`
+-- Indexes for table `sitesetting`
 --
 ALTER TABLE `sitesetting`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `subcategories`
+-- Indexes for table `subcategories`
 --
 ALTER TABLE `subcategories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indeks untuk tabel `wishlists`
+-- Indexes for table `wishlists`
 --
 ALTER TABLE `wishlists`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admins`
+-- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `brands`
+-- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `cities`
+-- AUTO_INCREMENT for table `cities`
 --
 ALTER TABLE `cities`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=502;
 
 --
--- AUTO_INCREMENT untuk tabel `contact`
+-- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `coupons`
+-- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `couriers`
+-- AUTO_INCREMENT for table `couriers`
 --
 ALTER TABLE `couriers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT untuk tabel `newslaters`
+-- AUTO_INCREMENT for table `newslaters`
 --
 ALTER TABLE `newslaters`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `oauth_clients`
+-- AUTO_INCREMENT for table `oauth_clients`
 --
 ALTER TABLE `oauth_clients`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `oauth_personal_access_clients`
+-- AUTO_INCREMENT for table `oauth_personal_access_clients`
 --
 ALTER TABLE `oauth_personal_access_clients`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `orders`
+-- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `orders_details`
+-- AUTO_INCREMENT for table `orders_details`
 --
 ALTER TABLE `orders_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `posts`
+-- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `post_category`
+-- AUTO_INCREMENT for table `post_category`
 --
 ALTER TABLE `post_category`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `provinces`
+-- AUTO_INCREMENT for table `provinces`
 --
 ALTER TABLE `provinces`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT untuk tabel `seo`
+-- AUTO_INCREMENT for table `seo`
 --
 ALTER TABLE `seo`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `settings`
+-- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `shipping`
+-- AUTO_INCREMENT for table `shipping`
 --
 ALTER TABLE `shipping`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT untuk tabel `sitesetting`
+-- AUTO_INCREMENT for table `sitesetting`
 --
 ALTER TABLE `sitesetting`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `subcategories`
+-- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `wishlists`
+-- AUTO_INCREMENT for table `wishlists`
 --
 ALTER TABLE `wishlists`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
