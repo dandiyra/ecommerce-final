@@ -122,6 +122,7 @@ class CartController extends Controller
   $data = array();
  
  if ($product->discount_price == NULL && $qty > $product->product_quantity) {
+  
  	$data['id'] = $product->id;
  	$data['name'] = $product->product_name;
  	$data['qty'] = $request->qty;
@@ -132,11 +133,11 @@ class CartController extends Controller
  	$data['options']['size'] = $request->size;
  	 $notification=array(
                         'messege'=>'Stock Not Available',
-                        'alert-type'=>'danger'
+                        'alert-type'=>'error'
                          );
                        return Redirect()->back()->with($notification);
  }else if ($product->discount_price == NULL && $qty < $product->product_quantity) {
-
+  
  	$data['id'] = $product->id;
  	$data['name'] = $product->product_name;
  	$data['qty'] = $request->qty;
@@ -153,7 +154,7 @@ class CartController extends Controller
                        return Redirect()->back()->with($notification);
 
  } else if ($qty < $product->product_quantity) {
-
+  
   $data['id'] = $product->id;
   $data['name'] = $product->product_name;
   $data['qty'] = $request->qty;
@@ -170,7 +171,7 @@ class CartController extends Controller
                       return Redirect()->back()->with($notification);
 
 } else if ($qty > $product->product_quantity) {
-
+  
   $data['id'] = $product->id;
   $data['name'] = $product->product_name;
   $data['qty'] = $request->qty;
@@ -179,9 +180,10 @@ class CartController extends Controller
   $data['options']['image'] = $product->image_one;
   $data['options']['color'] = $request->color;
   $data['options']['size'] = $request->size;
+  Cart::add($data);
    $notification=array(
     'messege'=>'Stock Not Available',
-    'alert-type'=>'danger'
+    'alert-type'=>'error'
      );
    return Redirect()->back()->with($notification);
 
@@ -194,8 +196,9 @@ class CartController extends Controller
 
   	$cart = Cart::content();
     $provinces = Province::pluck('nameP', 'province_id');
+    $order = uniqid();
 
-    return view('pages.checkout',compact('cart', 'provinces'));
+    return view('pages.checkout',compact('cart', 'provinces', 'order'));
 
   }else{
   	$notification=array(

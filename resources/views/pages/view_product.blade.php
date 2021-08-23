@@ -24,36 +24,71 @@
                             <form method="post" action="{{ route('insert.into.cart') }}">
                                 @csrf
                                 <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
-                                <div class="form-group">
-                                    <div>
-                                        <label for="Quantity">Quantity</label>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <!-- <div class="form-group">
+                                            <div>
+                                                <label for="exampleInputcolor">Stock Available</label>
+                                            </div>
+                                            <div class="input-group">
+                                                <select name="color" class="form-control" id="color">
+                                                    <option value="{{ $product->product_quantity }}">
+                                                        {{$product->product_quantity}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group">
+                                            <div>
+                                                <label class="font-weight-bold">Stock Available</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="color" class="form-control" id="color">
+                                                    <option value="{{ $product->product_quantity }}">
+                                                        {{$product->product_quantity}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="quantity-left-minus btn btn-danger btn-number"
-                                                data-type="minus" data-field="">
-                                                <span class="fas fa-minus"></span>
-                                            </button>
-                                        </span>
-                                        <input type="text" id="quantity" name="qty" class="form-control input-number"
-                                            value="1" min="1" max="100">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="quantity-right-plus btn btn-success btn-number"
-                                                data-type="plus" data-field="">
-                                                <span class="fas fa-plus"></span>
-                                            </button>
-                                        </span>
+                                    <div class="col-md">
+                                        <div class="form-group">
+                                            <div>
+                                                <label for="Quantity">Quantity</label>
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <button type="button"
+                                                        class="quantity-left-minus btn btn-danger btn-number"
+                                                        data-type="minus" data-field="">
+                                                        <span class="fas fa-minus"></span>
+                                                    </button>
+                                                </span>
+                                                <input type="text" id="quantity" name="qty"
+                                                    class="form-control input-number" value="1" min="1" max="100">
+                                                <span class="input-group-btn">
+                                                    <button type="button"
+                                                        class="quantity-right-plus btn btn-success btn-number"
+                                                        data-type="plus" data-field="">
+                                                        <span class="fas fa-plus"></span>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div>
-                                        <label for="exampleInputcolor">Color</label>
-                                    </div>
-                                    <div class="input-group">
-                                        <select name="color" class="form-control" id="color">
-                                            <option value="{{ $product->product_color }}">{{$product->product_color}}
-                                            </option>
-                                        </select>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold">Color</label>
+                                            <div class="form-group">
+                                                <select name="color" class="form-control" id="color">
+                                                    <option value="{{ $product->product_color }}">
+                                                        {{$product->product_color}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="cart_buttons"> <button data-id="{{ $product->id }}"
@@ -68,8 +103,7 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="{{ asset('public/frontend/js/jquery-3.4.1.min.js')}}" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {

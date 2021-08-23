@@ -118,7 +118,8 @@
         </div>
         <div class="col-4">
             <div class="card">
-                <img src="..." class="card-img-top" style="max-width:100%; height:auto">
+                <img src="{{ asset('public/frontend/images/avatar.png') }}" class="card-img-top"
+                    style="max-width:100%; height:auto">
                 <div class=" card-body">
                     <h5 class="card-title text-center">{{ Auth::user()->name }}</h5>
                 </div>

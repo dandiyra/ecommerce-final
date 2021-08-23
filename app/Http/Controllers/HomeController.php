@@ -112,10 +112,11 @@ class HomeController extends Controller
 
     }
 
-    public function Logout()
+    public function Logout(Request $request)
     {
         // $logout= Auth::logout();
             Auth::logout();
+            $request->session()->flush();
             $notification=array(
                 'messege'=>'Successfully Logout',
                 'alert-type'=>'success'

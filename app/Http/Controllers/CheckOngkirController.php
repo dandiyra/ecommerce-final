@@ -55,7 +55,7 @@ class CheckOngkirController extends Controller
    {
     $data = array();
   
-    $order_id = uniqid();
+    $order_id = $request->order;
     $id = $request->id;
     $total = $request->total;
     $produk = $request->produk;
@@ -95,6 +95,7 @@ class CheckOngkirController extends Controller
         $snapToken = \Midtrans\Snap::getSnapToken($params);
 
         return response()->json($snapToken);
+
    }
 
 }

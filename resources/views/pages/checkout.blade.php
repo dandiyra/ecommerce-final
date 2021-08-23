@@ -21,6 +21,8 @@ $vat = $setting->vat;
                     <div class="cart_title">Checkout</div>
                     <div class="cart_items">
                         <ul class="cart_list">
+                            <div id="idOrder" data-value="{{ $order }}" class="cart_item_text" hidden>
+                                {{ $order  }}</div>
                             @foreach($cart as $row)
                             <li class="cart_item clearfix">
                                 <div class="cart_item_image text-center"><br><img
@@ -161,8 +163,8 @@ $vat = $setting->vat;
                                         <div class="col-md">
                                             <div class="form-group">
                                                 <label class="font-weight-bold">BERAT (GRAM)</label>
-                                                <input type="number" class="form-control" name="weight" id="weight"
-                                                    placeholder="Masukkan Berat (GRAM)"
+                                                <input type="number" class="form-control" disabled name="weight"
+                                                    id="weight" placeholder="Masukkan Berat (GRAM)"
                                                     value="{{  Cart::weightfloat() }}">
                                             </div>
                                         </div>
@@ -262,5 +264,4 @@ $vat = $setting->vat;
 </div>
 <script src="{{ asset('public/frontend/js/cart_custom.js') }}"></script>
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
-
 @endsection

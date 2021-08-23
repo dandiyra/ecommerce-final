@@ -350,9 +350,9 @@ $setting = DB::table('sitesetting')->first();
     </div>
 
 
-    <!-- <script src="{{ asset('public/frontend/js/jquery-3.3.1.min.js')}}"></script> -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="{{ asset('public/frontend/js/jquery-3.4.1.min.js')}}" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
     <script src="{{ asset('public/frontend/styles/bootstrap4/popper.js')}}"></script>
     <script src="{{ asset('public/frontend/styles/bootstrap4/bootstrap.min.js')}}"></script>
     <script src="{{ asset('public/frontend/plugins/greensock/TweenMax.min.js')}}"></script>
@@ -366,14 +366,15 @@ $setting = DB::table('sitesetting')->first();
     <script src="{{ asset('public/frontend/plugins/slick-1.8.0/slick.js')}}"></script>
     <script src="{{ asset('public/frontend/plugins/easing/easing.js')}}"></script>
     <script src="{{ asset('public/frontend/js/custom.js')}}"></script>
-    <!-- <script src="{{ asset('public/frontend/js/select2.min.js')}}"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{ asset('public/frontend/js/select2.min.js')}}"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
     </script>
 
 
     <script src="{{ asset('public/frontend/js/product_custom.js')}}"></script>
+    <script src="{{ asset('public/frontend/js/customjs.js')}}"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -381,8 +382,8 @@ $setting = DB::table('sitesetting')->first();
 
 
     <script>
-    if (Session::has('messege'))
-        var type = "{{Session::get('alert-type','info')}}"
+    @if(Session::has('messege'))
+    var type = "{{Session::get('alert-type','info')}}"
     switch (type) {
         case 'info':
             toastr.info("{{ Session::get('messege') }}");
@@ -397,7 +398,7 @@ $setting = DB::table('sitesetting')->first();
             toastr.error("{{ Session::get('messege') }}");
             break;
     }
-    endif
+    @endif
     </script>
 
 
@@ -505,21 +506,13 @@ $setting = DB::table('sitesetting')->first();
                 },
                 dataType: "JSON",
                 type: "POST",
+                beforeSend: function() {
+                    $('#test1').removeAttr('hidden')
+                },
                 success: function(response) {
                     isProcessing = false;
                     if (response) {
                         console.log(response)
-                        // $('#ongkir').empty();
-                        // $('.ongkir').addClass('d-block');
-                        // $.each(response[0]['costs'], function(key, value) {
-                        //     $('#ongkir').append(
-                        //         '<li class="list-group-item"><span> Rp.' +
-                        //         value.cost[0]
-                        //         .value +
-                        //         '</span></li>'
-                        //     )
-                        // });
-
                         $('select[name="hasil"]').empty();
                         $('select[name="hasil"]').append(
                             '<option value="">-- Pilih Harga --</option>');
@@ -549,9 +542,9 @@ $setting = DB::table('sitesetting')->first();
             let subtotal = document.getElementById("subtotal").getAttribute('data-value');
             var total = parseInt(courier) + parseInt(subtotal);
             var rupiah = "Rp";
+            let order = document.getElementById("idOrder").getAttribute('data-value');
 
-            document.getElementById("ongkir").innerHTML = rupiah + courier;
-            document.getElementById("test").innerHTML = rupiah + total;
+            console.log(order);
 
             let token = $("meta[name='csrf-token']").attr("content");
             let payButton = document.getElementById('pay-button');
@@ -560,13 +553,15 @@ $setting = DB::table('sitesetting')->first();
             let price = document.getElementById("harga").getAttribute('data-value');
             let qty = document.getElementById("qty").getAttribute('data-value');
 
-            console.log(produk, id, price, qty)
+            document.getElementById("ongkir").innerHTML = rupiah + courier;
+            document.getElementById("test").innerHTML = rupiah + total;
 
             $.ajax({
                 url: "/ecommerce/pay",
                 type: 'post',
                 data: {
                     _token: token,
+                    order: order,
                     produk: produk,
                     qty: qty,
                     price: price,
@@ -574,16 +569,33 @@ $setting = DB::table('sitesetting')->first();
                 },
                 dataType: "JSON",
                 success: function(response) {
-                    /* invoke your function*/
+                    /* Function midtrans snap pay*/
                     payButton.addEventListener('click', function() {
                         window.snap
                             .pay(
                                 response
-                            ); // Replace it with your transaction token
+                            );
                     });
                 }
             });
 
+            $("#pay-button").click(function() {
+                $.ajax({
+                    url: "/ecommerce/paymidtrans",
+                    type: 'post',
+                    data: {
+                        _token: token,
+                        order: order,
+                        courier: courier,
+                        subtotal: subtotal,
+                        produk: produk,
+                        qty: qty,
+                        price: price,
+                        total: total,
+                    },
+                    dataType: "JSON",
+                });
+            });
         });
 
     });
