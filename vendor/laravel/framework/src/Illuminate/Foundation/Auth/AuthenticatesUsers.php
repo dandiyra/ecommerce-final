@@ -5,6 +5,8 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use App\Province;
+use App\City;
 
 trait AuthenticatesUsers
 {
@@ -16,8 +18,10 @@ trait AuthenticatesUsers
      * @return \Illuminate\Http\Response
      */
     public function showLoginForm()
-    {
-        return view('auth.login');
+    {   
+        $provinces = Province::pluck('nameP', 'province_id');
+
+        return view('auth.login', compact('provinces'));
     }
 
     /**

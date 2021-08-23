@@ -109,6 +109,34 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <div>
+                                            <label class="font-weight-bold">Alamat Provinsi</label>
+                                        </div>
+                                        <div class="form-control">
+                                            <select class="form-control provinsi-tujuan" name="province_destination">
+                                                @foreach ($provinces as $province => $value)
+                                                <option value="{{ $province  }}">{{ $value }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <div>
+                                            <label class="font-weight-bold">Alamat Kota / Kabupaten</label>
+                                        </div>
+                                        <div class="form-control">
+                                            <select class="form-control kota-tujuan" name="city_destination">
+                                                <option value="">-- pilih kota --</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Address</label>
                                 <textarea class="form-control" aria-describedby="emailHelp" rows="5" name="address"
