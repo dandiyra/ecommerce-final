@@ -179,8 +179,7 @@ $hot = DB::table('products')
                                         class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                         <div
                                             class="product_image d-flex flex-column align-items-center justify-content-center">
-                                            <img src="{{ asset( $row->image_one )}}" alt=""
-                                                style="height: 120px; width: 100px;">
+                                            <img src="{{ asset( $row->image_one )}}" class="img-fluid" alt="">
                                         </div>
                                         <div class="product_content">
                                             @if($row->discount_price == NULL)

@@ -26,8 +26,9 @@ $setting = DB::table('sitesetting')->first();
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/responsive.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/select2.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/bootstrap4/select2-bootstrap4.min.css') }}">
-   
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('public/frontend/styles/bootstrap4/select2-bootstrap4.min.css') }}">
+
 
 
     <!-- chart -->
@@ -130,7 +131,8 @@ $setting = DB::table('sitesetting')->first();
                         <div class="col-lg-2 col-sm-3 col-3 order-1">
                             <div class="logo_container">
                                 <div class="logo"><a href="{{ url('/') }}"><img
-                                            src="{{ asset('public/frontend/images/logo.png')}}" alt=""></a></div>
+                                            src="{{ asset('public/frontend/images/logo.png')}}" class="img-fluid"
+                                            alt=""></a></div>
                             </div>
                         </div>
                         @php
@@ -191,7 +193,8 @@ $setting = DB::table('sitesetting')->first();
                                 <div class="cart">
                                     <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                                         <div class="cart_icon">
-                                            <img src="{{ asset('public/frontend/images/cart.png')}}" alt="">
+                                            <a href="{{ route('show.cart') }}"><img
+                                                    src="{{ asset('public/frontend/images/cart.png')}}" alt=""></a>
                                             <div class="cart_count"><span>{{ Cart::count() }}</span></div>
                                         </div>
                                         <div class="cart_content">
@@ -371,8 +374,10 @@ $setting = DB::table('sitesetting')->first();
     <script src="{{ asset('public/frontend/js/select2.min.js')}}"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
+    <script type="text/javascript" src="{{ asset('public/frontend/js/toastr.min.js')}}">
     </script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
+    </script> -->
 
 
     <script src="{{ asset('public/frontend/js/product_custom.js')}}"></script>

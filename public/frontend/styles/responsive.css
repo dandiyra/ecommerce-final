@@ -325,7 +325,8 @@
 	.banner_product_image
 	{
 		opacity: 0.5;
-		width: 60vw;
+		max-height: auto;
+		max-width: 65%;
 	    top: 50%;
 	    -webkit-transform: translateY(-50%);
 		-moz-transform: translateY(-50%);
@@ -385,7 +386,17 @@
 	p{font-size: 13px;}
 	.top_bar
 	{
-		display: none;
+		display: block;
+	}
+	.top_bar_contact_item
+	{
+		font-size: 12px;
+		line-height: 21px;
+	}
+	.top_bar_contact_item a
+	{
+		font-size: 12px;
+		line-height: 20px;
 	}
 	.logo_container, .wishlist_cart
 	{
@@ -437,7 +448,7 @@
 	}
 	.cart_text
 	{
-		display: none;
+		display: flex;
 	}
 	.wishlist_text a,
 	.cart_text a
@@ -780,6 +791,15 @@
 	{
 		display: none;
 	}
+
+	.product_image img
+{
+	display: block;
+	position: relative;
+	max-width: 100%;
+	padding-left: 20%;
+    padding-right: 20%;
+}
 }
 
 /************

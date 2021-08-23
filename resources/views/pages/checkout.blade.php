@@ -182,73 +182,73 @@ $vat = $setting->vat;
                                 </div>
                             </div>
                         </div>
-                        <!-- Order Total -->
-                        <div class="row">
-                            <div class="col-md mt-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="order_total_content">
-                                            @if(Session::has('coupon'))
-                                            @else
-                                            <h5 style="margin-left: 20px;"> Apply Coupon </h5>
-                                            <form method="post" action="{{ route('apply.coupon') }}">
-                                                @csrf
-                                                <div class="form group col-md">
-                                                    <input type="text" name="coupon" class="form-control" required=""
-                                                        placeholder="Enter Your Coupon">
-                                                </div><br>
-                                                <button type="submit" class="btn btn-danger ml-2">Submit
-                                                </button>
-                                            </form>
-                                            @endif
-                                        </div>
+                    </div>
+                    <!-- Order Total -->
+                    <div class="row">
+                        <div class="col-md mt-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="order_total_content">
+                                        @if(Session::has('coupon'))
+                                        @else
+                                        <h5 style="margin-left: 20px;"> Apply Coupon </h5>
+                                        <form method="post" action="{{ route('apply.coupon') }}">
+                                            @csrf
+                                            <div class="form group col-md">
+                                                <input type="text" name="coupon" class="form-control" required=""
+                                                    placeholder="Enter Your Coupon">
+                                            </div><br>
+                                            <button type="submit" class="btn btn-danger ml-2">Submit
+                                            </button>
+                                        </form>
+                                        @endif
                                     </div>
                                 </div>
-                                <div class="mt-1">
-                                    <ul class="list-group">
-                                        @if(Session::has('coupon'))
-                                        <li class="list-group-item">Subtotal : <span style="float: right;">
-                                                ${{ Session::get('coupon')['balance'] }} </span> </li>
-                                        <li class="list-group-item">Coupon : ({{ Session::get('coupon')['name'] }} )
-                                            <a href="{{ route('coupon.remove') }}" class="btn btn-danger btn-sm">X</a>
-                                            <span style="float: right;">${{ Session::get('coupon')['discount'] }}
-                                            </span>
-                                        </li>
-                                        @else
-                                        <li id="subtotal" data-value="{{  Cart::Subtotal() }}"
-                                            class="list-group-item mt-2">
-                                            Subtotal : <span style="float: right;">
-                                                ${{  Cart::Subtotal() }} </span> </li>
-                                        @endif
-                                        <li class="list-group-item">Shiping Charge : <span style="float: right;"
-                                                id="ongkir">${{ $charge  }}
-                                            </span>
-                                        </li>
-                                        <li class="list-group-item">Vat : <span style="float: right;">${{ $vat }}
-                                            </span>
-                                        </li>
-                                        @if(Session::has('coupon'))
-                                        <li class="list-group-item">Total : <span
-                                                style="float: right;">${{ Session::get('coupon')['balance'] + $charge + $vat }}
-                                            </span>
-                                        </li>
-                                        @else
-                                        <li class="list-group-item">Total : <span style="float: right;"
-                                                id="test">${{ Cart::Subtotal() + $charge + $vat }}
-                                            </span>
-                                        </li>
-                                        @endif
-                                    </ul>
-                                    <div class="mt-3">
-                                        <a href="{{  route('awal') }}" class="button cart_button_clear">All Cancel</a>
-                                        <button type="button" id="pay-button" class="button cart_button_checkout">Pay
-                                            Now</button>
-                                    </div>
+                            </div>
+                            <div class="mt-1">
+                                <ul class="list-group">
+                                    @if(Session::has('coupon'))
+                                    <li class="list-group-item">Subtotal : <span style="float: right;">
+                                            ${{ Session::get('coupon')['balance'] }} </span> </li>
+                                    <li class="list-group-item">Coupon : ({{ Session::get('coupon')['name'] }} )
+                                        <a href="{{ route('coupon.remove') }}" class="btn btn-danger btn-sm">X</a>
+                                        <span style="float: right;">${{ Session::get('coupon')['discount'] }}
+                                        </span>
+                                    </li>
+                                    @else
+                                    <li id="subtotal" data-value="{{  Cart::Subtotal() }}" class="list-group-item mt-2">
+                                        Subtotal : <span style="float: right;">
+                                            ${{  Cart::Subtotal() }} </span> </li>
+                                    @endif
+                                    <li class="list-group-item">Shiping Charge : <span style="float: right;"
+                                            id="ongkir">${{ $charge  }}
+                                        </span>
+                                    </li>
+                                    <li class="list-group-item">Vat : <span style="float: right;">${{ $vat }}
+                                        </span>
+                                    </li>
+                                    @if(Session::has('coupon'))
+                                    <li class="list-group-item">Total : <span
+                                            style="float: right;">${{ Session::get('coupon')['balance'] + $charge + $vat }}
+                                        </span>
+                                    </li>
+                                    @else
+                                    <li class="list-group-item">Total : <span style="float: right;"
+                                            id="test">${{ Cart::Subtotal() + $charge + $vat }}
+                                        </span>
+                                    </li>
+                                    @endif
+                                </ul>
+                                <div class="mt-3">
+                                    <a href="{{  route('awal') }}" class="button cart_button_clear">All Cancel</a>
+                                    <button type="button" id="pay-button" class="button cart_button_checkout">Pay
+                                        Now</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="row mt-3">
+                </div>
+                <!-- <div class="row mt-3">
                         <div class="col-md-12">
                             <div class="card d-none ongkir">
                                 <div class="card-body">
@@ -257,10 +257,10 @@ $vat = $setting->vat;
                             </div>
                         </div>
                     </div> -->
-                </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <script src="{{ asset('public/frontend/js/cart_custom.js') }}"></script>
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
