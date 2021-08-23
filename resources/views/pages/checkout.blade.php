@@ -21,6 +21,8 @@ $vat = $setting->vat;
                     <div class="cart_title">Checkout</div>
                     <div class="cart_items">
                         <ul class="cart_list">
+                            <div id="idOrder" data-value="{{ $order }}" class="cart_item_text" hidden>
+                                {{ $order  }}</div>
                             @foreach($cart as $row)
                             <li class="cart_item clearfix">
                                 <div class="cart_item_image text-center"><br><img
@@ -29,8 +31,11 @@ $vat = $setting->vat;
                                 <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
                                     <div class="cart_item_name cart_info_col">
                                         <div class="cart_item_title">Name</div>
-                                        <div class="cart_item_text">{{ $row->name  }}</div>
+                                        <div id="nProduk" data-value="{{ $row->name  }}" class="cart_item_text">
+                                            {{ $row->name  }}</div>
                                     </div>
+                                    <div id="idProduk" data-value="{{ $row->rowId  }}" class="cart_item_text" hidden>
+                                        {{ $row->rowId  }}</div>
                                     @if($row->options->color == NULL)
                                     @else
                                     <div class="cart_item_color cart_info_col">
@@ -38,6 +43,11 @@ $vat = $setting->vat;
                                         <div class="cart_item_text"> {{ $row->options->color }}</div>
                                     </div>
                                     @endif
+                                    <div class="cart_item_color cart_info_col">
+                                        <div class="cart_item_title">Quantity</div>
+                                        <div id="qty" data-value="{{ $row->qty }}" class="cart_item_text">
+                                            {{ $row->qty }}</div>
+                                    </div>
                                     @if($row->options->size == NULL)
                                     @else
                                     <div class="cart_item_color cart_info_col">
@@ -45,20 +55,10 @@ $vat = $setting->vat;
                                         <div class="cart_item_text"> {{ $row->options->size }}</div>
                                     </div>
                                     @endif
-                                    <div class="cart_item_quantity cart_info_col">
-                                        <div class="cart_item_title">Quantity</div><br>
-                                        <form method="post" action="{{ route('update.cartitem') }}">
-                                            @csrf
-                                            <input type="hidden" name="productid" value="{{ $row->rowId }}">
-                                            <input type="number" name="qty" value="{{ $row->qty }}"
-                                                style="width: 50px;">
-                                            <button type="submit" class="btn btn-success btn-sm"><i
-                                                    class="fas fa-check-square"></i> </button>
-                                        </form>
-                                    </div>
                                     <div class="cart_item_price cart_info_col">
                                         <div class="cart_item_title">Price</div>
-                                        <div class="cart_item_text">${{ $row->price }}</div>
+                                        <div id="harga" data-value="{{ $row->price }}" class="cart_item_text">
+                                            ${{ $row->price }}</div>
                                     </div>
                                     <div class="cart_item_total cart_info_col">
                                         <div class="cart_item_title">Total</div>
@@ -90,62 +90,59 @@ $vat = $setting->vat;
                                             </div>
                                         </div>
                                     </div>
-                                    <h3>Check Harga Pengiriman</h3>
+                                    <h3>Pilih Pengiriman</h3>
                                     <hr>
                                     <div class="row">
                                         <div class="col-md">
-                                            <div class="form-group">
+                                            <div class="form-group" hidden>
                                                 <div>
                                                     <label class="font-weight-bold">PROVINSI ASAL</label>
                                                 </div>
                                                 <div class="form-control">
-                                                <select class="form-control provinsi-asal" name="province_origin">
-                                                    <option value="0">-- pilih provinsi asal --</option>
-                                                    @foreach ($provinces as $province => $value)
-                                                    <option value="{{ $province  }}">{{ $value }}</option>
-                                                    @endforeach
-                                                </select>
+                                                    <select class="form-control provinsi-asal" name="province_origin">
+                                                        <option value="3">3</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md">
-                                            <div class="form-group">
+                                            <div class="form-group" hidden>
                                                 <div>
                                                     <label class="font-weight-bold">KOTA / KABUPATEN ASAL</label>
                                                 </div>
                                                 <div class="form-control">
-                                                <select class="form-control kota-asal" name="city_origin">
-                                                    <option value="">-- pilih kota asal --</option>
-                                                </select>
+                                                    <select class="form-control kota-asal" name="city_origin">
+                                                        <option value="455">455</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md">
-                                            <div class="form-group">
+                                            <div class="form-group" hidden>
                                                 <div>
-                                                <label class="font-weight-bold">PROVINSI TUJUAN</label>
+                                                    <label class="font-weight-bold">PROVINSI TUJUAN</label>
                                                 </div>
                                                 <div class="form-control">
-                                                <select class="form-control provinsi-tujuan"
-                                                    name="province_destination">
-                                                    <option value="0">-- pilih provinsi tujuan --</option>
-                                                    @foreach ($provinces as $province => $value)
-                                                    <option value="{{ $province  }}">{{ $value }}</option>
-                                                    @endforeach
-                                                </select>
+                                                    <select class="form-control provinsi-tujuan"
+                                                        name="province_destination">
+                                                        <option value="{{ Auth::user()->provinsi }}">
+                                                            {{ Auth::user()->provinsi }}
+                                                        </option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md">
-                                            <div class="form-group">
+                                            <div class="form-group" hidden>
                                                 <div>
                                                     <label class="font-weight-bold">KOTA / KABUPATEN TUJUAN</label>
                                                 </div>
                                                 <div class="form-control">
                                                     <select class="form-control kota-tujuan" name="city_destination">
-                                                        <option value="">-- pilih kota tujuan --</option>
+                                                        <option value="{{ Auth::user()->kota }}">
+                                                            {{ Auth::user()->kota }}</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -166,13 +163,21 @@ $vat = $setting->vat;
                                         <div class="col-md">
                                             <div class="form-group">
                                                 <label class="font-weight-bold">BERAT (GRAM)</label>
-                                                <input type="number" class="form-control" name="weight" id="weight"
-                                                    placeholder="Masukkan Berat (GRAM)">
+                                                <input type="number" class="form-control" disabled name="weight"
+                                                    id="weight" placeholder="Masukkan Berat (GRAM)"
+                                                    value="{{  Cart::weightfloat() }}">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="cart_buttons">
-                                        <button class="btn btn-md btn-primary btn-block btn-check">Cek Harga</a>
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">Harga Ongkir</label>
+                                                <select class="form-control hasil" name="hasil">
+                                                    <option value="">-- Pilih Harga --</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -210,11 +215,13 @@ $vat = $setting->vat;
                                             </span>
                                         </li>
                                         @else
-                                        <li class="list-group-item">Subtotal : <span style="float: right;">
+                                        <li id="subtotal" data-value="{{  Cart::Subtotal() }}"
+                                            class="list-group-item mt-2">
+                                            Subtotal : <span style="float: right;">
                                                 ${{  Cart::Subtotal() }} </span> </li>
                                         @endif
-                                        <li class="list-group-item">Shiping Charge : <span
-                                                style="float: right;">${{ $charge  }}
+                                        <li class="list-group-item">Shiping Charge : <span style="float: right;"
+                                                id="ongkir">${{ $charge  }}
                                             </span>
                                         </li>
                                         <li class="list-group-item">Vat : <span style="float: right;">${{ $vat }}
@@ -226,13 +233,13 @@ $vat = $setting->vat;
                                             </span>
                                         </li>
                                         @else
-                                        <li class="list-group-item">Total : <span
-                                                style="float: right;">${{ Cart::Subtotal() + $charge + $vat }}
+                                        <li class="list-group-item">Total : <span style="float: right;"
+                                                id="test">${{ Cart::Subtotal() + $charge + $vat }}
                                             </span>
                                         </li>
                                         @endif
                                     </ul>
-                                    <div style="width: 75%;">
+                                    <div class="mt-3">
                                         <a href="{{  route('awal') }}" class="button cart_button_clear">All Cancel</a>
                                         <button type="button" id="pay-button" class="button cart_button_checkout">Pay
                                             Now</button>
@@ -241,7 +248,7 @@ $vat = $setting->vat;
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <!-- <div class="row mt-3">
                         <div class="col-md-12">
                             <div class="card d-none ongkir">
                                 <div class="card-body">
@@ -249,7 +256,7 @@ $vat = $setting->vat;
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -257,12 +264,4 @@ $vat = $setting->vat;
 </div>
 <script src="{{ asset('public/frontend/js/cart_custom.js') }}"></script>
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
-<script type="text/javascript">
-    var payButton = document.getElementById('pay-button');
-    // For example trigger on button clicked, or any time you need
-    payButton.addEventListener('click', function () {
-        window.snap.pay('<?php echo $snapToken ?>'); // Replace it with your transaction token
-    });
-
-</script>
 @endsection

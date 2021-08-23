@@ -74,6 +74,39 @@
                                     <textarea type="text" name="address" rows="5" class="form-control"
                                         id="formGroupExampleInput2">{{ Auth::user()->address }}</textarea>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <div class="form-group">
+                                            <div>
+                                                <label class="font-weight-bold">Alamat Provinsi</label>
+                                            </div>
+                                            <div class="form-control">
+                                                <select class="form-control provinsi-tujuan"
+                                                    name="province_destination">
+                                                    <option value="{{ $alamat->province_id }} " selected>
+                                                        {{ $alamat->nameP }} </option>
+                                                    @foreach ($provinces as $province => $value)
+                                                    <option value="{{ $province  }}">{{ $value }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-group">
+                                            <div>
+                                                <label class="font-weight-bold">Alamat Kota / Kabupaten</label>
+                                            </div>
+                                            <div class="form-control">
+                                                <select class="form-control kota-tujuan" name="city_destination">
+                                                    <option value="{{ $alamat->city_id }} " selected>
+                                                        {{ $alamat->name }} </option>
+                                                    <option value="">-- pilih kota --</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div>
                                     <button type="submit" class="btn btn-primary">Change Info</button>
                                 </div>
@@ -85,7 +118,8 @@
         </div>
         <div class="col-4">
             <div class="card">
-                <img src="..." class="card-img-top" style="max-width:100%; height:auto">
+                <img src="{{ asset('public/frontend/images/avatar.png') }}" class="card-img-top"
+                    style="max-width:100%; height:auto">
                 <div class=" card-body">
                     <h5 class="card-title text-center">{{ Auth::user()->name }}</h5>
                 </div>

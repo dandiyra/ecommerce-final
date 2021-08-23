@@ -44,38 +44,68 @@ class PaymentController extends Controller
     
    }
 
-
-  private function _midtrans(Request $request, $data)
-  {
+   public function midtransPay(Request $request) {
+    $midtrans = 'midtrans';
     
-    $order_id = uniqid();
+    $order_id = $request->order;
     $total = $request->total;
+    $id = $request->id;
+    $produk = $request->produk;
+    $qty = $request->qty;
+    $price = $request->price;
 
-      $this->initPaymentGateway($data);
+    $data = array();
+    $data['user_id'] = Auth::id();
+    $data['paying_amount'] = $request->total;
+    $data['stripe_order_id'] = $order_id;
+    $data['shipping'] = $request->courier;
+    $data['payment_type'] = $midtrans;
+    $data['status_code'] = mt_rand(100000,999999);
 
-      $customerDetails = [
-        'first_name'  => $request->fname,
-        'last_name'   => $request->lname,
-        'email'       => $request->email,
-        'phone'       => $request->phone,
-      ];
+    if (Session::has('coupon')) {
+    	$data['subtotal'] = Session::get('coupon')['balance'];
+    }else{
+    	$data['subtotal'] = Cart::Subtotal();
+    }
+    $data['status'] = 0;
+    $data['date'] = date('d-m-y');
+    $data['month'] = date('F');
+    $data['year'] = date('Y');
+    DB::table('orders')->insertGetId($data);
 
-      $params = [
-        'enable_payments' => \App\Model\Payment::PAYMENT_CHANNELS,
-        'transaction_details' => [
-          'order_id' => $order_id,
-          'gross_amount' => $total,
-        ],
-        'customer_details' => $customerDetails,
-        'expiry' => [
-          'start_date' => date('Y m d H:i:s T'),
-          'unit' => \App\Model\Payment::EXPIRY_UNIT,
-          'duration' => \App\Model\Payment::EXPIRY_DURATION,
-        ],
-      ];
+    /// Insert Shipping Table 
 
-      $snapToken = \Midtrans\Snap::getSnapToken($params);
-  }
+    $shipping = array();
+    $shipping['order_id'] = $order_id;
+    $shipping['ship_name'] = Auth::user()->name;
+    $shipping['ship_phone'] = Auth::user()->phone;
+    $shipping['ship_email'] = Auth::user()->email;
+    $shipping['ship_address'] = Auth::user()->address;
+    $shipping['ship_city'] = Auth::user()->kota;
+    DB::table('shipping')->insert($shipping);
+
+    // Insert Order Details Table
+    
+    $content = Cart::content();
+    $details = array();
+    foreach ($content as $row) {
+    $details['order_id'] = $order_id;
+    $details['product_id'] = $row->id;
+    $details['product_name'] = $row->name;
+    $details['color'] = $row->options->color;
+    $details['size'] = $row->options->size;
+    $details['quantity'] = $row->qty;
+    $details['singleprice'] = $row->price;
+    $details['totalprice'] = $request->total;
+    DB::table('orders_details')->insert($details); 
+
+    }
+
+    Cart::destroy();
+    if (Session::has('coupon')) {
+    	Session::forget('coupon');
+    }
+   }
 
   public function StripeCharge(Request $request){
          

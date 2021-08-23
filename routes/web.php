@@ -110,7 +110,8 @@ Route::get('remove/cart/{rowId}', 'CartController@removeCart');
 Route::post('update/cart/item/', 'CartController@UpdateCart')->name('update.cartitem');
 Route::get('/cart/product/view/{id}', 'CartController@ViewProduct');
 Route::post('insert/into/cart/', 'CartController@insertCart')->name('insert.into.cart');
-Route::post('user/checkout', 'CartController@Checkout')->name('user.checkout');
+Route::get('user/checkout', 'CartController@Checkout')->name('user.checkout');
+Route::post('/pay', 'CheckOngkirController@Midtrans');
 Route::get('user/wishlist/', 'CartController@wishlist')->name('user.wishlist');
 Route::post('user/apply/coupon/', 'CartController@Coupon')->name('apply.coupon');
 Route::get('coupon/remove/', 'CartController@CouponRemove')->name('coupon.remove');
@@ -127,6 +128,7 @@ Route::get('blog/single/{id}', 'BlogController@BlogSingle');
 Route::post('user/payment/page', 'CartController@PaymentPage')->name('payment.step');
 Route::post('user/payment/process/', 'PaymentController@Payment')->name('payment.process'); 
 Route::post('user/stripe/charge/', 'PaymentController@StripeCharge')->name('stripe.charge');
+Route::post('/paymidtrans', 'PaymentController@midtransPay');
 Route::post('user/oncash/charge/', 'PaymentController@OnCash')->name('oncash.charge');
 
 // Product details Page 

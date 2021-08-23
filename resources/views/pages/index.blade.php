@@ -204,7 +204,8 @@ $hot = DB::table('products')
                                                 <!-- <button id="{{ $row->id }}" class="product_cart_button addcart"
                                                     data-toggle="modal" data-target="#cartmodal"
                                                     onclick="productview(this.id)">Add to Cart</button> -->
-                                                <a type="button" class="product_cart_button addcart" href="{{ url('/cart/product/view/'.$row->id) }}">View Product</a>
+                                                <a type="button" class="product_cart_button"
+                                                    href="{{ url('/cart/product/view/'.$row->id) }}">View Product</a>
                                             </div>
                                         </div>
                                         <button class="addwishlist" data-id="{{ $row->id }}">
@@ -2022,8 +2023,8 @@ DB::table('products')->where('category_id',$catid)->where('status',1)->limit(10)
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
 
 <script type="text/javascript">
 function productview(id) {
@@ -2057,53 +2058,51 @@ function productview(id) {
 
 
 <script type="text/javascript">
-    
-   $(document).ready(function(){
-     $('.addcart').on('click', function(){
+$(document).ready(function() {
+    $('.addcart').on('click', function() {
         var id = $(this).data('id');
         if (id) {
             $.ajax({
-                url: " {{ url('/add/to/cart/') }}/"+id,
-                type:"GET",
-                datType:"json",
-                success:function(data){
-             const Toast = Swal.mixin({
-                  toast: true,
-                  position: 'top-end',
-                  showConfirmButton: false,
-                  timer: 3000,
-                  timerProgressBar: true,
-                  onOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                  }
-                })
+                url: " {{ url('/add/to/cart/') }}/" + id,
+                type: "GET",
+                datType: "json",
+                success: function(data) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal
+                                .resumeTimer)
+                        }
+                    })
 
-             if ($.isEmptyObject(data.error)) {
+                    if ($.isEmptyObject(data.error)) {
 
-                Toast.fire({
-                  icon: 'success',
-                  title: data.success
-                })
-             }else{
-                 Toast.fire({
-                  icon: 'error',
-                  title: data.error
-                })
-             }
- 
+                        Toast.fire({
+                            icon: 'success',
+                            title: data.success
+                        })
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            title: data.error
+                        })
+                    }
+
 
                 },
             });
 
-        }else{
+        } else {
             alert('danger');
         }
-     });
+    });
 
-   });
-
-
+});
 </script>
 
 <script type="text/javascript">

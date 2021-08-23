@@ -17,7 +17,7 @@ class CheckOngkirController extends Controller
     public function index()
     {
           $cart = Cart::content();
-          $provinces = Province::pluck('name', 'province_id');
+          $provinces = Province::pluck('nameP', 'province_id');
           return view('ongkir',compact('cart', 'provinces'));
       
     	// return view('pages.cart',compact('provinces'));
@@ -50,5 +50,52 @@ class CheckOngkirController extends Controller
 
         return response()->json($cost);
     }
+
+    public function Midtrans(Request $request)
+   {
+    $data = array();
+  
+    $order_id = $request->order;
+    $id = $request->id;
+    $total = $request->total;
+    $produk = $request->produk;
+    $qty = $request->qty;
+    $price = $request->price;
+
+        $this->initPaymentGateway($data);
+  
+        $customerDetails = [
+          'first_name'  => Auth::user()->name,
+          'email'       => Auth::user()->email,
+          'phone'       => Auth::user()->phone,
+        ];
+
+        $items = [
+            'id' => $id,
+            'price'=> $price,
+            'quantity' => $qty,
+            'name'=> $produk,
+        ];
+  
+        $params = [
+          'enable_payments' => \App\Model\Payment::PAYMENT_CHANNELS,
+          'transaction_details' => [
+            'order_id' => $order_id,
+            'gross_amount' => $total,
+          ],
+          'items' => $items,
+          'customer_details' => $customerDetails,
+          'expiry' => [
+            'start_date' => date('Y m d H:i:s T'),
+            'unit' => \App\Model\Payment::EXPIRY_UNIT,
+            'duration' => \App\Model\Payment::EXPIRY_DURATION,
+          ],
+        ];
+  
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+        return response()->json($snapToken);
+
+   }
 
 }
