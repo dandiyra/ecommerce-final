@@ -25,8 +25,10 @@ $setting = DB::table('sitesetting')->first();
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/slick-1.8.0/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/responsive.css') }}">
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/select2.css') }}"> -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/bootstrap4/select2-bootstrap4.min.css') }}">
+   
+
 
     <!-- chart -->
     <link rel="stylesheet" type="text/css"
