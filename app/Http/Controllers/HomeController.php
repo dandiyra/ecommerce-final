@@ -19,10 +19,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function awal()
     {
@@ -49,16 +49,16 @@ class HomeController extends Controller
 
     public function EditProfile(){
        $profile = DB::table('users')->select('id')->where('users.id', Auth::user()->id)->first();
-       $provinces = Province::pluck('nameP', 'province_id');
+      //  $provinces = Province::pluck('nameP', 'province_id');
 
-       $alamat = DB::table('users')
-    			->join('provinces','users.provinsi','province_id')
-    			->join('cities','users.kota','city_id')
-    			->select('users.*', 'provinces.*','cities.*')
-    			->where('users.id', Auth::user()->id)
-    			->first();
+      //  $alamat = DB::table('users')
+    	// 		->join('provinces','users.provinsi','province_id')
+    	// 		->join('cities','users.kota','city_id')
+    	// 		->select('users.*', 'provinces.*','cities.*')
+    	// 		->where('users.id', Auth::user()->id)
+    	// 		->first();
 
-        return view('auth.profile', compact('profile', 'provinces', 'alamat'));
+        return view('auth.profile', compact('profile'));
     }
 
     public function updateProfile(Request $request, $id){

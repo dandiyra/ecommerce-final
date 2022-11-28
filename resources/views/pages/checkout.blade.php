@@ -9,8 +9,8 @@ $charge = $setting->shipping_charge;
 $vat = $setting->vat;
 @endphp
 
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_styles.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/cart_styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/cart_responsive.css') }}">
 <!-- Cart -->
 
 <div class="cart_section">
@@ -87,95 +87,6 @@ $vat = $setting->vat;
                                                 <textarea type="text" class="form-control" rows="6"
                                                     aria-describedby="emailHelp" placeholder="Enter Your Address"
                                                     name="address">{{ Auth::user()->address }}</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h3>Pilih Pengiriman</h3>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md">
-                                            <div class="form-group" hidden>
-                                                <div>
-                                                    <label class="font-weight-bold">PROVINSI ASAL</label>
-                                                </div>
-                                                <div class="form-control">
-                                                    <select class="form-control provinsi-asal" name="province_origin">
-                                                        <option value="3">3</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md">
-                                            <div class="form-group" hidden>
-                                                <div>
-                                                    <label class="font-weight-bold">KOTA / KABUPATEN ASAL</label>
-                                                </div>
-                                                <div class="form-control">
-                                                    <select class="form-control kota-asal" name="city_origin">
-                                                        <option value="455">455</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md">
-                                            <div class="form-group" hidden>
-                                                <div>
-                                                    <label class="font-weight-bold">PROVINSI TUJUAN</label>
-                                                </div>
-                                                <div class="form-control">
-                                                    <select class="form-control provinsi-tujuan"
-                                                        name="province_destination">
-                                                        <option value="{{ Auth::user()->provinsi }}">
-                                                            {{ Auth::user()->provinsi }}
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md">
-                                            <div class="form-group" hidden>
-                                                <div>
-                                                    <label class="font-weight-bold">KOTA / KABUPATEN TUJUAN</label>
-                                                </div>
-                                                <div class="form-control">
-                                                    <select class="form-control kota-tujuan" name="city_destination">
-                                                        <option value="{{ Auth::user()->kota }}">
-                                                            {{ Auth::user()->kota }}</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md">
-                                            <div class="form-group">
-                                                <label class="font-weight-bold">KURIR</label>
-                                                <select class="form-control kurir" name="courier">
-                                                    <option value="0">-- pilih kurir --</option>
-                                                    <option value="jne">JNE</option>
-                                                    <option value="pos">POS</option>
-                                                    <option value="tiki">TIKI</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md">
-                                            <div class="form-group">
-                                                <label class="font-weight-bold">BERAT (GRAM)</label>
-                                                <input type="number" class="form-control" disabled name="weight"
-                                                    id="weight" placeholder="Masukkan Berat (GRAM)"
-                                                    value="{{  Cart::weightfloat() }}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md">
-                                            <div class="form-group">
-                                                <label class="font-weight-bold">Harga Ongkir</label>
-                                                <select class="form-control hasil" name="hasil">
-                                                    <option value="">-- Pilih Harga --</option>
-                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -262,6 +173,6 @@ $vat = $setting->vat;
         </div>
     </div>
 </div>
-<script src="{{ asset('public/frontend/js/cart_custom.js') }}"></script>
+<script src="{{ asset('frontend/js/cart_custom.js') }}"></script>
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
 @endsection

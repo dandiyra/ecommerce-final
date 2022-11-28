@@ -14,23 +14,19 @@ $setting = DB::table('sitesetting')->first();
     <meta name="description" content="OneTech shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/bootstrap4/bootstrap.min.css') }}">
-    <link href="{{ asset('public/frontend/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css') }}" rel="stylesheet"
-        type="text/css">
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }} ">
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/animate.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/slick-1.8.0/slick.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/main_styles.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/responsive.css') }}">
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/select2.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/bootstrap4/bootstrap.min.css') }}">
+    <link href="{{ asset('frontend/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }} ">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugins/slick-1.8.0/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/main_styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/responsive.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/select2.css') }}"> -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- chart -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
     <link rel="stylesheet" href="sweetalert2.min.css">
 
@@ -51,12 +47,10 @@ $setting = DB::table('sitesetting')->first();
                     <div class="row">
                         <div class="col d-flex flex-row">
                             <div class="top_bar_contact_item">
-                                <div class="top_bar_icon"><img src="{{ asset('public/frontend/images/phone.png')}}"
-                                        alt=""></div>{{ $setting->phone_one }}
+                                <div class="top_bar_icon"><img src="{{ asset('frontend/images/phone.png')}}" alt=""></div>{{ $setting->phone_one }}
                             </div>
                             <div class="top_bar_contact_item">
-                                <div class="top_bar_icon"><img src="{{ asset('public/frontend/images/mail.png')}}"
-                                        alt=""></div><a href="mailto:fastsales@gmail.com">{{ $setting->email }}</a>
+                                <div class="top_bar_icon"><img src="{{ asset('frontend/images/mail.png')}}" alt=""></div><a href="mailto:fastsales@gmail.com">{{ $setting->email }}</a>
                             </div>
                             <div class="top_bar_content ml-auto">
                                 @guest
@@ -80,11 +74,9 @@ $setting = DB::table('sitesetting')->first();
 
                                         <li>
                                             @if(Session()->get('lang') == 'indonesia' )
-                                            <a href="{{ route('language.english') }}">English<i
-                                                    class="fas fa-chevron-down"></i></a>
+                                            <a href="{{ route('language.english') }}">English<i class="fas fa-chevron-down"></i></a>
                                             @else
-                                            <a href="{{ route('language.indonesia') }}">Indonesia<i
-                                                    class="fas fa-chevron-down"></i></a>
+                                            <a href="{{ route('language.indonesia') }}">Indonesia<i class="fas fa-chevron-down"></i></a>
                                             @endif
                                         </li>
                                     </ul>
@@ -92,16 +84,14 @@ $setting = DB::table('sitesetting')->first();
                                 <div class="top_bar_user">
                                     @guest
                                     <div><a href="{{ route('login') }}">
-                                            <div class="user_icon"><img
-                                                    src="{{ asset('public/frontend/images/user.svg')}}" alt=""></div>
+                                            <div class="user_icon"><img src="{{ asset('frontend/images/user.svg')}}" alt=""></div>
                                             Register/Login
                                         </a></div>
                                     @else
                                     <ul class="standard_dropdown top_bar_dropdown">
                                         <li>
                                             <a href="{{ route('home') }}">
-                                                <div class="user_icon"><img
-                                                        src="{{ asset('public/frontend/images/user.svg')}}" alt="">
+                                                <div class="user_icon"><img src="{{ asset('frontend/images/user.svg')}}" alt="">
                                                 </div> Profile<i class="fas fa-chevron-down"></i>
                                             </a>
                                             <ul>
@@ -127,8 +117,7 @@ $setting = DB::table('sitesetting')->first();
                         <!-- Logo -->
                         <div class="col-lg-2 col-sm-3 col-3 order-1">
                             <div class="logo_container">
-                                <div class="logo"><a href="{{ url('/') }}"><img
-                                            src="{{ asset('public/frontend/images/logo.png')}}" alt=""></a></div>
+                                <div class="logo"><a href="{{ url('/') }}"><img src="{{ asset('frontend/images/logo.png')}}" alt=""></a></div>
                             </div>
                         </div>
                         @php
@@ -139,11 +128,9 @@ $setting = DB::table('sitesetting')->first();
                             <div class="header_search">
                                 <div class="header_search_content">
                                     <div class="header_search_form_container">
-                                        <form method="post" action="{{ route('product.search') }}"
-                                            class="header_search_form clearfix">
+                                        <form method="post" action="{{ route('product.search') }}" class="header_search_form clearfix">
                                             @csrf
-                                            <input type="search" required="required" class="header_search_input"
-                                                placeholder="Search for products..." name="search">
+                                            <input type="search" required="required" class="header_search_input" placeholder="Search for products..." name="search">
                                             <div class="custom_dropdown">
                                                 <div class="custom_dropdown_list">
                                                     <span class="custom_dropdown_placeholder clc">All Categories</span>
@@ -155,10 +142,7 @@ $setting = DB::table('sitesetting')->first();
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="header_search_button trans_300"
-                                                value="Submit"><img
-                                                    src="{{ asset('public/frontend/images/search.png')}}"
-                                                    alt=""></button>
+                                            <button type="submit" class="header_search_button trans_300" value="Submit"><img src="{{ asset('frontend/images/search.png')}}" alt=""></button>
                                         </form>
                                     </div>
                                 </div>
@@ -176,8 +160,7 @@ $setting = DB::table('sitesetting')->first();
                                     @php
                                     $wishlist = DB::table('wishlists')->where('user_id',Auth::id())->get();
                                     @endphp
-                                    <div class="wishlist_icon"><img src="{{ asset('public/frontend/images/heart.png')}}"
-                                            alt=""></div>
+                                    <div class="wishlist_icon"><img src="{{ asset('frontend/images/heart.png')}}" alt=""></div>
                                     <div class="wishlist_content">
                                         <div class="wishlist_text"><a href="#">Wishlist</a></div>
                                         <div class="wishlist_count">{{ count($wishlist) }}</div>
@@ -189,7 +172,7 @@ $setting = DB::table('sitesetting')->first();
                                 <div class="cart">
                                     <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                                         <div class="cart_icon">
-                                            <img src="{{ asset('public/frontend/images/cart.png')}}" alt="">
+                                            <img src="{{ asset('frontend/images/cart.png')}}" alt="">
                                             <div class="cart_count"><span>{{ Cart::count() }}</span></div>
                                         </div>
                                         <div class="cart_content">
@@ -291,27 +274,20 @@ $setting = DB::table('sitesetting')->first();
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <div
-                                class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+                            <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
                                 <div class="copyright_content">
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                     Copyright &copy;<script>
-                                    document.write(new Date().getFullYear());
-                                    </script> All rights reserved | This template is made with <i class="fa fa-heart"
-                                        aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                        target="_blank">Colorlib</a>
+                                        document.write(new Date().getFullYear());
+                                    </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </div>
                                 <div class="logos ml-sm-auto">
                                     <ul class="logos_list">
-                                        <li><a href="#"><img src="{{ asset('public/frontend/images/logos_1.png')}}"
-                                                    alt=""></a></li>
-                                        <li><a href="#"><img src="{{ asset('public/frontend/images/logos_2.png')}}"
-                                                    alt=""></a></li>
-                                        <li><a href="#"><img src="{{ asset('public/frontend/images/logos_3.png')}}"
-                                                    alt=""></a></li>
-                                        <li><a href="#"><img src="{{ asset('public/frontend/images/logos_4.png')}}"
-                                                    alt=""></a></li>
+                                        <li><a href="#"><img src="{{ asset('frontend/images/logos_1.png')}}" alt=""></a></li>
+                                        <li><a href="#"><img src="{{ asset('frontend/images/logos_2.png')}}" alt=""></a></li>
+                                        <li><a href="#"><img src="{{ asset('frontend/images/logos_3.png')}}" alt=""></a></li>
+                                        <li><a href="#"><img src="{{ asset('frontend/images/logos_4.png')}}" alt=""></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -323,8 +299,7 @@ $setting = DB::table('sitesetting')->first();
 
 
     <!--Order Traking Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -338,8 +313,7 @@ $setting = DB::table('sitesetting')->first();
                         @csrf
                         <div class="modal-body">
                             <label> Status Code</label>
-                            <input type="text" name="code" required="" class="form-control"
-                                placeholder="Your Order Status Code">
+                            <input type="text" name="code" required="" class="form-control" placeholder="Your Order Status Code">
                         </div>
                         <button class="btn btn-danger" type="submit">Track Now </button>
                     </form>
@@ -350,31 +324,30 @@ $setting = DB::table('sitesetting')->first();
     </div>
 
 
-    <script src="{{ asset('public/frontend/js/jquery-3.4.1.min.js')}}" crossorigin="anonymous"></script>
+    <script src="{{ asset('frontend/js/jquery-3.4.1.min.js')}}" crossorigin="anonymous"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
-    <script src="{{ asset('public/frontend/styles/bootstrap4/popper.js')}}"></script>
-    <script src="{{ asset('public/frontend/styles/bootstrap4/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/greensock/TweenMax.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/greensock/TimelineMax.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/greensock/animation.gsap.min.js')}}"></script>
-    <script
-        src="{{ asset('public/frontend/plugins/greensock/ScrollToPlugin.min.jsplugins/greensock/ScrollToPlugin.min.js')}}">
+    <script src="{{ asset('frontend/styles/bootstrap4/popper.js')}}"></script>
+    <script src="{{ asset('frontend/styles/bootstrap4/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/greensock/TweenMax.min.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/greensock/TimelineMax.min.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/greensock/animation.gsap.min.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/greensock/ScrollToPlugin.min.jsplugins/greensock/ScrollToPlugin.min.js')}}">
     </script>
-    <script src="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/slick-1.8.0/slick.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/easing/easing.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/custom.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/select2.min.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/slick-1.8.0/slick.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/easing/easing.js')}}"></script>
+    <script src="{{ asset('frontend/js/custom.js')}}"></script>
+    <script src="{{ asset('frontend/js/select2.min.js')}}"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
     </script>
 
 
-    <script src="{{ asset('public/frontend/js/product_custom.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/customjs.js')}}"></script>
+    <script src="{{ asset('frontend/js/product_custom.js')}}"></script>
+    <script src="{{ asset('frontend/js/customjs.js')}}"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -382,223 +355,232 @@ $setting = DB::table('sitesetting')->first();
 
 
     <script>
-    @if(Session::has('messege'))
-    var type = "{{Session::get('alert-type','info')}}"
-    switch (type) {
-        case 'info':
-            toastr.info("{{ Session::get('messege') }}");
-            break;
-        case 'success':
-            toastr.success("{{ Session::get('messege') }}");
-            break;
-        case 'warning':
-            toastr.warning("{{ Session::get('messege') }}");
-            break;
-        case 'error':
-            toastr.error("{{ Session::get('messege') }}");
-            break;
-    }
-    @endif
+        @if(Session::has('messege'))
+        var type = "{{Session::get('alert-type','info')}}"
+        switch (type) {
+            case 'info':
+                toastr.info("{{ Session::get('messege') }}");
+                break;
+            case 'success':
+                toastr.success("{{ Session::get('messege') }}");
+                break;
+            case 'warning':
+                toastr.warning("{{ Session::get('messege') }}");
+                break;
+            case 'error':
+                toastr.error("{{ Session::get('messege') }}");
+                break;
+        }
+        @endif
     </script>
 
 
     <script>
-    $(document).on("click", "#return", function(e) {
-        e.preventDefault();
-        var link = $(this).attr("href");
-        swal({
-                title: "Are you Want to Return?",
-                text: "Once Return, this will return your money!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location.href = link;
-                } else {
-                    swal("Cancel!");
-                }
-            });
-    });
+        $(document).on("click", "#return", function(e) {
+            e.preventDefault();
+            var link = $(this).attr("href");
+            swal({
+                    title: "Are you Want to Return?",
+                    text: "Once Return, this will return your money!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.href = link;
+                    } else {
+                        swal("Cancel!");
+                    }
+                });
+        });
     </script>
 
     <!-- Raja Ongkir dan midtrans -->
     <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
 
-        //active select2
-        $(".provinsi-asal , .kota-asal, .provinsi-tujuan, .kota-tujuan").select2({
-            theme: 'bootstrap4',
-            width: 'style',
-        });
-        //ajax select kota asal
-        $('select[name="province_origin"]').on('change', function() {
-            let provinceId = $(this).val();
-            if (provinceId) {
-                jQuery.ajax({
-                    url: '/ecommerce/cities/' + provinceId,
-                    type: "GET",
-                    dataType: "json",
-                    success: function(response) {
-                        $('select[name="city_origin"]').empty();
-                        $('select[name="city_origin"]').append(
-                            '<option value="">-- pilih kota asal --</option>');
-                        $.each(response, function(key, value) {
+            //active select2
+            $(".provinsi-asal , .kota-asal, .provinsi-tujuan, .kota-tujuan").select2({
+                theme: 'bootstrap4',
+                width: 'style',
+            });
+            //ajax select kota asal
+            $('select[name="province_origin"]').on('change', function() {
+                let provinceId = $(this).val();
+                if (provinceId) {
+                    jQuery.ajax({
+                        url: '/ecommerce/cities/' + provinceId,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(response) {
+                            $('select[name="city_origin"]').empty();
                             $('select[name="city_origin"]').append(
-                                '<option value="' + key + '">' + value +
-                                '</option>');
-                        });
-                    },
-                });
-            } else {
-                $('select[name="city_origin"]').append(
-                    '<option value="">-- pilih kota asal --</option>');
-            }
-        });
-        //ajax select kota tujuan
-        $('select[name="province_destination"]').on('change', function() {
-            let provinceId = $(this).val();
-            if (provinceId) {
-                jQuery.ajax({
-                    url: '/ecommerce/cities/' + provinceId,
-                    type: "GET",
-                    dataType: "json",
-                    success: function(response) {
-                        $('select[name="city_destination"]').empty();
-                        $('select[name="city_destination"]').append(
-                            '<option value="">-- pilih kota tujuan --</option>');
-                        $.each(response, function(key, value) {
-                            $('select[name="city_destination"]').append(
-                                '<option value="' + key + '">' + value +
-                                '</option>');
-                        });
-                    },
-                });
-            } else {
-                $('select[name="city_destination"]').append(
-                    '<option value="">-- pilih kota tujuan --</option>');
-            }
-        });
-        //ajax check ongkir
-        let isProcessing = false;
-        $('select[name="courier"]').on('change', function() {
-
-            let token = $("meta[name='csrf-token']").attr("content");
-            let city_origin = $('select[name=city_origin]').val();
-            let city_destination = $('select[name=city_destination]').val();
-            let courier = $('select[name=courier]').val();
-            let weight = $('#weight').val();
-
-            if (isProcessing) {
-                return;
-            }
-
-            isProcessing = true;
-            jQuery.ajax({
-                url: "/ecommerce/ongkir",
-                data: {
-                    _token: token,
-                    city_origin: city_origin,
-                    city_destination: city_destination,
-                    courier: courier,
-                    weight: weight,
-                },
-                dataType: "JSON",
-                type: "POST",
-                beforeSend: function() {
-                    $('#test1').removeAttr('hidden')
-                },
-                success: function(response) {
-                    isProcessing = false;
-                    if (response) {
-                        console.log(response)
-                        $('select[name="hasil"]').empty();
-                        $('select[name="hasil"]').append(
-                            '<option value="">-- Pilih Harga --</option>');
-                        $.each(response[0]['costs'], function(key, value) {
-                            $('select[name="hasil"]').append(
-                                '<option value="' +
-                                value.cost[0].value + '">' + response[0].code
-                                .toUpperCase() +
-                                ' : <strong>' + value.service +
-                                '</strong> - Rp. ' + value.cost[0]
-                                .value +
-                                '</option>');
-                        });
-                    } else {
-                        $('select[name="hasil"]').append(
-                            '<option value="">-- Pilih Harga --</option>');
-                    }
-                }
-            });
-
-        });
-
-
-        $('select[name="hasil"]').on('change', function() {
-
-            let courier = $('select[name="hasil"]').val();
-            let subtotal = document.getElementById("subtotal").getAttribute('data-value');
-            var total = parseInt(courier) + parseInt(subtotal);
-            var rupiah = "Rp";
-            let order = document.getElementById("idOrder").getAttribute('data-value');
-
-            console.log(order);
-
-            let token = $("meta[name='csrf-token']").attr("content");
-            let payButton = document.getElementById('pay-button');
-            let produk = document.getElementById("nProduk").getAttribute('data-value');
-            let id = document.getElementById("idProduk").getAttribute('data-value');
-            let price = document.getElementById("harga").getAttribute('data-value');
-            let qty = document.getElementById("qty").getAttribute('data-value');
-
-            document.getElementById("ongkir").innerHTML = rupiah + courier;
-            document.getElementById("test").innerHTML = rupiah + total;
-
-            $.ajax({
-                url: "/ecommerce/pay",
-                type: 'post',
-                data: {
-                    _token: token,
-                    order: order,
-                    produk: produk,
-                    qty: qty,
-                    price: price,
-                    total: total,
-                },
-                dataType: "JSON",
-                success: function(response) {
-                    /* Function midtrans snap pay*/
-                    payButton.addEventListener('click', function() {
-                        window.snap
-                            .pay(
-                                response
-                            );
+                                '<option value="">-- pilih kota asal --</option>');
+                            $.each(response, function(key, value) {
+                                $('select[name="city_origin"]').append(
+                                    '<option value="' + key + '">' + value +
+                                    '</option>');
+                            });
+                        },
                     });
+                } else {
+                    $('select[name="city_origin"]').append(
+                        '<option value="">-- pilih kota asal --</option>');
                 }
             });
+            //ajax select kota tujuan
+            $('select[name="province_destination"]').on('change', function() {
+                let provinceId = $(this).val();
+                if (provinceId) {
+                    jQuery.ajax({
+                        url: '/ecommerce/cities/' + provinceId,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(response) {
+                            $('select[name="city_destination"]').empty();
+                            $('select[name="city_destination"]').append(
+                                '<option value="">-- pilih kota tujuan --</option>');
+                            $.each(response, function(key, value) {
+                                $('select[name="city_destination"]').append(
+                                    '<option value="' + key + '">' + value +
+                                    '</option>');
+                            });
+                        },
+                    });
+                } else {
+                    $('select[name="city_destination"]').append(
+                        '<option value="">-- pilih kota tujuan --</option>');
+                }
+            });
+            //ajax check ongkir
+            let isProcessing = false;
+            $('select[name="courier"]').on('change', function() {
 
-            $("#pay-button").click(function() {
+                let token = $("meta[name='csrf-token']").attr("content");
+                let city_origin = $('select[name=city_origin]').val();
+                let city_destination = $('select[name=city_destination]').val();
+                let courier = $('select[name=courier]').val();
+                let weight = $('#weight').val();
+
+                if (isProcessing) {
+                    return;
+                }
+
+                isProcessing = true;
+                jQuery.ajax({
+                    url: "/ecommerce/ongkir",
+                    data: {
+                        _token: token,
+                        city_origin: city_origin,
+                        city_destination: city_destination,
+                        courier: courier,
+                        weight: weight,
+                    },
+                    dataType: "JSON",
+                    type: "POST",
+                    beforeSend: function() {
+                        $('#test1').removeAttr('hidden')
+                    },
+                    success: function(response) {
+                        isProcessing = false;
+                        if (response) {
+                            console.log(response)
+                            $('select[name="hasil"]').empty();
+                            $('select[name="hasil"]').append(
+                                '<option value="">-- Pilih Harga --</option>');
+                            $.each(response[0]['costs'], function(key, value) {
+                                $('select[name="hasil"]').append(
+                                    '<option value="' +
+                                    value.cost[0].value + '">' + response[0].code
+                                    .toUpperCase() +
+                                    ' : <strong>' + value.service +
+                                    '</strong> - Rp. ' + value.cost[0]
+                                    .value +
+                                    '</option>');
+                            });
+                        } else {
+                            $('select[name="hasil"]').append(
+                                '<option value="">-- Pilih Harga --</option>');
+                        }
+                    }
+                });
+
+            });
+
+
+            $('select[name="hasil"]').on('change', function() {
+
+                let courier = $('select[name="hasil"]').val();
+                let subtotal = document.getElementById("subtotal").getAttribute('data-value');
+                var total = parseInt(courier) + parseInt(subtotal);
+                var rupiah = "Rp";
+                let order = document.getElementById("idOrder").getAttribute('data-value');
+
+                console.log(order);
+
+                let token = $("meta[name='csrf-token']").attr("content");
+                let payButton = document.getElementById('pay-button');
+                let produk = document.getElementById("nProduk").getAttribute('data-value');
+                let id = document.getElementById("idProduk").getAttribute('data-value');
+                let price = document.getElementById("harga").getAttribute('data-value');
+                let qty = document.getElementById("qty").getAttribute('data-value');
+
+                document.getElementById("ongkir").innerHTML = rupiah + courier;
+                document.getElementById("test").innerHTML = rupiah + total;
+
                 $.ajax({
-                    url: "/ecommerce/paymidtrans",
+                    url: "/pay",
                     type: 'post',
                     data: {
                         _token: token,
                         order: order,
-                        courier: courier,
-                        subtotal: subtotal,
                         produk: produk,
                         qty: qty,
                         price: price,
                         total: total,
                     },
                     dataType: "JSON",
+                    success: function(response) {
+                        /* Function midtrans snap pay*/
+                        payButton.addEventListener('click', function() {
+                            window.snap
+                                .pay(
+                                    response
+                                );
+                        });
+                    }
+                });
+
+                $("#pay-button").click(function() {
+                    $.ajax({
+                        url: "/paymidtrans",
+                        type: 'post',
+                        data: {
+                            _token: token,
+                            order: order,
+                            courier: courier,
+                            subtotal: subtotal,
+                            produk: produk,
+                            qty: qty,
+                            price: price,
+                            total: total,
+                        },
+                        dataType: "JSON",
+                        success: function(response) {
+                            /* Function midtrans snap pay*/
+                            payButton.addEventListener('click', function() {
+                                window.snap
+                                    .pay(
+                                        response
+                                    );
+                            });
+                        }
+                    });
                 });
             });
-        });
 
-    });
+        });
     </script>
     <!-- End Raja Ongkir -->
 

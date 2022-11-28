@@ -70,7 +70,7 @@ class CartItem implements Arrayable, Jsonable
     /**
      * The options for this cart item.
      *
-     * @var array
+     * @var CartItemOptions|array
      */
     public $options;
 
@@ -96,6 +96,13 @@ class CartItem implements Arrayable, Jsonable
     private $discountRate = 0;
 
     /**
+     * The cart instance of the cart item.
+     *
+     * @var null|string
+     */
+    public $instance = null;
+
+    /**
      * CartItem constructor.
      *
      * @param int|string $id
@@ -115,9 +122,9 @@ class CartItem implements Arrayable, Jsonable
         if (strlen($price) < 0 || !is_numeric($price)) {
             throw new \InvalidArgumentException('Please supply a valid price.');
         }
-        if (strlen($weight) < 0 || !is_numeric($weight)) {
-            throw new \InvalidArgumentException('Please supply a valid weight.');
-        }
+        // if (strlen($weight) < 0 || !is_numeric($weight)) {
+        //     throw new \InvalidArgumentException('Please supply a valid weight.');
+        // }
 
         $this->id = $id;
         $this->name = $name;
@@ -373,6 +380,20 @@ class CartItem implements Arrayable, Jsonable
     }
 
     /**
+     * Set cart instance.
+     *
+     * @param null|string $instance
+     *
+     * @return \Gloudemans\Shoppingcart\CartItem
+     */
+    public function setInstance($instance)
+    {
+        $this->instance = $instance;
+
+        return $this;
+    }
+
+    /**
      * Get an attribute from the cart item or get the associated model.
      *
      * @param string $attribute
@@ -433,7 +454,7 @@ class CartItem implements Arrayable, Jsonable
     {
         $options = Arr::get($attributes, 'options', []);
 
-        return new self($attributes['id'], $attributes['name'], $attributes['price'], $attributes['weight'], $options);
+        return new self($attributes['id'], $attributes['name'], $attributes['price'], $options);
     }
 
     /**
@@ -480,7 +501,9 @@ class CartItem implements Arrayable, Jsonable
             'qty'      => $this->qty,
             'price'    => $this->price,
             'weight'   => $this->weight,
-            'options'  => $this->options->toArray(),
+            'options'  => is_object($this->options)
+                ? $this->options->toArray()
+                : $this->options,
             'discount' => $this->discount,
             'tax'      => $this->tax,
             'subtotal' => $this->subtotal,

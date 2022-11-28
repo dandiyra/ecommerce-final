@@ -3,8 +3,8 @@
 @section('content')
 @include('layouts.menubar')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_styles.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/cart_styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/cart_responsive.css') }}">
 
 <div class="characteristics">
     <div class="cart_section">
@@ -25,33 +25,7 @@
                                 @csrf
                                 <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
                                 <div class="row">
-                                    <div class="col-md">
-                                        <!-- <div class="form-group">
-                                            <div>
-                                                <label for="exampleInputcolor">Stock Available</label>
-                                            </div>
-                                            <div class="input-group">
-                                                <select name="color" class="form-control" id="color">
-                                                    <option value="{{ $product->product_quantity }}">
-                                                        {{$product->product_quantity}}
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div> -->
-                                        <div class="form-group">
-                                            <div>
-                                                <label class="font-weight-bold">Stock Available</label>
-                                            </div>
-                                            <div class="form-group">
-                                                <select name="color" class="form-control" id="color">
-                                                    <option value="{{ $product->product_quantity }}">
-                                                        {{$product->product_quantity}}
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <div>
                                                 <label for="Quantity">Quantity</label>
@@ -103,7 +77,7 @@
     </div>
 </div>
 
-<script src="{{ asset('public/frontend/js/jquery-3.4.1.min.js')}}" crossorigin="anonymous"></script>
+<script src="{{ asset('frontend/js/jquery-3.4.1.min.js')}}" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {

@@ -2,7 +2,11 @@
     "name": "midtrans/midtrans-php",
     "description": "PHP Wrapper for Midtrans Payment API.",
     "homepage": "https://midtrans.com",
+<<<<<<< Updated upstream
     "version": "2.4.3",
+=======
+    "version": "2.5.2",
+>>>>>>> Stashed changes
     "type": "library",
     "license":"MIT",
     "authors": [

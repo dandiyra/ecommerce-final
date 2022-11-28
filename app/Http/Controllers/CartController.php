@@ -115,8 +115,6 @@ class CartController extends Controller
    public function insertCart(Request $request){
    	$id = $request->product_id;
     $product = DB::table('products')->where('id',$id)->first();
-    $color = $request->color;
-    $size = $request->size;
     $qty = $request->qty;
 
   $data = array();
@@ -127,7 +125,6 @@ class CartController extends Controller
  	$data['name'] = $product->product_name;
  	$data['qty'] = $request->qty;
  	$data['price'] = $product->selling_price;
- 	$data['weight'] = $product->p_weight;
  	$data['options']['image'] = $product->image_one;
  	$data['options']['color'] = $request->color;
  	$data['options']['size'] = $request->size;
@@ -142,7 +139,6 @@ class CartController extends Controller
  	$data['name'] = $product->product_name;
  	$data['qty'] = $request->qty;
  	$data['price'] = $product->discount_price;
- 	$data['weight'] = $product->p_weight;
  	$data['options']['image'] = $product->image_one;
  	$data['options']['color'] = $request->color;
  	$data['options']['size'] = $request->size;
@@ -159,7 +155,6 @@ class CartController extends Controller
   $data['name'] = $product->product_name;
   $data['qty'] = $request->qty;
   $data['price'] = $product->discount_price;
-  $data['weight'] = $product->p_weight;
   $data['options']['image'] = $product->image_one;
   $data['options']['color'] = $request->color;
   $data['options']['size'] = $request->size;
@@ -176,7 +171,6 @@ class CartController extends Controller
   $data['name'] = $product->product_name;
   $data['qty'] = $request->qty;
   $data['price'] = $product->discount_price;
-  $data['weight'] = $product->p_weight;
   $data['options']['image'] = $product->image_one;
   $data['options']['color'] = $request->color;
   $data['options']['size'] = $request->size;
@@ -195,10 +189,10 @@ class CartController extends Controller
   if (Auth::check()) {
 
   	$cart = Cart::content();
-    $provinces = Province::pluck('nameP', 'province_id');
+    // $provinces = Province::pluck('nameP', 'province_id');
     $order = uniqid();
 
-    return view('pages.checkout',compact('cart', 'provinces', 'order'));
+    return view('pages.checkout',compact('cart', 'order'));
 
   }else{
   	$notification=array(
