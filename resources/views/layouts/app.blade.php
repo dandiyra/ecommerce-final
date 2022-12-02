@@ -509,25 +509,24 @@ $setting = DB::table('sitesetting')->first();
             });
 
 
-            $('select[name="hasil"]').on('change', function() {
+            $('#pay-button').on('click', function() {
 
-                let courier = $('select[name="hasil"]').val();
-                let subtotal = document.getElementById("subtotal").getAttribute('data-value');
-                var total = parseInt(courier) + parseInt(subtotal);
-                var rupiah = "Rp";
+                // let courier = $('select[name="hasil"]').val();
+                // let subtotal = document.getElementById("subtotal").getAttribute('data-value');
+                // var rupiah = "Rp";
                 let order = document.getElementById("idOrder").getAttribute('data-value');
-
                 console.log(order);
-
-                let token = $("meta[name='csrf-token']").attr("content");
+                
                 let payButton = document.getElementById('pay-button');
+                
+                let token = $("meta[name='csrf-token']").attr("content");
+                let total = document.getElementById("total").getAttribute('data-value');
                 let produk = document.getElementById("nProduk").getAttribute('data-value');
                 let id = document.getElementById("idProduk").getAttribute('data-value');
                 let price = document.getElementById("harga").getAttribute('data-value');
                 let qty = document.getElementById("qty").getAttribute('data-value');
 
-                document.getElementById("ongkir").innerHTML = rupiah + courier;
-                document.getElementById("test").innerHTML = rupiah + total;
+                console.log(total);
 
                 $.ajax({
                     url: "/pay",
@@ -542,6 +541,19 @@ $setting = DB::table('sitesetting')->first();
                     },
                     dataType: "JSON",
                     success: function(response) {
+                        $.ajax({
+                            url: "/paymidtrans",
+                            type: 'post',
+                            data: {
+                                _token: token,
+                                order: order,
+                                produk: produk,
+                                qty: qty,
+                                price: price,
+                                total: total,
+                            },
+                            dataType: "JSON",
+                        });
                         /* Function midtrans snap pay*/
                         payButton.addEventListener('click', function() {
                             window.snap
@@ -552,32 +564,6 @@ $setting = DB::table('sitesetting')->first();
                     }
                 });
 
-                $("#pay-button").click(function() {
-                    $.ajax({
-                        url: "/paymidtrans",
-                        type: 'post',
-                        data: {
-                            _token: token,
-                            order: order,
-                            courier: courier,
-                            subtotal: subtotal,
-                            produk: produk,
-                            qty: qty,
-                            price: price,
-                            total: total,
-                        },
-                        dataType: "JSON",
-                        success: function(response) {
-                            /* Function midtrans snap pay*/
-                            payButton.addEventListener('click', function() {
-                                window.snap
-                                    .pay(
-                                        response
-                                    );
-                            });
-                        }
-                    });
-                });
             });
 
         });

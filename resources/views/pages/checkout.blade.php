@@ -21,7 +21,7 @@ $vat = $setting->vat;
                     <div class="cart_title">Checkout</div>
                     <div class="cart_items">
                         <ul class="cart_list">
-                            <div id="idOrder" data-value="{{ $order }}" class="cart_item_text" hidden>
+                            <div id="idOrder" data-value="{{ $order }}" class="cart_item_text">
                                 {{ $order  }}</div>
                             @foreach($cart as $row)
                             <li class="cart_item clearfix">
@@ -63,7 +63,7 @@ $vat = $setting->vat;
                                     <div class="cart_item_total cart_info_col">
                                         <div class="cart_item_title">Total</div>
                                         <div class="cart_item_text">${{ $row->price*$row->qty }}</div>
-                                        <input id="total" type="hidden" name="total"
+                                        <input id="totalharga" type="hidden" name="total"
                                             value="{{ Cart::Subtotal() + $charge + $vat }} ">
                                     </div>
                                     <div class="cart_item_total cart_info_col">
@@ -144,7 +144,7 @@ $vat = $setting->vat;
                                             </span>
                                         </li>
                                         @else
-                                        <li class="list-group-item">Total : <span style="float: right;"
+                                        <li class="list-group-item" id="total" data-value="{{ Cart::Subtotal() + $charge + $vat }}">Total : <span style="float: right;"
                                                 id="test">${{ Cart::Subtotal() + $charge + $vat }}
                                             </span>
                                         </li>
@@ -174,5 +174,5 @@ $vat = $setting->vat;
     </div>
 </div>
 <script src="{{ asset('frontend/js/cart_custom.js') }}"></script>
-<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
+<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-0T5tetFonRG4Yv4h"></script>
 @endsection

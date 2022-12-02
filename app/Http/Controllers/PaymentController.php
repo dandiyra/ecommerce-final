@@ -48,6 +48,8 @@ class PaymentController extends Controller
     $midtrans = 'midtrans';
     
     $order_id = $request->order;
+    $product = DB::table('products')->select('*')->first();
+
     $total = $request->total;
     $id = $request->id;
     $produk = $request->produk;
@@ -81,7 +83,6 @@ class PaymentController extends Controller
     $shipping['ship_phone'] = Auth::user()->phone;
     $shipping['ship_email'] = Auth::user()->email;
     $shipping['ship_address'] = Auth::user()->address;
-    $shipping['ship_city'] = Auth::user()->kota;
     DB::table('shipping')->insert($shipping);
 
     // Insert Order Details Table
@@ -105,6 +106,7 @@ class PaymentController extends Controller
     if (Session::has('coupon')) {
     	Session::forget('coupon');
     }
+    return view('pages.index', compact('product'));
    }
 
   public function StripeCharge(Request $request){

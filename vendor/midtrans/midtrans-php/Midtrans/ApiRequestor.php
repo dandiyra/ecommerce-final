@@ -145,11 +145,8 @@ class ApiRequestor
 
         // For testing purpose
         if (class_exists('\Midtrans\MT_Tests') && MT_Tests::$stubHttp) {
-<<<<<<< Updated upstream
-            $result = self::processStubed($curl_options, $url, $server_key, $data_hash, $post);
-=======
+            // $result = self::processStubed($curl_options, $url, $server_key, $data_hash, $post);
             $result = self::processStubed($curl_options, $url, $server_key, $data_hash, $method);
->>>>>>> Stashed changes
         } else {
             $result = curl_exec($ch);
             // curl_close($ch);

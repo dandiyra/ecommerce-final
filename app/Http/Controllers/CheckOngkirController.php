@@ -83,7 +83,7 @@ class CheckOngkirController extends Controller
             'order_id' => $order_id,
             'gross_amount' => $total,
           ],
-          'items' => $items,
+          'items_details' => $items,
           'customer_details' => $customerDetails,
           'expiry' => [
             'start_date' => date('Y m d H:i:s T'),
