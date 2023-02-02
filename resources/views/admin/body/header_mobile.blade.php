@@ -3,7 +3,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="{{ asset('public/backend/images/icon/logo.png') }}" alt="CoolAdmin" />
+                            <img src="{{ asset('backend/images/icon/logo.png') }}" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -21,37 +21,37 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="{{ asset('public/backend/index.html') }}">Dashboard 1</a>
+                                    <a href="{{ asset('backend/index.html') }}">Dashboard 1</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/index2.html') }}">Dashboard 2</a>
+                                    <a href="{{ asset('backend/index2.html') }}">Dashboard 2</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/index3.html') }}">Dashboard 3</a>
+                                    <a href="{{ asset('backend/index3.html') }}">Dashboard 3</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/index4.html') }}">Dashboard 4</a>
+                                    <a href="{{ asset('backend/index4.html') }}">Dashboard 4</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="{{ asset('public/backend/chart.html') }}">
+                            <a href="{{ asset('backend/chart.html') }}">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
                         <li>
-                            <a href="{{ asset('public/backend/table.html') }}">
+                            <a href="{{ asset('backend/table.html') }}">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
                         <li>
-                            <a href="{{ asset('public/backend/form.html') }}">
+                            <a href="{{ asset('backend/form.html') }}">
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
                         <li>
-                            <a href="{{ asset('public/backend/calendar.html') }}">
+                            <a href="{{ asset('backend/calendar.html') }}">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a>
                         </li>
                         <li>
-                            <a href="{{ asset('public/backend/map.html') }}">
+                            <a href="{{ asset('backend/map.html') }}">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li>
                         <li class="has-sub">
@@ -59,13 +59,13 @@
                                 <i class="fas fa-copy"></i>Pages</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="{{ asset('public/backend/login.html') }}">Login</a>
+                                    <a href="{{ asset('backend/login.html') }}">Login</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/register.html') }}">Register</a>
+                                    <a href="{{ asset('backend/register.html') }}">Register</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/forget-pass.html') }}">Forget Password</a>
+                                    <a href="{{ asset('backend/forget-pass.html') }}">Forget Password</a>
                                 </li>
                             </ul>
                         </li>
@@ -74,37 +74,37 @@
                                 <i class="fas fa-desktop"></i>UI Elements</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="{{ asset('public/backend/button.html') }}">Button</a>
+                                    <a href="{{ asset('backend/button.html') }}">Button</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/badge.html') }}">Badges</a>
+                                    <a href="{{ asset('backend/badge.html') }}">Badges</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/tab.html') }}">Tabs</a>
+                                    <a href="{{ asset('backend/tab.html') }}">Tabs</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/card.html') }}">Cards</a>
+                                    <a href="{{ asset('backend/card.html') }}">Cards</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/alert.html') }}">Alerts</a>
+                                    <a href="{{ asset('backend/alert.html') }}">Alerts</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/progress-bar.html') }}">Progress Bars</a>
+                                    <a href="{{ asset('backend/progress-bar.html') }}">Progress Bars</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/modal.html') }}">Modals</a>
+                                    <a href="{{ asset('backend/modal.html') }}">Modals</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/switch.html') }}">Switchs</a>
+                                    <a href="{{ asset('backend/switch.html') }}">Switchs</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/grid.html') }}">Grids</a>
+                                    <a href="{{ asset('backend/grid.html') }}">Grids</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/fontawesome.html') }}">Fontawesome Icon</a>
+                                    <a href="{{ asset('backend/fontawesome.html') }}">Fontawesome Icon</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('public/backend/typo.html') }}">Typography</a>
+                                    <a href="{{ asset('backend/typo.html') }}">Typography</a>
                                 </li>
                             </ul>
                         </li>

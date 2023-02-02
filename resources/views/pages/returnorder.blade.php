@@ -65,7 +65,7 @@ $order = DB::table('orders')->where('user_id',Auth::id())->orderBy('id','DESC')-
             </div>
             <div class="col-2">
                 <div class="card">
-                    <img src="{{ asset('public/frontend/images/dira.jpg') }}" class="card-img-top"
+                    <img src="{{ asset('frontend/images/dira.jpg') }}" class="card-img-top"
                         style="max-width:100%; height:auto;">
                     <div class="card-body">
                         <h5 class="card-title text-center">{{ Auth::user()->name }}</h5>

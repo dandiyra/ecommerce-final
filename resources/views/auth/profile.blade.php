@@ -80,7 +80,7 @@
                                             <div>
                                                 <label class="font-weight-bold">Alamat Provinsi</label>
                                             </div>
-                                            <div class="form-control">
+                                            <div>
                                                 <select class="form-control provinsi-tujuan"
                                                     name="province_destination">
                                                     <option value="{{ $alamat->province_id }} " selected>
@@ -97,7 +97,7 @@
                                             <div>
                                                 <label class="font-weight-bold">Alamat Kota / Kabupaten</label>
                                             </div>
-                                            <div class="form-control">
+                                            <div>
                                                 <select class="form-control kota-tujuan" name="city_destination">
                                                     <option value="{{ $alamat->city_id }} " selected>
                                                         {{ $alamat->name }} </option>
@@ -118,7 +118,7 @@
         </div>
         <div class="col-4">
             <div class="card">
-                <img src="{{ asset('public/frontend/images/avatar.png') }}" class="card-img-top"
+                <img src="{{ asset('frontend/images/avatar.png') }}" class="card-img-top"
                     style="max-width:100%; height:auto">
                 <div class=" card-body">
                     <h5 class="card-title text-center">{{ Auth::user()->name }}</h5>

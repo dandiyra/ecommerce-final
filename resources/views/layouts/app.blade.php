@@ -14,20 +14,20 @@ $setting = DB::table('sitesetting')->first();
     <meta name="description" content="OneTech shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/bootstrap4/bootstrap.min.css') }}">
-    <link href="{{ asset('public/frontend/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css') }}" rel="stylesheet"
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/bootstrap4/bootstrap.min.css') }}">
+    <link href="{{ asset('frontend/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css') }}" rel="stylesheet"
         type="text/css">
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }} ">
+        href="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }} ">
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/animate.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/plugins/slick-1.8.0/slick.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/main_styles.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/responsive.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/select2.min.css') }}">
+        href="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugins/slick-1.8.0/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/main_styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/select2.min.css') }}">
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('public/frontend/styles/bootstrap4/select2-bootstrap4.min.css') }}">
+        href="{{ asset('frontend/styles/bootstrap4/select2-bootstrap4.min.css') }}">
 
 
 
@@ -54,11 +54,11 @@ $setting = DB::table('sitesetting')->first();
                     <div class="row">
                         <div class="col d-flex flex-row">
                             <div class="top_bar_contact_item">
-                                <div class="top_bar_icon"><img src="{{ asset('public/frontend/images/phone.png')}}"
+                                <div class="top_bar_icon"><img src="{{ asset('frontend/images/phone.png')}}"
                                         alt=""></div>{{ $setting->phone_one }}
                             </div>
                             <div class="top_bar_contact_item">
-                                <div class="top_bar_icon"><img src="{{ asset('public/frontend/images/mail.png')}}"
+                                <div class="top_bar_icon"><img src="{{ asset('frontend/images/mail.png')}}"
                                         alt=""></div><a href="mailto:fastsales@gmail.com">{{ $setting->email }}</a>
                             </div>
                             <div class="top_bar_content ml-auto">
@@ -96,7 +96,7 @@ $setting = DB::table('sitesetting')->first();
                                     @guest
                                     <div><a href="{{ route('login') }}">
                                             <div class="user_icon"><img
-                                                    src="{{ asset('public/frontend/images/user.svg')}}" alt=""></div>
+                                                    src="{{ asset('frontend/images/user.svg')}}" alt=""></div>
                                             Register/Login
                                         </a></div>
                                     @else
@@ -104,7 +104,7 @@ $setting = DB::table('sitesetting')->first();
                                         <li>
                                             <a href="{{ route('home') }}">
                                                 <div class="user_icon"><img
-                                                        src="{{ asset('public/frontend/images/user.svg')}}" alt="">
+                                                        src="{{ asset('frontend/images/user.svg')}}" alt="">
                                                 </div> Profile<i class="fas fa-chevron-down"></i>
                                             </a>
                                             <ul>
@@ -131,7 +131,7 @@ $setting = DB::table('sitesetting')->first();
                         <div class="col-lg-2 col-sm-3 col-3 order-1">
                             <div class="logo_container">
                                 <div class="logo"><a href="{{ url('/') }}"><img
-                                            src="{{ asset('public/frontend/images/logo.png')}}" class="img-fluid"
+                                            src="{{ asset('frontend/images/logo.png')}}" class="img-fluid"
                                             alt=""></a></div>
                             </div>
                         </div>
@@ -161,7 +161,7 @@ $setting = DB::table('sitesetting')->first();
                                             </div>
                                             <button type="submit" class="header_search_button trans_300"
                                                 value="Submit"><img
-                                                    src="{{ asset('public/frontend/images/search.png')}}"
+                                                    src="{{ asset('frontend/images/search.png')}}"
                                                     alt=""></button>
                                         </form>
                                     </div>
@@ -180,7 +180,7 @@ $setting = DB::table('sitesetting')->first();
                                     @php
                                     $wishlist = DB::table('wishlists')->where('user_id',Auth::id())->get();
                                     @endphp
-                                    <div class="wishlist_icon"><img src="{{ asset('public/frontend/images/heart.png')}}"
+                                    <div class="wishlist_icon"><img src="{{ asset('frontend/images/heart.png')}}"
                                             alt=""></div>
                                     <div class="wishlist_content">
                                         <div class="wishlist_text"><a href="#">Wishlist</a></div>
@@ -194,7 +194,7 @@ $setting = DB::table('sitesetting')->first();
                                     <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                                         <div class="cart_icon">
                                             <a href="{{ route('show.cart') }}"><img
-                                                    src="{{ asset('public/frontend/images/cart.png')}}" alt=""></a>
+                                                    src="{{ asset('frontend/images/cart.png')}}" alt=""></a>
                                             <div class="cart_count"><span>{{ Cart::count() }}</span></div>
                                         </div>
                                         <div class="cart_content">
@@ -309,13 +309,13 @@ $setting = DB::table('sitesetting')->first();
                                 </div>
                                 <div class="logos ml-sm-auto">
                                     <ul class="logos_list">
-                                        <li><a href="#"><img src="{{ asset('public/frontend/images/logos_1.png')}}"
+                                        <li><a href="#"><img src="{{ asset('frontend/images/logos_1.png')}}"
                                                     alt=""></a></li>
-                                        <li><a href="#"><img src="{{ asset('public/frontend/images/logos_2.png')}}"
+                                        <li><a href="#"><img src="{{ asset('frontend/images/logos_2.png')}}"
                                                     alt=""></a></li>
-                                        <li><a href="#"><img src="{{ asset('public/frontend/images/logos_3.png')}}"
+                                        <li><a href="#"><img src="{{ asset('frontend/images/logos_3.png')}}"
                                                     alt=""></a></li>
-                                        <li><a href="#"><img src="{{ asset('public/frontend/images/logos_4.png')}}"
+                                        <li><a href="#"><img src="{{ asset('frontend/images/logos_4.png')}}"
                                                     alt=""></a></li>
                                     </ul>
                                 </div>
@@ -355,33 +355,33 @@ $setting = DB::table('sitesetting')->first();
     </div>
 
 
-    <script src="{{ asset('public/frontend/js/jquery-3.4.1.min.js')}}" crossorigin="anonymous"></script>
+    <script src="{{ asset('frontend/js/jquery-3.4.1.min.js')}}" crossorigin="anonymous"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
-    <script src="{{ asset('public/frontend/styles/bootstrap4/popper.js')}}"></script>
-    <script src="{{ asset('public/frontend/styles/bootstrap4/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/greensock/TweenMax.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/greensock/TimelineMax.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/greensock/animation.gsap.min.js')}}"></script>
+    <script src="{{ asset('frontend/styles/bootstrap4/popper.js')}}"></script>
+    <script src="{{ asset('frontend/styles/bootstrap4/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/greensock/TweenMax.min.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/greensock/TimelineMax.min.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/greensock/animation.gsap.min.js')}}"></script>
     <script
-        src="{{ asset('public/frontend/plugins/greensock/ScrollToPlugin.min.jsplugins/greensock/ScrollToPlugin.min.js')}}">
+        src="{{ asset('frontend/plugins/greensock/ScrollToPlugin.min.jsplugins/greensock/ScrollToPlugin.min.js')}}">
     </script>
-    <script src="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/slick-1.8.0/slick.js')}}"></script>
-    <script src="{{ asset('public/frontend/plugins/easing/easing.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/custom.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/select2.min.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/slick-1.8.0/slick.js')}}"></script>
+    <script src="{{ asset('frontend/plugins/easing/easing.js')}}"></script>
+    <script src="{{ asset('frontend/js/custom.js')}}"></script>
+    <script src="{{ asset('frontend/js/select2.min.js')}}"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
-    <script type="text/javascript" src="{{ asset('public/frontend/js/toastr.min.js')}}">
+    <script type="text/javascript" src="{{ asset('frontend/js/toastr.min.js')}}">
     </script>
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
     </script> -->
 
 
-    <script src="{{ asset('public/frontend/js/product_custom.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/customjs.js')}}"></script>
+    <script src="{{ asset('frontend/js/product_custom.js')}}"></script>
+    <script src="{{ asset('frontend/js/customjs.js')}}"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -466,9 +466,10 @@ $setting = DB::table('sitesetting')->first();
         //ajax select kota tujuan
         $('select[name="province_destination"]').on('change', function() {
             let provinceId = $(this).val();
+            console.log(provinceId);
             if (provinceId) {
                 jQuery.ajax({
-                    url: '/ecommerce/cities/' + provinceId,
+                    url: '/cities/' + provinceId,
                     type: "GET",
                     dataType: "json",
                     success: function(response) {
@@ -503,7 +504,7 @@ $setting = DB::table('sitesetting')->first();
 
             isProcessing = true;
             jQuery.ajax({
-                url: "/ecommerce/ongkir",
+                url: "/ongkir",
                 data: {
                     _token: token,
                     city_origin: city_origin,

@@ -1,7 +1,7 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="{{ url('admin/home') }}">
-            <img src="{{ asset('public/backend/images/icon/logo-spectrum179.png') }}" alt="Cool Admin" />
+            <img src="{{ asset('backend/images/icon/logo-spectrum179.png') }}" alt="Cool Admin" />
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">

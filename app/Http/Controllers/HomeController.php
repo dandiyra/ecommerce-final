@@ -58,6 +58,8 @@ class HomeController extends Controller
     			->where('users.id', Auth::user()->id)
     			->first();
 
+          // DD($profile);
+
         return view('auth.profile', compact('profile', 'provinces', 'alamat'));
     }
 

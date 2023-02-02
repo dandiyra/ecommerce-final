@@ -9,8 +9,8 @@ $charge = $setting->shipping_charge;
 $vat = $setting->vat;
 @endphp
 
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/contact_styles.css') }} ">
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/contact_responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/contact_styles.css') }} ">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/contact_responsive.css') }}">
 
 <div class="contact_form">
     <div class="container">
@@ -96,15 +96,15 @@ $vat = $setting->vat;
                     <div class="form-group">
                         <ul class="logos_list">
                             <li><input type="radio" id="payment" name="payment" value="stripe"><img
-                                    src="{{ asset('public/frontend/images/mastercard.png') }}"
+                                    src="{{ asset('frontend/images/mastercard.png') }}"
                                     style="width: 100px; height: 60px;"> </li>
 
                             <li><input type="radio" id="payment" name="payment" value="paypal"><img
-                                    src="{{ asset('public/frontend/images/paypal.png') }}"
+                                    src="{{ asset('frontend/images/paypal.png') }}"
                                     style="width: 100px; height: 60px;"> </li>
 
                             <li><input type="radio" id="payment" name="payment" value="oncash"><img
-                                    src="{{ asset('public/frontend/images/mollie.png') }}"
+                                    src="{{ asset('frontend/images/mollie.png') }}"
                                     style="width: 100px; height: 60px;"> </li>
 
                             <li><label for="midtrans">Midtrans</label>

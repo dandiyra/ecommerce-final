@@ -9,8 +9,8 @@ $charge = $setting->shipping_charge;
 $vat = $setting->vat;
 @endphp
 
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_styles.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/cart_styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/cart_responsive.css') }}">
 <!-- Cart -->
 
 <div class="cart_section">
@@ -262,6 +262,6 @@ $vat = $setting->vat;
     </div>
 </div>
 </div>
-<script src="{{ asset('public/frontend/js/cart_custom.js') }}"></script>
+<script src="{{ asset('frontend/js/cart_custom.js') }}"></script>
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-DYBtLRKb5VjkZXuo"></script>
 @endsection

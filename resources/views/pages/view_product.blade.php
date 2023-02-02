@@ -3,8 +3,8 @@
 @section('content')
 @include('layouts.menubar')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_styles.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/cart_styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/cart_responsive.css') }}">
 
 <div class="container">
     <div class="row">
@@ -97,7 +97,7 @@
     </div>
 </div>
 
-<script src="{{ asset('public/frontend/js/jquery-3.4.1.min.js')}}" crossorigin="anonymous"></script>
+<script src="{{ asset('frontend/js/jquery-3.4.1.min.js')}}" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {

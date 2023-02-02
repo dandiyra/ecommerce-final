@@ -8,8 +8,8 @@
     <div class="container">
         <div class="row">
             <div class="col d-flex flex-row">
-                <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{asset('public/frontend/images/phone.png')}}" alt=""></div>+38 068 005 3570</div>
-                <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{asset('public/frontend/images/mail.png')}}" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{asset('frontend/images/phone.png')}}" alt=""></div>+38 068 005 3570</div>
+                <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{asset('frontend/images/mail.png')}}" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                 <div class="top_bar_content ml-auto">
                     <div class="top_bar_menu">
                         <ul class="standard_dropdown top_bar_dropdown">
@@ -32,7 +32,7 @@
                         </ul>
                     </div>
                     <div class="top_bar_user">
-                        <div class="user_icon"><img src="{{asset('public/frontend/images/user.svg')}}" alt=""></div>
+                        <div class="user_icon"><img src="{{asset('frontend/images/user.svg')}}" alt=""></div>
                         <div><a href="#">Register</a></div>
                         <div><a href="#">Sign in</a></div>
                     </div>
@@ -76,7 +76,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <button type="submit" class="header_search_button trans_300" value="Submit"><img src="{{asset('public/frontend/images/search.png')}}" alt=""></button>
+                                <button type="submit" class="header_search_button trans_300" value="Submit"><img src="{{asset('frontend/images/search.png')}}" alt=""></button>
                             </form>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
             <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
                 <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
                     <div class="wishlist d-flex flex-row align-items-center justify-content-end">
-                        <div class="wishlist_icon"><img src="{{asset('public/frontend/images/heart.png')}}" alt=""></div>
+                        <div class="wishlist_icon"><img src="{{asset('frontend/images/heart.png')}}" alt=""></div>
                         <div class="wishlist_content">
                             <div class="wishlist_text"><a href="#">Wishlist</a></div>
                             <div class="wishlist_count">115</div>
@@ -98,7 +98,7 @@
                     <div class="cart">
                         <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                             <div class="cart_icon">
-                                <img src="{{asset('public/frontend/images/cart.png')}}" alt="">
+                                <img src="{{asset('frontend/images/cart.png')}}" alt="">
                                 <div class="cart_count"><span>10</span></div>
                             </div>
                             <div class="cart_content">
@@ -199,17 +199,17 @@
                             <li class="hassubs">
                                 <a href="#">Pages<i class="fas fa-chevron-down"></i></a>
                                 <ul>
-                                    <li><a href="{{asset('public/frontend/shop.html')}}">Shop<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="{{asset('public/frontend/product.html')}}">Product<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="{{asset('public/frontend/blog.html')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="{{asset('public/frontend/blog_single.html')}}">Blog Post<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="{{asset('public/frontend/regular.html')}}">Regular Post<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="{{asset('public/frontend/cart.html')}}">Cart<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="{{asset('public/frontendcontact.html')}}">Contact<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="{{asset('frontend/shop.html')}}">Shop<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="{{asset('frontend/product.html')}}">Product<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="{{asset('frontend/blog.html')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="{{asset('frontend/blog_single.html')}}">Blog Post<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="{{asset('frontend/regular.html')}}">Regular Post<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="{{asset('frontend/cart.html')}}">Cart<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="{{asset('frontendcontact.html')}}">Contact<i class="fas fa-chevron-down"></i></a></li>
                                 </ul>
                             </li>
-                            <li><a href="{{asset('public/frontend/blog.html')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
-                            <li><a href="{{asset('public/frontend/contact.html')}}">Contact<i class="fas fa-chevron-down"></i></a></li>
+                            <li><a href="{{asset('frontend/blog.html')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
+                            <li><a href="{{asset('frontend/contact.html')}}">Contact<i class="fas fa-chevron-down"></i></a></li>
                         </ul>
                     </div>
 
@@ -307,8 +307,8 @@
                     </ul>
                     
                     <div class="menu_contact">
-                        <div class="menu_contact_item"><div class="menu_contact_icon"><img src="{{asset('public/frontend/images/phone_white.png')}}" alt=""></div>+38 068 005 3570</div>
-                        <div class="menu_contact_item"><div class="menu_contact_icon"><img src="{{asset('public/frontend/images/mail_white.png')}}" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                        <div class="menu_contact_item"><div class="menu_contact_icon"><img src="{{asset('frontend/images/phone_white.png')}}" alt=""></div>+38 068 005 3570</div>
+                        <div class="menu_contact_item"><div class="menu_contact_icon"><img src="{{asset('frontend/images/mail_white.png')}}" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                     </div>
                 </div>
             </div>
